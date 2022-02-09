@@ -4,46 +4,46 @@ module.exports = {
     mocha: true,
     browser: true,
   },
-  parser: "@typescript-eslint/parser",
+  parser: '@typescript-eslint/parser',
   parserOptions: {
-    sourceType: "module",
+    sourceType: 'module',
   },
-  plugins: ["@typescript-eslint", "prettier"],
-  extends: ["eslint:recommended", "plugin:@typescript-eslint/recommended"],
+  plugins: ['@typescript-eslint', 'prettier'],
+  extends: ['eslint:recommended', 'plugin:@typescript-eslint/recommended'],
   rules: {
-    "node/no-unsupported-features/es-syntax": "off",
-    "@typescript-eslint/indent": "off",
-    "@typescript-eslint/no-use-before-define": "off",
-    "@typescript-eslint/no-explicit-any": "off",
-    "@typescript-eslint/no-var-requires": "off",
-    "@typescript-eslint/no-inferrable-types": "off",
-    "@typescript-eslint/explicit-function-return-type": "off",
-    "@typescript-eslint/no-extra-semi": "off",
-    "no-extra-semi": "off",
-    "padding-line-between-statements": [
-      "error",
-      { blankLine: "always", prev: "class", next: "*" },
-      { blankLine: "always", prev: "block-like", next: "*" },
-      { blankLine: "always", prev: "function", next: "*" },
+    'node/no-unsupported-features/es-syntax': 'off',
+    '@typescript-eslint/indent': 'off',
+    '@typescript-eslint/no-use-before-define': 'off',
+    '@typescript-eslint/no-explicit-any': 'off',
+    '@typescript-eslint/no-var-requires': 'off',
+    '@typescript-eslint/no-inferrable-types': 'off',
+    '@typescript-eslint/explicit-function-return-type': 'off',
+    '@typescript-eslint/no-extra-semi': 'off',
+    'no-extra-semi': 'off',
+    'padding-line-between-statements': [
+      'error',
+      { blankLine: 'always', prev: 'class', next: '*' },
+      { blankLine: 'always', prev: 'block-like', next: '*' },
+      { blankLine: 'always', prev: 'function', next: '*' },
       {
-        blankLine: "any",
-        prev: ["const", "let", "var"],
-        next: ["const", "let", "var"],
+        blankLine: 'any',
+        prev: ['const', 'let', 'var'],
+        next: ['const', 'let', 'var'],
       },
     ],
-    "no-unused-vars": [
-      "error",
+    'no-unused-vars': [
+      'error',
       {
-        vars: "all",
-        args: "all",
+        vars: 'all',
+        args: 'all',
       },
     ],
-    "id-match": 0,
+    'id-match': 0,
 
     // Turn on prettier rules
-    "prettier/prettier": "error",
-    "comma-dangle": ["error", "only-multiline"],
-    "max-len": [
+    'prettier/prettier': 'error',
+    'comma-dangle': ['error', 'only-multiline'],
+    'max-len': [
       2,
       {
         code: 120,
@@ -56,4 +56,4 @@ module.exports = {
       },
     ],
   },
-};
+}
