@@ -31,14 +31,7 @@ module.exports = {
         next: ['const', 'let', 'var'],
       },
     ],
-    'no-unused-vars': [
-      'error',
-      {
-        vars: 'all',
-        args: 'all',
-      },
-    ],
-    'id-match': 0,
+    'no-unused-vars': ['error', { vars: 'all', args: 'after-used' }],
 
     // Turn on prettier rules
     'prettier/prettier': 'error',
