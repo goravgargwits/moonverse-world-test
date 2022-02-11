@@ -1,30 +1,32 @@
-import { Container, VideoContainer, Logo, Scroll, Player } from 'styles/pages/home'
-import ReactPlayer from 'react-player'
-
-import homevideo from 'assets/video/homevideo.mp4'
-import logo from 'assets/images/logo.png'
-import scroll from 'assets/images/scroll-bar.png'
+import { Container, PartnersContent, PartnersAndInvestors } from 'styles/pages/home'
+import partnerimagecontainer from 'assets/images/partnerscontainer.png'
 import MoonverseInfoWrapper from 'components/home/InfoContainer'
 import ProblemsWrapper from 'components/home/problemContainer'
 import ParticipateWrapper from 'components/home/participateContainer'
+import TokenUtilitiesWrapper from 'components/home/tokenContainer'
+import PartnerWrapper from 'components/home/partnersContainer'
+import InvestorWrapper from 'components/home/invsetorContainer'
+import RoadmapWrapper from 'components/home/roadmapContainer'
+import FooterWrapper from 'components/home/footer'
+import VideoWrapper from 'components/home/videoContainer'
 
 const Home = () => {
   return (
     <Container>
-      <VideoContainer>
-        <Logo>
-          <img src={logo} />
-        </Logo>
-        <Player>
-          <ReactPlayer playing loop className="player" url={homevideo} />
-        </Player>
-        <Scroll>
-          <img src={scroll} className="scrollbar" />
-        </Scroll>
-      </VideoContainer>
+      <VideoWrapper />
       <MoonverseInfoWrapper />
       <ProblemsWrapper />
       <ParticipateWrapper />
+      <TokenUtilitiesWrapper />
+      <PartnersAndInvestors>
+        <img src={partnerimagecontainer} className="scrollbar" />
+        <PartnersContent>
+          <PartnerWrapper />
+          <InvestorWrapper />
+        </PartnersContent>
+      </PartnersAndInvestors>
+      <RoadmapWrapper />
+      <FooterWrapper />
     </Container>
   )
 }
