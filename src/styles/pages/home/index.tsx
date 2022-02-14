@@ -2,10 +2,12 @@ import styled from 'styled-components'
 import apebackground from 'assets/images/moonversewrapper.png'
 import problembackground from 'assets/images/problemsbackground.png'
 import participatebackground from 'assets/images/participateswrapper.png'
+import pointerbackground from 'assets/images/cube.png'
 
 export const Container = styled.div`
   width: 100%;
   background: linear-gradient(180deg, #120a1d 40%, #1f0a3c 50%);
+  scroll-behavior: smooth;
 `
 export const VideoContainer = styled.div`
   position: relative;
@@ -32,6 +34,7 @@ export const Title = styled.div`
   opacity: 1;
   z-index: 2;
   color: #a884f5;
+  text-shadow: #a884f5 5px 0 15px;
 `
 export const Text = styled.div`
   text-align: left;
@@ -60,7 +63,6 @@ export const Logo = styled.div`
     border-radius: 79px;
     opacity: 0.96;
     text-align: left;
-    text-align: left;
     font-size: 15px;
     letter-spacing: 0.5px;
     color: #ffffff;
@@ -75,12 +77,13 @@ export const Logo = styled.div`
 export const Scroll = styled.div`
   position: absolute;
   width: 100%;
-  margin: 0 auto;
+  display: flex;
   justify-content: center;
+  margin: 0 auto;
   bottom: 0;
   z-index: 3;
   .scrollbar {
-    max-width: 100px;
+    width: 100%;
     margin: 0 auto;
     display: flex;
     cursor: pointer;
@@ -99,12 +102,12 @@ export const Player = styled.div`
 
 export const MoonverseInfo = styled.div`
   padding-top: 50px;
-  height: 950px;
+  height: 900px;
   background-image: url(${apebackground});
   background-size: 100%;
   background-repeat: no-repeat;
   @media screen and (max-width: 1440px) {
-    height: 702px;
+    height: 680px;
   }
   @media screen and (max-width: 1000px) {
     height: 450px;
@@ -116,6 +119,7 @@ export const Problems = styled.div`
   height: 832px;
   background-image: url(${problembackground});
   padding-right: 50px;
+  background-repeat: no-repeat;
 `
 
 export const ProblemsTitle = styled.div`
@@ -135,6 +139,7 @@ export const ParticipateContainer = styled.div`
   width: 100%;
   height: 1000px;
   background-image: url(${participatebackground});
+  background-repeat: no-repeat;
 
   .playButton {
     background: #262166 0% 0% no-repeat padding-box;
@@ -154,6 +159,12 @@ export const ParticipateContainer = styled.div`
     color: #ffffff;
     text-transform: capitalize;
     opacity: 1;
+    :hover {
+      background: #262166 0% 0% no-repeat padding-box;
+      box-shadow: inset 0px 17px 6px #00000029, 0px 3px 6px #5a5a5a29;
+      transform: scale(1.1);
+      transition: 0.2s;
+    }
   }
 `
 export const PartcipateText = styled.div`
@@ -179,11 +190,21 @@ export const TextWrapper = styled.div`
 export const Pointers = styled.div`
   display: grid;
   width: 100%;
+  background-image: url(${pointerbackground});
+  background-position-x: center;
+  background-position-y: center;
+  background-size: 795px 795px;
+  background-repeat: no-repeat;
+  @media screen and (max-width: 1450px) {
+    background-size: 655px 655px;
+  }
+  @media screen and (max-width: 1120px) {
+    background-size: 575px 575px;
+  }
 `
 export const Discover = styled.div`
   width: 100%;
   max-width: 303px;
-  height: 80px;
   background: #262166 0% 0% no-repeat padding-box;
   box-shadow: inset 0px 17px 6px #00000029, 0px 3px 6px #00000029;
   border-radius: 12px;
@@ -195,7 +216,6 @@ export const Discover = styled.div`
 export const Model = styled.div`
   width: 100%;
   max-width: 243px;
-  height: 100px;
   background: #262166 0% 0% no-repeat padding-box;
   box-shadow: inset 0px 17px 6px #00000029, 0px 3px 6px #00000029;
   border-radius: 12px;
@@ -209,7 +229,6 @@ export const Monetization = styled.div`
   width: 100%;
   max-width: 243px;
   max-width: 434px;
-  height: 110px;
   background: #262166 0% 0% no-repeat padding-box;
   box-shadow: inset 0px 17px 6px #00000029, 0px 3px 6px #00000029;
   border-radius: 12px;
@@ -257,7 +276,6 @@ export const Utilities = styled.div`
   display: grid;
   justify-content: center;
   grid-gap: 30px;
-  /* grid-template-columns: auto auto auto; */
   grid-template-columns: repeat(auto-fit, minmax(500px, 3fr));
   padding: 0px 70px 70px 70px;
   align-items: center;
@@ -265,8 +283,17 @@ export const Utilities = styled.div`
 `
 export const UtilitiesWrapper = styled.div`
   justify-content: center;
+
   :hover {
-    transform: scale(0.9);
+    transform: scale(0.95);
+    transition: 0.3s;
+    transition-timing-function: ease-out;
+  }
+  :nth-child(2) {
+    @media screen and (max-width: 1440px) {
+      grid-row: 1;
+      grid-column: 1;
+    }
   }
 `
 export const Partners = styled.div`
@@ -299,7 +326,8 @@ export const Heading = styled.div`
   color: #a884f5;
   margin-top: 20px;
   fill-opacity: 100%;
-  max-width: 1210px;
+  max-width: 1240px;
+  text-shadow: #a884f5 5px 0 15px;
 `
 export const RoadmapHeading = styled.div`
   text-align: center;
@@ -312,7 +340,7 @@ export const RoadmapHeading = styled.div`
   color: #a884f5;
   margin-top: 20px;
   margin-bottom: 0px;
-  fill-opacity: 100%;
+  text-shadow: #a884f5 5px 0 15px;
 `
 export const Roadmap = styled.div`
   margin-top: 20px;
@@ -325,7 +353,7 @@ export const RoadmapContent = styled.div``
 export const FooterContainer = styled.div`
   margin: 50px;
   padding: 32px;
-  background: linear-gradient(145deg, #0a0e60 27%, #240e44 50%);
+  background: linear-gradient(145deg, #0a0c34 27%, #240e44 50%);
   box-shadow: 0px 14px 24px rgb(0 0 0 / 65%);
 
   border-radius: 50px;

@@ -14,20 +14,12 @@ const VideoWrapper = () => {
         <Button className="marketplace">Marketplace</Button>
       </Logo>
       <Player>
-        <ReactPlayer
-          playing={true}
-          loop={true}
-          style={{
-            height: '10px !important',
-          }}
-          className="player"
-          url={homevideo}
-          autoPlay={true}
-          controls={false}
-        />
+        <ReactPlayer playing={true} loop={true} className="player" url={homevideo} autoPlay={true} />
       </Player>
       <Scroll>
-        <img src={scroll} className="scrollbar" />
+        <a href="#participate_container">
+          <img src={scroll} className="scrollbar" />
+        </a>
       </Scroll>
     </VideoContainer>
   )

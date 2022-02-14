@@ -3,7 +3,7 @@ import Button from '@mui/material/Button'
 
 const ParticipateWrapper = () => {
   return (
-    <ParticipateContainer>
+    <ParticipateContainer id="participate_container">
       <TextWrapper>
         <Title>Participate to Earn</Title>
         <PartcipateText>
