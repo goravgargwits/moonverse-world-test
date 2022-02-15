@@ -1,5 +1,4 @@
 import { VideoContainer, Logo, Scroll, Player } from 'styles/pages/home'
-import ReactPlayer from 'react-player'
 import Button from '@mui/material/Button'
 
 import homevideo from 'assets/video/homevideo.mp4'
@@ -14,8 +13,11 @@ const VideoWrapper = () => {
         <Button className="marketplace">Marketplace</Button>
       </Logo>
       <Player>
-        <ReactPlayer playing={true} loop={true} className="player" url={homevideo} autoPlay={true} />
+        <video className="video" autoPlay loop muted>
+          <source src={homevideo} type="video/mp4"></source>
+        </video>
       </Player>
+
       <Scroll>
         <a href="#participate_container">
           <img src={scroll} className="scrollbar" />

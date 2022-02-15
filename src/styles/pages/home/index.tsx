@@ -2,6 +2,7 @@ import styled from 'styled-components'
 import apebackground from 'assets/images/moonversewrapper.png'
 import problembackground from 'assets/images/problemsbackground.png'
 import participatebackground from 'assets/gif/participateswrapper.gif'
+
 import pointerbackground from 'assets/images/cube.png'
 
 export const Container = styled.div`
@@ -11,12 +12,10 @@ export const Container = styled.div`
 `
 export const VideoContainer = styled.div`
   position: relative;
-  height: 980px;
-  @media screen and (max-width: 1440px) {
-    height: 750px;
-  }
-  @media screen and (max-width: 1040px) {
-    height: 550px;
+  width: 100%;
+  background-repeat: no-repeat;
+  .video {
+    width: 100%;
   }
 `
 export const TextContainer = styled.div`
@@ -91,11 +90,15 @@ export const Scroll = styled.div`
 `
 export const Player = styled.div`
   z-index: 1;
-  .player {
-    width: 100% !important;
-    height: 100vh !important;
-    > video {
-      height: fit-content !important;
+
+  > video {
+    height: fit-content !important;
+
+    @media screen and (max-width: 1440px) {
+      height: 750px;
+    }
+    @media screen and (max-width: 1040px) {
+      height: 550px;
     }
   }
 `
@@ -106,8 +109,10 @@ export const MoonverseInfo = styled.div`
   background-image: url(${apebackground});
   background-size: 100%;
   background-repeat: no-repeat;
+
   @media screen and (max-width: 1440px) {
-    height: 680px;
+    height: 800px;
+    background-size: 100% 800px;
   }
   @media screen and (max-width: 1000px) {
     height: 450px;
@@ -137,10 +142,10 @@ export const ProblemsTitle = styled.div`
 `
 export const ParticipateContainer = styled.div`
   width: 100%;
-  height: 1000px;
+  height: 800px;
   background-image: url(${participatebackground});
   background-repeat: no-repeat;
-  background-size: 100vw;
+  background-size: 100vw 900px;
 
   .playButton {
     background: #262166 0% 0% no-repeat padding-box;
