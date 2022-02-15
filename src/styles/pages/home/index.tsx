@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import apebackground from 'assets/images/moonversewrapper.png'
 import problembackground from 'assets/images/problemsbackground.png'
-import participatebackground from 'assets/images/participateswrapper.png'
+import participatebackground from 'assets/gif/participateswrapper.gif'
 import pointerbackground from 'assets/images/cube.png'
 
 export const Container = styled.div`
@@ -140,6 +140,7 @@ export const ParticipateContainer = styled.div`
   height: 1000px;
   background-image: url(${participatebackground});
   background-repeat: no-repeat;
+  background-size: 100vw;
 
   .playButton {
     background: #262166 0% 0% no-repeat padding-box;
