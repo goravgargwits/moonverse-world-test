@@ -16,7 +16,7 @@ const FooterWrapper = () => {
   return (
     <FooterContainer>
       <LogoImagewrapper>
-        <img src={logo} width="140" height="120" />
+        <img src={logo} className="footer_logo" />
       </LogoImagewrapper>
       <LinkWrapper>
         <QuickWrapper>

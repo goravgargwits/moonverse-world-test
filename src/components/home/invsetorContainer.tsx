@@ -13,19 +13,19 @@ const InvestorWrapper = () => {
 
       <Partners>
         <PartnersLogo>
-          <img src={babylons} width="200" />
+          <img src={babylons} className="partners" />
         </PartnersLogo>
         <PartnersLogo>
-          <img src={zokyologo} width="200" />
+          <img src={zokyologo} className="partners" />
         </PartnersLogo>
         <PartnersLogo>
-          <img src={anzulogo} width="200" />
+          <img src={anzulogo} className="partners" />
         </PartnersLogo>
         <PartnersLogo>
-          <img src={polygonlogo} width="200" />
+          <img src={polygonlogo} className="partners" />
         </PartnersLogo>
         <PartnersLogo>
-          <img src={venly} width="200" />
+          <img src={venly} className="partners" />
         </PartnersLogo>
       </Partners>
     </>

@@ -15,22 +15,22 @@ const TokenUtilitiesWrapper = () => {
       </TokenTextWrapper>
       <Utilities>
         <UtilitiesWrapper>
-          <img src={tokenfirst} />
+          <img src={tokenfirst} className="utilities_type" />
         </UtilitiesWrapper>
         <UtilitiesWrapper>
-          <img src={nfttoken} width="600" />
+          <img src={nfttoken} className="nft_type" width="600" />
         </UtilitiesWrapper>
         <UtilitiesWrapper>
-          <img src={tokenthird} />
+          <img src={tokenthird} className="utilities_type" />
         </UtilitiesWrapper>
         <UtilitiesWrapper>
-          <img src={tokenfourth} />
+          <img src={tokenfourth} className="utilities_type" />
         </UtilitiesWrapper>
         <UtilitiesWrapper>
-          <img src={tokenfifth} />
+          <img src={tokenfifth} className="utilities_type" />
         </UtilitiesWrapper>
         <UtilitiesWrapper>
-          <img src={tokensixth} />
+          <img src={tokensixth} className="utilities_type" />
         </UtilitiesWrapper>
       </Utilities>
     </TokenContainer>
