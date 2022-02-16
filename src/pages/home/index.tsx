@@ -19,7 +19,7 @@ const Home = () => {
       <ParticipateWrapper />
       <TokenUtilitiesWrapper />
       <PartnersAndInvestors>
-        <img src={partnerimagecontainer} className="scrollbar" />
+        <img className="partner_background" src={partnerimagecontainer} />
         <PartnersContent>
           <PartnerWrapper />
           <InvestorWrapper />
