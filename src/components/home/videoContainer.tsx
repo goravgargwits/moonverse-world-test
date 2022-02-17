@@ -10,7 +10,9 @@ const VideoWrapper = () => {
     <VideoContainer>
       <Logo>
         <img src={logo} className="header_logo" />
-        <Button className="marketplace">Marketplace</Button>
+        <Button className="marketplace" onClick={() => window.open('https://www.moonverse.market')}>
+          Marketplace
+        </Button>
       </Logo>
       <Player>
         <video className="video" autoPlay loop muted>
