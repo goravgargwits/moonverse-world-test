@@ -211,17 +211,39 @@ export const ProblemsTitle = styled.div`
 `
 export const ParticipateContainer = styled.div`
   width: 100%;
-  height: 800px;
+  height: 1100px;
+  position: relative;
+  @media screen and (max-width: 1440px) {
+    height: 750px;
+  }
+  @media screen and (max-width: 1040px) {
+    height: 650px;
+  }
 
-  background-repeat: no-repeat;
-  background-size: 100vw 900px;
-  @media screen and (max-width: 1000px) {
-    background-size: 100vw 800px;
+  @media screen and (max-width: 770px) {
+    height: 500px;
   }
-  @media screen and (max-width: 720px) {
-    background-size: 100vw 400px;
-    height: 400px;
+  > video {
+    height: fit-content !important;
+
+    @media screen and (max-width: 1440px) {
+      height: 750px;
+    }
+    @media screen and (max-width: 1040px) {
+      height: 650px;
+    }
+    @media screen and (max-width: 740px) {
+      height: 550px;
+    }
   }
+  .participate_video {
+    position: absolute;
+    width: 100%;
+    @media screen and (max-width: 740px) {
+      display: none;
+    }
+  }
+
   .playButton {
     background: #262166 0% 0% no-repeat padding-box;
     box-shadow: inset 0px 17px 6px #00000029, 0px 3px 6px #5a5a5a29;
@@ -270,6 +292,7 @@ export const TextWrapper = styled.div`
   z-index: 2;
   grid-column: 1;
   padding-right: 50px;
+  padding-top: 20px;
   @media screen and (max-width: 720px) {
     padding-left: 25px;
   }
@@ -523,6 +546,7 @@ export const Roadmap = styled.div`
 `
 export const RoadmapImagewapper = styled.div`
   display: flex;
+  justify-content: end;
 `
 export const RoadmapContent = styled.div`
   .mobile_roadmap {

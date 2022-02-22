@@ -1,9 +1,13 @@
 import { Title, ParticipateContainer, TextWrapper, PartcipateText } from 'styles/pages/home'
 import Button from '@mui/material/Button'
+import participateearn from 'assets/video/participatevideo.mp4'
 
 const ParticipateWrapper = () => {
   return (
     <ParticipateContainer id="participate_container">
+      <video className="participate_video" autoPlay loop muted>
+        <source src={participateearn} type="video/mp4"></source>
+      </video>
       <TextWrapper>
         <Title>Participate to Earn</Title>
         <PartcipateText>
