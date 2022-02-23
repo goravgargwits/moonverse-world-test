@@ -1,6 +1,7 @@
 import { Title, ParticipateContainer, TextWrapper, PartcipateText } from 'styles/pages/home'
 import Button from '@mui/material/Button'
 import participateearn from 'assets/video/participatevideo.mp4'
+import participateresponisve from 'assets/video/participateresponsivevideo.mp4'
 
 const ParticipateWrapper = () => {
   return (
@@ -16,6 +17,9 @@ const ParticipateWrapper = () => {
         </PartcipateText>
         <Button className="playButton">Play Now</Button>
       </TextWrapper>
+      <video className="participate_responisve" autoPlay loop muted>
+        <source src={participateresponisve} type="video/mp4"></source>
+      </video>
     </ParticipateContainer>
   )
 }

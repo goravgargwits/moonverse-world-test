@@ -67,6 +67,9 @@ export const Text = styled.div`
   opacity: 1;
   width: 100%;
   max-width: 472px;
+  @media screen and (max-width: 1080px) {
+    font-size: 18px;
+  }
   @media screen and (max-width: 740px) {
     font-size: 12px;
   }
@@ -172,7 +175,7 @@ export const Problems = styled.div`
   padding-right: 50px;
   background-repeat: no-repeat;
   padding-top: 20px;
-
+  justify-content: space-between;
   @media screen and (max-width: 1050px) {
     display: grid;
     padding-top: 20px;
@@ -184,10 +187,10 @@ export const Problems = styled.div`
     padding-top: 20px;
     padding-right: 10px;
     background-image: url(${problemnewbackground});
+    justify-content: normal;
   }
   @media screen and (max-width: 700px) {
     padding-top: 20px;
-
     height: 500px;
   }
 `
@@ -204,6 +207,8 @@ export const ProblemsTitle = styled.div`
   color: #a884f5;
   width: 100%;
   max-width: 582px;
+  text-shadow: #a884f5 5px 0 15px;
+
   @media screen and (max-width: 740px) {
     font-size: 25px;
     padding-left: 24px;
@@ -213,6 +218,7 @@ export const ParticipateContainer = styled.div`
   width: 100%;
   height: 1100px;
   position: relative;
+
   @media screen and (max-width: 1440px) {
     height: 750px;
   }
@@ -221,7 +227,7 @@ export const ParticipateContainer = styled.div`
   }
 
   @media screen and (max-width: 770px) {
-    height: 500px;
+    height: 450px;
   }
   > video {
     height: fit-content !important;
@@ -243,6 +249,15 @@ export const ParticipateContainer = styled.div`
       display: none;
     }
   }
+  .participate_responisve {
+    /* position: absolute; */
+    display: none;
+    width: 100%;
+    @media screen and (max-width: 740px) {
+      display: block;
+      /* height: 250px !important; */
+    }
+  }
 
   .playButton {
     background: #262166 0% 0% no-repeat padding-box;
@@ -262,11 +277,19 @@ export const ParticipateContainer = styled.div`
     color: #ffffff;
     text-transform: capitalize;
     opacity: 1;
+    margin-bottom: 25px;
     :hover {
       background: #262166 0% 0% no-repeat padding-box;
       box-shadow: inset 0px 17px 6px #00000029, 0px 3px 6px #5a5a5a29;
       transform: scale(1.1);
       transition: 0.2s;
+    }
+    @media screen and (max-width: 740px) {
+      height: 39px;
+      width: 100%;
+      max-width: 105px;
+      font-size: 12px;
+      font-weight: 500;
     }
   }
 `
@@ -279,6 +302,9 @@ export const PartcipateText = styled.div`
   opacity: 1;
   max-width: 1310px;
   z-index: 2;
+  @media screen and (max-width: 1080px) {
+    font-size: 18px;
+  }
   @media screen and (max-width: 720px) {
     font-size: 11px;
     max-width: 260px;
@@ -301,6 +327,7 @@ export const TextWrapper = styled.div`
 export const Pointers = styled.div`
   display: grid;
   width: 100%;
+  max-width: 995px;
   background-image: url(${pointerbackground});
   background-position-x: center;
   background-position-y: center;
@@ -336,9 +363,8 @@ export const Discover = styled.div`
   padding: 15px;
   display: grid;
   grid-gap: 5px;
-  align-self: center;
-
-  justify-self: center;
+  align-self: flex-end;
+  justify-self: flex-start;
   @media screen and (max-width: 1120px) {
     align-self: center;
   }
@@ -429,6 +455,9 @@ export const TokenText = styled.div`
   opacity: 1;
   width: 100%;
   max-width: 439px;
+  @media screen and (max-width: 1080px) {
+    font-size: 18px;
+  }
   @media screen and (max-width: 720px) {
     font-size: 11px;
   }
