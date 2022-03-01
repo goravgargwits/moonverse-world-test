@@ -189,12 +189,12 @@ export const Player = styled.div`
 `
 
 export const ScrollContainer = styled.section`
-  min-height: 500vh;
+  min-height: 650vh;
   position: relative;
 `
 
 export const MoonverseInfo = styled.div`
-  padding-top: 150px;
+  padding-top: 50px;
   height: 1200px;
   position: sticky;
   top: 0;
@@ -330,20 +330,21 @@ export const TextWrapper = styled.div`
 
 export const Pointers = styled.div`
   display: grid;
-  width: 112%;
+  width: 117%;
   margin-right: 134px;
+  margin-top: 80px;
   background-position-x: center;
   background-position-y: center;
   background-size: 795px 795px;
   background-repeat: no-repeat;
-  overflow: hidden;
+  overflow: visible;
   position: relative;
 
   > img {
     position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
+    left: -70px;
+    top: -41px;
+    width: 118vh;
     height: auto;
     opacity: 0.2;
   }
@@ -373,6 +374,7 @@ export const DiscoverDiv = styled.div`
 `
 
 export const Discover = styled.div`
+  position: absolute;
   width: 100%;
   max-width: 303px;
   background: #262166 0% 0% no-repeat padding-box;
@@ -383,6 +385,8 @@ export const Discover = styled.div`
   display: grid;
   grid-gap: 5px;
   align-self: center;
+  top: 155px;
+  left: -222px;
 
   justify-self: center;
   @media screen and (max-width: 1120px) {
@@ -395,6 +399,7 @@ export const Discover = styled.div`
   }
 `
 export const Model = styled.div`
+  position: absolute;
   width: 100%;
   max-width: 243px;
   background: #262166 0% 0% no-repeat padding-box;
@@ -404,6 +409,8 @@ export const Model = styled.div`
   padding: 15px;
   display: grid;
   grid-gap: 5px;
+  top: 0;
+  right: 370px;
 
   justify-self: flex-end;
   align-self: center;
@@ -413,6 +420,7 @@ export const Model = styled.div`
   }
 `
 export const Monetization = styled.div`
+  position: absolute;
   width: 100%;
   max-width: 434px;
   background: #262166 0% 0% no-repeat padding-box;
@@ -422,6 +430,9 @@ export const Monetization = styled.div`
   padding: 15px;
   display: grid;
   grid-gap: 5px;
+  bottom: 150px;
+  left: -306px;
+  
 
   justify-self: center;
   align-self: center;

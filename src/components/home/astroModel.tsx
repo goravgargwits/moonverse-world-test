@@ -31,7 +31,7 @@ const Model = () => {
     const camera = state.camera as any
 
     const cameraValue = normalize(window.scrollY, window.innerHeight, 0)
-    state.camera.lookAt(-0.1, 0.2, 0)
+    state.camera.lookAt(-0.1, 0.185, 0)
 
     console.log(100 + cameraValue * 100)
     const focalLength = defaultFocalLength - cameraValue * 100

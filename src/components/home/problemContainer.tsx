@@ -1,21 +1,10 @@
-import {
-  Problems,
-  ProblemsTitle,
-  Pointers,
-  Discover,
-  Model,
-  Monetization,
-  InternalTitle,
-  InternalText,
-  DiscoverDiv,
-} from 'styles/pages/home'
+import { Problems, ProblemsTitle, Pointers, Discover, Model, Monetization, InternalTitle, InternalText, DiscoverDiv } from 'styles/pages/home'
 import pointerbackground from 'assets/images/bubble_transparent.png'
 
 const ProblemsWrapper = () => {
   return (
     <Problems>
       <ProblemsTitle>Problems We Are Solving</ProblemsTitle>
-
       <Pointers>
         <img src={pointerbackground} />
         <DiscoverDiv>
