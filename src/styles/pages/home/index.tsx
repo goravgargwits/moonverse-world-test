@@ -3,7 +3,6 @@ import apebackground from 'assets/images/moonversewrapper.png'
 import apesbackground from 'assets/images/moonversemobilewrapper.png'
 import problembackground from 'assets/images/problemsbackground.png'
 import problemnewbackground from 'assets/images/problemmobilewrapper.png'
-import pointerbackground from 'assets/images/bubble_transparent.png'
 import partnermobile from 'assets/images/partnersmobilebackground.png'
 import roadmapbackground from 'assets/images/mobileroadmapwrapper.png'
 
@@ -221,7 +220,7 @@ export const MoonverseInfo = styled.div`
 
 export const Problems = styled.div`
   display: flex;
-  height: 832px;
+  height: 690px;
   // background-image: url(${problembackground});
   padding-right: 50px;
   background-repeat: no-repeat;
@@ -332,13 +331,22 @@ export const TextWrapper = styled.div`
 export const Pointers = styled.div`
   display: grid;
   width: 112%;
-  opacity: 0.2;
   margin-right: 134px;
-  background-image: url(${pointerbackground});
   background-position-x: center;
   background-position-y: center;
   background-size: 795px 795px;
   background-repeat: no-repeat;
+  overflow: hidden;
+  position: relative;
+
+  > img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: auto;
+    opacity: 0.2;
+  }
   @media screen and (max-width: 1450px) {
     background-size: 655px 655px;
   }
@@ -359,6 +367,11 @@ export const Pointers = styled.div`
     justify-content: center;
   }
 `
+export const DiscoverDiv = styled.div`
+  position: relative;
+  display: grid;
+`
+
 export const Discover = styled.div`
   width: 100%;
   max-width: 303px;
