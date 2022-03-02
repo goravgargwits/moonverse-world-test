@@ -37,8 +37,8 @@ export const Container = styled.div`
   z-index: 0;
   // background: linear-gradient(180deg, #120a1d 40%, #1f0a3c 50%);
   background: url(${starbg});
-  background-size:contain;
-  background-repeat:repeat;
+  background-size: contain;
+  background-repeat: repeat;
   @media screen and (max-width: 740px) {
     background: #120a1d;
   }
@@ -438,7 +438,6 @@ export const Monetization = styled.div`
   grid-gap: 5px;
   bottom: 150px;
   left: -306px;
-  
 
   justify-self: center;
   align-self: center;
