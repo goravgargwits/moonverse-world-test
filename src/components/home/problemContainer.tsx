@@ -1,8 +1,9 @@
-import { Problems, ProblemsTitle, Pointers, Discover, Model, Monetization, InternalTitle, InternalText, DiscoverDiv } from 'styles/pages/home'
+import { ScrollContainer, Problems, ProblemsTitle, Pointers, Discover, Model, Monetization, InternalTitle, InternalText, DiscoverDiv } from 'styles/pages/home'
 import pointerbackground from 'assets/images/bubble_transparent.png'
 
 const ProblemsWrapper = () => {
   return (
+    <ScrollContainer>
     <Problems>
       <ProblemsTitle>Problems We Are Solving</ProblemsTitle>
       <Pointers>
@@ -26,6 +27,7 @@ const ProblemsWrapper = () => {
         </DiscoverDiv>
       </Pointers>
     </Problems>
+    </ScrollContainer>
   )
 }
 

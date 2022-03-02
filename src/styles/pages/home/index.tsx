@@ -5,6 +5,7 @@ import problembackground from 'assets/images/problemsbackground.png'
 import problemnewbackground from 'assets/images/problemmobilewrapper.png'
 import partnermobile from 'assets/images/partnersmobilebackground.png'
 import roadmapbackground from 'assets/images/mobileroadmapwrapper.png'
+import starbg from 'assets/images/starsBg.jpg'
 
 export const CanvasWrapper = styled.div`
   position: static;
@@ -34,7 +35,10 @@ export const CanvasWrapper = styled.div`
 export const Container = styled.div`
   width: 100%;
   z-index: 0;
-  background: linear-gradient(180deg, #120a1d 40%, #1f0a3c 50%);
+  // background: linear-gradient(180deg, #120a1d 40%, #1f0a3c 50%);
+  background: url(${starbg});
+  background-size:contain;
+  background-repeat:repeat;
   @media screen and (max-width: 740px) {
     background: #120a1d;
   }
@@ -225,6 +229,8 @@ export const Problems = styled.div`
   padding-right: 50px;
   background-repeat: no-repeat;
   padding-top: 20px;
+  position: sticky;
+  top: 0;
 
   @media screen and (max-width: 1050px) {
     display: grid;
@@ -346,7 +352,7 @@ export const Pointers = styled.div`
     top: -41px;
     width: 118vh;
     height: auto;
-    opacity: 0.2;
+    opacity: 0.4;
   }
   @media screen and (max-width: 1450px) {
     background-size: 655px 655px;
