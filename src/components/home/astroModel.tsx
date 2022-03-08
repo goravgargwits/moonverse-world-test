@@ -44,7 +44,7 @@ const Model = ({ ...props }) => {
     // // The offset is between 0 and 1, you can apply it to your models any way you like
     const offset = 1 - scroll.offset
     action.time = THREE.MathUtils.damp(action.time, (action.getClip().duration) * offset, 100, delta)
-    state.camera.position.set(Math.sin(offset) * 30, Math.atan(offset * Math.PI * 2) * 5, Math.cos((offset * Math.PI) / 3) * 10)
+    state.camera.position.set(window.scrollY, window.innerHeight, 0)
     state.camera.lookAt(0, 0, 0)
     // state.camera.setFocalLength(900);
   })
@@ -142,7 +142,7 @@ export default function App() {
         distance={10}
         >
           <Scroll>
-            <Model scale={20} position={[0, 5.5, 0]}/>
+            <Model className="model-container" scale={20} position={[0, 5.5, 0]}/>
           </Scroll>
         </ScrollControls>
         {/* <Environment preset="warehouse" background={false} /> */}
