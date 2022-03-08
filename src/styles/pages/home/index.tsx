@@ -229,6 +229,8 @@ export const Problems = styled.div`
   padding-right: 50px;
   background-repeat: no-repeat;
   padding-top: 20px;
+  position: sticky;
+  top: 0;
 
   @media screen and (max-width: 1050px) {
     display: grid;
