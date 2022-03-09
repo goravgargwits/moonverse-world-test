@@ -46,7 +46,7 @@ const Model = ({ ...props }) => {
     action.time = THREE.MathUtils.damp(action.time, (action.getClip().duration) * offset, 100, delta)
     state.camera.position.set(window.scrollY, window.innerHeight, 0)
     state.camera.lookAt(0, 0, 0)
-    // state.camera.setFocalLength(900);
+    state.camera.setFocalLength(10);
   })
   return (
   <primitive object={scene} {...props} />
@@ -137,6 +137,7 @@ export default function App() {
     // className="model-container"
     <Canvas dpr={[1, 2]} shadows camera={{ position: [0, 0, 10], near: 0.1, far: 1000 }} >
       <Suspense fallback={null}>
+        <ambientLight intensity={1.5} />
         <ScrollControls 
         pages={3}
         distance={10}
@@ -147,6 +148,7 @@ export default function App() {
         </ScrollControls>
         {/* <Environment preset="warehouse" background={false} /> */}
         <SpotLight
+        color="white"
           distance={6}
           angle={0.45}
           attenuation={10}
