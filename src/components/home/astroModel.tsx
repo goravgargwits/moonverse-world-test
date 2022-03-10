@@ -1,4 +1,4 @@
-import { Suspense, useEffect } from 'react'
+import { Suspense, useEffect, useState } from 'react'
 import { Canvas, useThree } from '@react-three/fiber'
 import { useLoader, useFrame } from '@react-three/fiber'
 import { Environment, SpotLight } from '@react-three/drei'
@@ -10,17 +10,17 @@ import * as THREE from 'three'
 //   return (1 - amt) * start + amt * end
 // }
 
-// const normalize = (val: number, max: number, min: number): number => {
-//   return (val - min) / (max - min)
-// }
+const normalize = (val: number, max: number, min: number): number => {
+  return (val - min) / (max - min)
+}
 
-const Model = () => {
+const Model = ({ setAnimation }: any) => {
   // console.log(scroll);
   const { camera: mainCamera } = useThree()
-  const gltf = useLoader(GLTFLoader, './movingRobo.gltf')
+  const gltf = useLoader(GLTFLoader, './movingRobo.gltf', undefined, (event) => console.log('event', event))
   // const [rotation, setRotation] = useState(false)
   const defaultFocalLength = 100
-  const scale = 0.1
+  const scale = 1
 
   const mixer = new THREE.AnimationMixer(gltf.scene)
 
@@ -28,7 +28,9 @@ const Model = () => {
 
   const cam = mainCamera as any
 
-  mainCamera.lookAt(0, -1, 0)
+  mainCamera.lookAt(-0.4, 2, 0)
+
+  console.log(gltf)
 
   // const observer = new IntersectionObserver(
   //   (e) => {
@@ -48,32 +50,35 @@ const Model = () => {
     // scene.attach(gltf.cameras[0])
     const blenderCamera = gltf.cameras[0] as any
     console.log(blenderCamera.parent.position)
-    cam.position.x = blenderCamera?.parent.position.x
-    cam.position.y = blenderCamera?.parent.position.y
-    cam.position.z = blenderCamera?.parent.position.z
+    // cam.position.x = blenderCamera?.parent.position.x
+    // cam.position.y = blenderCamera?.parent.position.y
+    // cam.position.z = blenderCamera?.parent.position.z
 
-    cam.aspect = blenderCamera.aspect
-    cam.fov = blenderCamera.fov
-    cam.far = blenderCamera.far
-    cam.near = blenderCamera.near
+    // cam.aspect = blenderCamera.aspect
+    // cam.fov = blenderCamera.fov
+    // cam.far = blenderCamera.far
+    // cam.near = blenderCamera.near
 
     console.log(gltf.animations[0])
-  }, [])
+    startAnimation()
+  }, [gltf])
 
-  useFrame((state, delta) => {
+  console.log(mixer)
+
+  useFrame(() => {
     // const camera = state.camera as any
 
-    gltf.animations.forEach((clip) => {
-      const action = mixer.clipAction(clip)
-      console.log(clip)
-      action?.play()
-    })
+    // gltf.animations.forEach((clip) => {
+    //   const action = mixer.clipAction(clip)
+    //   action?.play()
+    // })
+    const timeValue = normalize(window.scrollY, window.innerHeight / 1.5, 0)
 
-    mixer?.update(delta)
+    console.log(gltf?.animations?.[0]?.duration, timeValue)
+
+    mixer?.setTime(timeValue)
 
     // console.log(mixer.setTime(10))
-
-    // const cameraValue = normalize(window.scrollY, window.innerHeight, 0)
 
     // state.camera.lookAt(0, 1.4, 0)
 
@@ -104,6 +109,15 @@ const Model = () => {
     // }
   }
 
+  const startAnimation = () => {
+    gltf.animations.forEach((clip) => {
+      const action = mixer.clipAction(clip)
+      action?.play()
+    })
+  }
+
+  setAnimation(startAnimation)
+
   useEffect(() => {
     window.addEventListener('scroll', onScroll)
     return () => {
@@ -118,22 +132,27 @@ const Model = () => {
 }
 
 export default function App() {
+  const [animation, setAnimation] = useState()
   return (
     // <CanvasWrapper>
-    <Canvas className="model-container">
-      <Suspense fallback={null}>
-        <Model />
-        <Environment preset="warehouse" background={false} />
-        <SpotLight
-          distance={6}
-          angle={0.45}
-          attenuation={10}
-          color="purple"
-          opacity={1}
-          anglePower={10} // Diffuse-cone anglePower (default: 5)
-        />
-      </Suspense>
-    </Canvas>
+    <>
+      <button onClick={animation}>Hello</button>
+      <Canvas className="model-container">
+        <Suspense fallback={null}>
+          <Model setAnimation={setAnimation} />
+          <Environment preset="warehouse" background={false} />
+          <SpotLight
+            distance={6}
+            angle={0.45}
+            attenuation={10}
+            color="purple"
+            opacity={1}
+            anglePower={10} // Diffuse-cone anglePower (default: 5)
+          />
+        </Suspense>
+      </Canvas>
+    </>
+
     // </CanvasWrapper>
   )
 }
