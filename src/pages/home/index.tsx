@@ -1,8 +1,5 @@
-import {
-  Container,
-  // PartnersContent,
-  //  PartnersAndInvestors
-} from 'styles/pages/home'
+import { Container } from 'styles/pages/home'
+
 // import partnerimagecontainer from 'assets/images/partnerscontainer.png'
 import MoonverseInfoWrapper from 'components/home/InfoContainer'
 import ProblemsWrapper from 'components/home/problemContainer'
@@ -22,13 +19,6 @@ const Home = () => {
       <ProblemsWrapper />
       <ParticipateWrapper />
       <TokenUtilitiesWrapper />
-      {/* <PartnersAndInvestors>
-        <img className="partner_background" src={partnerimagecontainer} />
-        <PartnersContent>
-          <PartnerWrapper />
-          <InvestorWrapper />
-        </PartnersContent>
-      </PartnersAndInvestors> */}
       <RoadmapWrapper />
       <FooterWrapper />
     </Container>

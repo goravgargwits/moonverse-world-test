@@ -15,7 +15,7 @@ const ParticipateWrapper = () => {
           Simply Participate to Earn, in a new P2E economy. NFT projects can create 3D avatars quickly by staking
           $MOONV. NFT holders can join the world and play to earn $MOONV
         </PartcipateText>
-        <Button className="playButton">Play Now</Button>
+        <Button className="playButton">Soon...</Button>
       </TextWrapper>
       <video className="participate_responisve" autoPlay loop muted>
         <source src={participateresponisve} type="video/mp4"></source>

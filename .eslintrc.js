@@ -11,6 +11,7 @@ module.exports = {
   plugins: ['@typescript-eslint', 'prettier'],
   extends: ['eslint:recommended', 'plugin:@typescript-eslint/recommended'],
   rules: {
+    '@typescript-eslint/explicit-module-boundary-types': ['off'],
     'node/no-unsupported-features/es-syntax': 'off',
     '@typescript-eslint/indent': 'off',
     '@typescript-eslint/no-use-before-define': 'off',
