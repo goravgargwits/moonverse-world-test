@@ -1,9 +1,9 @@
-import * as THREE from 'three';
-import { Suspense, useEffect, useState, useLayoutEffect } from 'react'
+import { Suspense, useEffect } from 'react'
 import { Canvas, useThree } from '@react-three/fiber'
 import { useLoader, useFrame } from '@react-three/fiber'
-import { Environment, Scroll, ScrollControls, SpotLight, useScroll, useAnimations, useGLTF } from '@react-three/drei'
+import { Environment, SpotLight } from '@react-three/drei'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
+import * as THREE from 'three'
 // import { CanvasWrapper } from 'styles/pages/home'
 
 // const lerp = (start: number, end: number, amt: number): number => {
@@ -14,55 +14,27 @@ import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 //   return (val - min) / (max - min)
 // }
 
-const Model = ({ ...props }) => {
+const Model = () => {
   // console.log(scroll);
   const { camera: mainCamera } = useThree()
-  // const gltf = useLoader(GLTFLoader, './robot.gltf')
-  const [rotation, setRotation] = useState(false)
-  const defaultFocalLength = 5
-  const [ambient, setAmbient] = useState(-1)
+  const gltf = useLoader(GLTFLoader, './movingRobo.gltf')
+  // const [rotation, setRotation] = useState(false)
+  const defaultFocalLength = 100
+  const scale = 0.1
 
-  //on-scroll animation
-  const scroll = useScroll()
-  const { scene, nodes, animations } = useGLTF('/movingRobo.gltf')
-  const { actions } = useAnimations(animations, scene)
+  const mixer = new THREE.AnimationMixer(gltf.scene)
 
   //   mainCamera.lookAt()
 
-  useLayoutEffect(() => Object.values(nodes).forEach((node) => (node.receiveShadow = node.castShadow = true)))
-  useEffect(() => {
-    console.log('actions',actions);
-    void (actions['helmet.001Action.001'].play().paused = true), [actions]
-  })
-  useFrame((state, delta) => {
-    // update()
-    // const clip = THREE.AnimationClip.findByName(clips, 'Line003.001Action.002')
-    // clips.forEach(function(clip) {
-    //   mixer.clipAction(clip).play()
-    // });
-    const action = actions['helmet.001Action.001']
-    // // The offset is between 0 and 1, you can apply it to your models any way you like
-    const offset = 1 - scroll.offset
-    action.time = THREE.MathUtils.damp(action.time, (action.getClip().duration) * offset, 100, delta)
-    state.camera.position.set(window.scrollY, window.innerHeight, 0)
-    state.camera.lookAt(0, 0, 0)
-    state.camera.setFocalLength(10);
-  })
-  return (
-  <primitive object={scene} {...props} />
-  )
+  const cam = mainCamera as any
 
-  // const cam = mainCamera as any
+  mainCamera.lookAt(0, 0, -1)
 
   // const observer = new IntersectionObserver(
   //   (e) => {
-  //     console.log(e)
-  //     console.log(e[0].isIntersecting)
   //     if (e[0].isIntersecting) {
   //       setRotation(true)
-  //     } else {
-  //       setRotation(false)
-  //     }
+  //     } else setRotation(false)
   //   },
   //   { threshold: 0.15 },
   // )
@@ -71,20 +43,39 @@ const Model = ({ ...props }) => {
   // observer.observe(problemSection as Element)
 
   // console.log(cam)
-  // useEffect(() => {
-  //   cam.setFocalLength(defaultFocalLength)
-  // }, [])
+  useEffect(() => {
+    cam.setFocalLength(defaultFocalLength)
+    // scene.attach(gltf.cameras[0])
+    const blenderCamera = gltf.cameras[0] as any
+    console.log(blenderCamera.parent.position)
+    cam.position.x = blenderCamera?.parent.position.x
+    cam.position.y = blenderCamera?.parent.position.y
+    cam.position.z = blenderCamera?.parent.position.z
 
-  // useFrame((state) => {
-  //   const camera = state.camera as any
+    cam.aspect = blenderCamera.aspect
+    cam.fov = blenderCamera.fov
+    cam.far = blenderCamera.far
+    cam.near = blenderCamera.near
 
-  //   // const cameraValue = normalize(window.scrollY, window.innerHeight, 0)
+    console.log(gltf.animations[0])
+  }, [])
 
-  //   state.camera.lookAt(-0.1, 0.185, 0)
-  //   console.log('window.scrollY',window.scrollY)
-    
-  //   setAmbient(window.scrollY/5000-1);
-    
+  useFrame((state, delta) => {
+    // const camera = state.camera as any
+
+    gltf.animations.forEach((clip) => {
+      const action = mixer.clipAction(clip)
+      console.log(clip)
+      action?.play()
+    })
+
+    mixer?.update(delta)
+
+    // console.log(mixer.setTime(10))
+
+    // const cameraValue = normalize(window.scrollY, window.innerHeight, 0)
+
+    // state.camera.lookAt(0, 1.4, 0)
 
     // if (rotation) {
     //   const rotationValue = normalize(
@@ -97,63 +88,49 @@ const Model = ({ ...props }) => {
     // }
 
     // console.log(100 + cameraValue * 100)
-  //   const focalLength = defaultFocalLength * 100
-  //   if (focalLength > 200) camera.setFocalLength(focalLength)
-  // })
+    // const focalLength = defaultFocalLength - cameraValue * 100
+    // if (focalLength > 200) camera.setFocalLength(focalLength)
+  })
 
-  // const onScroll = () => {
-  //   // setAmbient(ambient+0.01);
-    
-  //   if (rotation) {
-  //     // const rotationValue = normalize(
-  //     //   window.scrollY,
-  //     //   problemSection.getBoundingClientRect().top + problemSection.getBoundingClientRect().height,
-  //     //   problemSection.getBoundingClientRect().top,
-  //     // )
-  //     // console.log(rotationValue * 0.01)
-  //     gltf.scene.rotation.y += 0.02
-  //   }
-  // }
+  const onScroll = () => {
+    // if (rotation) {
+    // const rotationValue = normalize(
+    //   window.scrollY,
+    //   problemSection.getBoundingClientRect().top + problemSection.getBoundingClientRect().height,
+    //   problemSection.getBoundingClientRect().top,
+    // )
+    // console.log(rotationValue * 0.01)
+    // gltf.scene.rotation.y += 0.02
+    // }
+  }
 
-  // useEffect(() => {
-  //   window.addEventListener('scroll', onScroll)
-  //   return () => {
-  //     window.removeEventListener('scroll', onScroll)
-  //   }
-  // })
-  // return (
-  //   <>
-  //     <ambientLight intensity={ambient} />
-  //     <primitive object={gltf.scene} scale={1} />
-  //   </>
-  // )
+  useEffect(() => {
+    window.addEventListener('scroll', onScroll)
+    return () => {
+      window.removeEventListener('scroll', onScroll)
+    }
+  })
+  return (
+    <>
+      <primitive object={gltf.scene} scale={scale} />
+    </>
+  )
 }
-
-useGLTF.preload('/movingRobo.gltf')
 
 export default function App() {
   return (
     // <CanvasWrapper>
-    // className="model-container"
-    <Canvas dpr={[1, 2]} shadows camera={{ position: [0, 0, 10], near: 0.1, far: 1000 }} >
+    <Canvas className="model-container">
       <Suspense fallback={null}>
-        <ambientLight intensity={1.5} />
-        <ScrollControls 
-        pages={3}
-        distance={10}
-        >
-          <Scroll>
-            <Model className="model-container" scale={20} position={[0, 5.5, 0]}/>
-          </Scroll>
-        </ScrollControls>
-        {/* <Environment preset="warehouse" background={false} /> */}
+        <Model />
+        <Environment preset="warehouse" background={false} />
         <SpotLight
-        color="white"
           distance={6}
           angle={0.45}
           attenuation={10}
-          opacity={0.01}
-          // anglePower={10} // Diffuse-cone anglePower (default: 5)
+          color="purple"
+          opacity={1}
+          anglePower={10} // Diffuse-cone anglePower (default: 5)
         />
       </Suspense>
     </Canvas>
