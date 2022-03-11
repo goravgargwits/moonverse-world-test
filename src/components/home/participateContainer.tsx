@@ -1,8 +1,9 @@
-import { Title, ParticipateContainer, TextWrapper, PartcipateText } from 'styles/pages/home'
+import { Title, ParticipateContainer, TextWrapper, PartcipateText, ScrollContainer } from 'styles/pages/home'
 import Button from '@mui/material/Button'
 
 const ParticipateWrapper = () => {
   return (
+    <ScrollContainer>
     <ParticipateContainer id="participate_container">
       <TextWrapper>
         <Title>Participate to Earn</Title>
@@ -13,6 +14,7 @@ const ParticipateWrapper = () => {
         <Button className="playButton">Soon...</Button>
       </TextWrapper>
     </ParticipateContainer>
+    </ScrollContainer>
   )
 }
 
