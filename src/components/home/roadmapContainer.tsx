@@ -1,6 +1,7 @@
 import { Roadmap, RoadmapImagewapper, RoadmapHeading, RoadmapContent, ScrollContainer, RoadmapDivWrapper } from 'styles/pages/home'
 import roadmapwrapper from 'assets/images/roadmap.png'
 import RoadmapPoints from 'assets/images/RoadmapPoints.png'
+import fireGif from 'assets/gif/fire.gif'
 
 const RoadmapWrapper = () => {
   return (
@@ -9,6 +10,7 @@ const RoadmapWrapper = () => {
       <RoadmapHeading>ROAD<span>MAP</span></RoadmapHeading>
   <RoadmapDivWrapper>
     <img src={RoadmapPoints} alt="roadmap-points" />
+    <img src={fireGif} alt="roadmap-points" className='fire-gif' />
     <div>
     <h5>
       Q1 <span>2022</span>
@@ -18,6 +20,7 @@ const RoadmapWrapper = () => {
   </RoadmapDivWrapper>
   <RoadmapDivWrapper>
     <img src={RoadmapPoints} alt="roadmap-points" />
+    <img src={fireGif} alt="roadmap-points" className='fire-gif' />
     <div>
     <h5>
       Q2 <span>2022</span>
@@ -27,6 +30,7 @@ const RoadmapWrapper = () => {
   </RoadmapDivWrapper>
   <RoadmapDivWrapper>
     <img src={RoadmapPoints} alt="roadmap-points" />
+    <img src={fireGif} alt="roadmap-points" className='fire-gif' />
     <div>
     <h5>
       Q3 <span>2022</span>
@@ -36,6 +40,7 @@ const RoadmapWrapper = () => {
   </RoadmapDivWrapper>
   <RoadmapDivWrapper>
     <img src={RoadmapPoints} alt="roadmap-points" />
+    <img src={fireGif} alt="roadmap-points" className='fire-gif' />
     <div>
     <h5>
       Q1 <span>2023</span>
