@@ -341,7 +341,7 @@ export const TextWrapper = styled.div`
 export const Pointers = styled.div`
   width: 500px;
   margin-right: 50px;
-  margin-top: 80px;
+  margin-top: 10px;
   background-position-x: center;
   background-position-y: center;
   background-size: 795px 795px;
