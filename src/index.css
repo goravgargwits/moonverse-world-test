@@ -29,8 +29,8 @@ span.problem-loader:before {
     border-radius: 100%;
     position: absolute;
     left:0px;
-    height: 90px;
-    width: 90px;
+    height: 82px;
+    width: 82px;
     top: 0px;
     content:"";
     border-top-color: #0eb7da;

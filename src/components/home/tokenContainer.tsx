@@ -1,21 +1,44 @@
-import { ScrollContainer, TokenContainer, Title, TokenTextWrapper, TokenText, Utilities, UtilitiesWrapper } from 'styles/pages/home'
+import { useEffect } from 'react'
+import { TokenContainer, Title, TokenTextWrapper, TokenText, Utilities, UtilitiesWrapper, ScrollContainer, Scroll } from 'styles/pages/home'
 import tokenfirst from 'assets/images/tokenone.png'
-import nfttoken from 'assets/images/nfttoken.png'
-import tokenthird from 'assets/images/tokentthree.png'
-import tokenfourth from 'assets/images/tokenfour.png'
-import tokenfifth from 'assets/images/tokenfive.png'
+import tokentwo from 'assets/images/tokentwo.png'
+import tokenThree from 'assets/images/tokenThree.png'
+import tokenFour from 'assets/images/tokenfour.png'
+import tokenFive from 'assets/images/tokenfive.png'
 import tokensixth from 'assets/images/tokensix.png'
+import AOS from 'aos'
+import 'aos/dist/aos.css'
 
 const TokenUtilitiesWrapper = () => {
+  useEffect(() => {
+    AOS.init({
+      duration : 2500,
+    })
+  }, [])
   return (
     <ScrollContainer>
-    <TokenContainer>
+    <TokenContainer data-aos={'zoom-in-up'} data-aos-delay={1000}>
       <TokenTextWrapper>
         <Title>Token Utilities</Title>
-        <TokenText>$MOONV will be the utility token for the Moonverse economy. Utilities include:</TokenText>
+        {/* <TokenText>$MOONV will be the utility token for the Moonverse economy. Utilities include:</TokenText> */}
       </TokenTextWrapper>
       <Utilities>
+      <UtilitiesWrapper>
+          <img src={tokenfirst} className="utilities_type" />
+        </UtilitiesWrapper>
         <UtilitiesWrapper>
+          <img src={tokentwo} className="utilities_type" />
+        </UtilitiesWrapper>
+        <UtilitiesWrapper>
+          <img src={tokenThree} className="utilities_type" />
+        </UtilitiesWrapper>
+        <UtilitiesWrapper>
+          <img src={tokenFour} className="utilities_type" />
+        </UtilitiesWrapper>
+        <UtilitiesWrapper>
+          <img src={tokenFive} className="utilities_type" />
+        </UtilitiesWrapper>
+        {/* <UtilitiesWrapper>
           <img src={tokenfirst} className="utilities_type" />
         </UtilitiesWrapper>
         <UtilitiesWrapper>
@@ -32,7 +55,7 @@ const TokenUtilitiesWrapper = () => {
         </UtilitiesWrapper>
         <UtilitiesWrapper>
           <img src={tokensixth} className="utilities_type" />
-        </UtilitiesWrapper>
+        </UtilitiesWrapper> */}
       </Utilities>
     </TokenContainer>
     </ScrollContainer>

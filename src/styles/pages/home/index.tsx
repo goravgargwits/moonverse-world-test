@@ -90,9 +90,10 @@ export const TextContainer = styled.div`
   }
 `
 export const Title = styled.div`
-  text-align: left;
-  max-width: 315px;
-  font-size: 52px;
+max-width: 400px;
+font-size: 43px;
+padding-bottom: 7px;
+text-align: center;
   font-family: 'conthraxsb';
   font-weight: 200;
   letter-spacing: 0px;
@@ -222,7 +223,6 @@ export const MoonverseInfo = styled.div`
 `
 
 export const Problems = styled.div`
-  padding-top: 160px;
   height: 1200px;
   position: sticky;
   top: 0;
@@ -230,7 +230,7 @@ export const Problems = styled.div`
   // background-image: url(${problembackground});
   padding-right: 50px;
   background-repeat: no-repeat;
-  padding-top: 20px;
+  padding-top: 0px;
 
   @media screen and (max-width: 1050px) {
     display: grid;
@@ -380,7 +380,7 @@ export const Pointers = styled.div`
 `
 export const DiscoverDiv = styled.div`
   position: relative;
-  
+  padding-top: 35px;
 `
 
 export const Discover = styled.div`
@@ -576,14 +576,14 @@ export const InternalText = styled.div`
     font-size: 8px;
   }
 `
-export const TokenContainer = styled.div``
-export const TokenTextWrapper = styled.div`
-padding-top: 100px;
+export const TokenContainer = styled.div`
 height: 1200px;
 position: sticky;
 top: 0;
-  padding-bottom: 30px;
-  display: grid;
+`
+export const TokenTextWrapper = styled.div`
+  justify-content: center;
+  display: flex;
   padding-left: 74px;
   grid-gap: 20px;
   @media screen and (max-width: 720px) {
@@ -605,27 +605,39 @@ export const TokenText = styled.div`
   }
 `
 export const Utilities = styled.div`
-  display: grid;
+display: flex;
+flex-wrap: wrap;
   justify-content: center;
-  grid-gap: 30px;
-  grid-template-columns: repeat(auto-fit, minmax(500px, 3fr));
-  padding: 0px 70px 70px 70px;
-  align-items: center;
-  justify-items: center;
+  grid-gap: 2px 200px;
+    padding: 0px 100px 70px 100px;
   @media screen and (max-width: 720px) {
-    grid-gap: 10px;
+    grid-gap: 3px 131px;
+    padding: 0px 50px 70px 50px;
   }
 `
+export const UtilitiesWrapperDiv = styled.div`
+display: flex;
+    margin: 0 auto;
+    width: fit-content;
+    gap: 110px;
+`;
+
 export const UtilitiesWrapper = styled.div`
   justify-content: center;
+  img{
+    width: 100%;
+    max-width: 404px;
+    height: 220px;
+  }
   .utilities_type {
     @media screen and (max-width: 740px) {
-      width: 290px;
+      height: 220px;
+
     }
   }
   .nft_type {
     @media screen and (max-width: 740px) {
-      width: 310px;
+      width: 150px;
     }
   }
 
@@ -695,17 +707,19 @@ export const Heading = styled.div`
   }
 `
 export const RoadmapHeading = styled.div`
-  text-align: center;
+margin-left: 100px;
   font-size: 52px;
   font-family: 'conthraxsb';
   font-weight: 200;
   letter-spacing: 0px;
   opacity: 1;
   z-index: 2;
-  color: #a884f5;
+  color: #9945F8;
   margin-top: 20px;
   margin-bottom: 0px;
-  text-shadow: #a884f5 5px 0 15px;
+  >span{
+    color: #FFFFFF; 
+  }
   @media screen and (max-width: 740px) {
     font-size: 25px;
     margin-top: 70px;
@@ -713,8 +727,42 @@ export const RoadmapHeading = styled.div`
   }
 `
 export const Roadmap = styled.div`
-  margin-top: 20px;
-`
+padding-top: 100px;
+height: 1200px;
+position: sticky;
+top: 0;
+`;
+
+export const RoadmapDivWrapper = styled.div`
+display: flex;
+margin-left: 35px;
+
+>img{
+  width: 100px;
+  height: 125px;
+}
+>div{
+  display: flex;
+  flex-direction: column;
+>h5{
+  color: #ffffff;
+  margin-bottom: 0;
+  >span{
+    color: #9945F8;
+  }
+}
+>p{
+  margin-top: 0;
+  max-width: 558px;
+    width: 100%;
+    height: 64px;
+    text-align: left;
+    font: normal normal 100 21px/42px Outfit;
+    letter-spacing: 0px;
+    color: #FFFFFF;
+}
+}
+`;
 export const RoadmapImagewapper = styled.div`
   display: flex;
 `
@@ -723,7 +771,7 @@ export const RoadmapContent = styled.div`
     display: none;
     @media screen and (max-width: 740px) {
       display: block;
-      background: url(${roadmapbackground});
+      // background: url(${roadmapbackground});
       background-size: 100% 1500px;
       background-repeat: no-repeat;
     }

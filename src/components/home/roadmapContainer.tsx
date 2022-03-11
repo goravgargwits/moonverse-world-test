@@ -1,18 +1,58 @@
-import { Roadmap, RoadmapImagewapper, RoadmapHeading, RoadmapContent } from 'styles/pages/home'
+import { useEffect } from 'react'
+import { Roadmap, RoadmapImagewapper, RoadmapHeading, RoadmapContent, ScrollContainer, RoadmapDivWrapper } from 'styles/pages/home'
 import roadmapwrapper from 'assets/images/roadmap.png'
-import mobileroadmapwrapper from 'assets/images/mobileroadmap.png'
+import RoadmapPoints from 'assets/images/RoadmapPoints.png'
+import AOS from 'aos'
+import 'aos/dist/aos.css'
 
 const RoadmapWrapper = () => {
+  useEffect(() => {
+    AOS.init({
+      duration : 2500,
+    })
+  }, [])
   return (
-    <Roadmap>
-      <RoadmapHeading>Roadmap</RoadmapHeading>
-      <RoadmapImagewapper>
-        <RoadmapContent>
-          <img src={roadmapwrapper} className="web_roadmap" />
-          <img src={mobileroadmapwrapper} className="mobile_roadmap" />
-        </RoadmapContent>
-      </RoadmapImagewapper>
+    <ScrollContainer>
+    <Roadmap data-aos={'fade-down-left'} data-aos-delay={1000}>
+      <RoadmapHeading>ROAD<span>MAP</span></RoadmapHeading>
+  <RoadmapDivWrapper>
+    <img src={RoadmapPoints} alt="roadmap-points" />
+    <div>
+    <h5>
+      Q1 <span>2022</span>
+    </h5>
+    <p>NFT marketplace Launch (done) Open World Alpha Exclusive NFT Drop Initial Partnership Projects Launch</p>
+    </div>
+  </RoadmapDivWrapper>
+  <RoadmapDivWrapper>
+    <img src={RoadmapPoints} alt="roadmap-points" />
+    <div>
+    <h5>
+      Q2 <span>2022</span>
+    </h5>
+    <p>Metaverse land sale Pvp game beta</p>
+    </div>
+  </RoadmapDivWrapper>
+  <RoadmapDivWrapper>
+    <img src={RoadmapPoints} alt="roadmap-points" />
+    <div>
+    <h5>
+      Q3 <span>2022</span>
+    </h5>
+    <p>Metaverse land sale Pvp game beta</p>
+    </div>
+  </RoadmapDivWrapper>
+  <RoadmapDivWrapper>
+    <img src={RoadmapPoints} alt="roadmap-points" />
+    <div>
+    <h5>
+      Q1 <span>2023</span>
+    </h5>
+    <p>Official Launch</p>
+    </div>
+  </RoadmapDivWrapper>
     </Roadmap>
+    </ScrollContainer>
   )
 }
 
