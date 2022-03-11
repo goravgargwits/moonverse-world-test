@@ -107,7 +107,7 @@ export const Title = styled.div`
 `
 export const Text = styled.div`
   text-align: left;
-  font-family: Outfit; 
+  font-family: Outfit;
   font-size: 21px;
   font-weight: 100;
   color: #c1c0c0;
@@ -192,7 +192,7 @@ export const Player = styled.div`
 `
 
 export const ScrollContainer = styled.section`
-  min-height: 450vh;
+  min-height: 600vh;
   position: relative;
 `
 
@@ -261,7 +261,7 @@ export const ProblemsTitle = styled.div`
   z-index: 3;
   color: #fff;
   width: 100%;
-  margin-bottom:30px;
+  margin-bottom: 30px;
   max-width: 582px;
   @media screen and (max-width: 740px) {
     font-size: 25px;
@@ -346,7 +346,7 @@ export const Pointers = styled.div`
   background-repeat: no-repeat;
   overflow: visible;
   position: relative;
-  margin-left:auto;
+  margin-left: auto;
 
   > img {
     position: absolute;
@@ -378,7 +378,6 @@ export const Pointers = styled.div`
 `
 export const DiscoverDiv = styled.div`
   position: relative;
-  
 `
 
 export const Discover = styled.div`
@@ -417,22 +416,22 @@ export const Discover = styled.div`
 export const Model = styled.div`
   position: relative;
   width: 100%;
-  font-family: Outfit; 
+  font-family: Outfit;
   border-radius: 12px;
   opacity: 1;
   padding: 15px;
   top: 0px;
   left: 0px;
-  padding-left:80px;
-  span{
+  padding-left: 80px;
+  span {
     position: absolute;
-    left:0px;
+    left: 0px;
     top: 19px;
     width: 70px;
-    img{
+    img {
       width: 50px;
     }
-    }
+  }
   justify-self: flex-end;
   align-self: center;
   @media screen and (max-width: 720px) {
@@ -448,19 +447,19 @@ export const Monetization = styled.div`
   opacity: 1;
   padding: 15px;
   right: 0;
-  font-family: Outfit; 
+  font-family: Outfit;
   justify-self: center;
   align-self: center;
-  padding-left:80px;
-  span{
+  padding-left: 80px;
+  span {
     position: absolute;
-    left:0px;
+    left: 0px;
     top: 19px;
     width: 70px;
-    img{
+    img {
       width: 50px;
     }
-    }
+  }
   @media screen and (max-width: 1120px) {
     align-self: end;
   }
@@ -470,7 +469,7 @@ export const Monetization = styled.div`
 `
 export const InternalTitle = styled.div`
   text-align: left;
-  font-family: Outfit; 
+  font-family: Outfit;
   font-size: 17px;
   letter-spacing: 0px;
   color: #a884f5;
@@ -483,7 +482,7 @@ export const InternalTitle = styled.div`
 `
 export const InternalText = styled.div`
   text-align: left;
-  font-family: Outfit; 
+  font-family: Outfit;
   font-size: 15px;
   letter-spacing: 0px;
   color: #b0b0b0;

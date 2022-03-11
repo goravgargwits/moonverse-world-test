@@ -1,10 +1,9 @@
 import { Suspense, useEffect, useState } from 'react'
 import { Canvas, useThree } from '@react-three/fiber'
 import { useLoader, useFrame } from '@react-three/fiber'
-import { Environment, SpotLight } from '@react-three/drei'
+import { SpotLight } from '@react-three/drei'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 import * as THREE from 'three'
-import { AmbientLight } from 'three'
 // import { CanvasWrapper } from 'styles/pages/home'
 
 // const lerp = (start: number, end: number, amt: number): number => {
@@ -18,9 +17,9 @@ const normalize = (val: number, max: number, min: number): number => {
 const Model = ({ setAnimation }: any) => {
   // console.log(scroll);
   const { camera: mainCamera } = useThree()
-  const gltf = useLoader(GLTFLoader, './Astro.glb', undefined, (event) => console.log('event', event))
+  const gltf = useLoader(GLTFLoader, './newModel.glb')
   // const [rotation, setRotation] = useState(false)
-  const defaultFocalLength = 60
+  const defaultFocalLength = 100
   const scale = 15.5
 
   const mixer = new THREE.AnimationMixer(gltf.scene)
@@ -28,8 +27,6 @@ const Model = ({ setAnimation }: any) => {
   //   mainCamera.lookAt()
 
   const cam = mainCamera as any
-
-  mainCamera.lookAt(-0.4, 1, 0)
 
   console.log(gltf)
 
@@ -59,6 +56,7 @@ const Model = ({ setAnimation }: any) => {
     // cam.fov = blenderCamera.fov
     // cam.far = blenderCamera.far
     // cam.near = blenderCamera.near
+    mainCamera.lookAt(-0.4, 1, 0)
 
     console.log(gltf.animations[0])
     startAnimation()
@@ -67,35 +65,9 @@ const Model = ({ setAnimation }: any) => {
   console.log(mixer)
 
   useFrame(() => {
-    // const camera = state.camera as any
-
-    // gltf.animations.forEach((clip) => {
-    //   const action = mixer.clipAction(clip)
-    //   action?.play()
-    // })
     const timeValue = normalize(window.scrollY, window.innerHeight / 1.5, 0)
 
-    console.log(gltf?.animations?.[0]?.duration, timeValue)
-
     mixer?.setTime(timeValue)
-
-    // console.log(mixer.setTime(10))
-
-    // state.camera.lookAt(0, 1.4, 0)
-
-    // if (rotation) {
-    //   const rotationValue = normalize(
-    //     window.scrollY,
-    //     problemSection.getBoundingClientRect().top + problemSection.getBoundingClientRect().height,
-    //     problemSection.getBoundingClientRect().top,
-    //   )
-    //   console.log(rotationValue * 0.01)
-    //   gltf.scene.rotation.y += rotationValue
-    // }
-
-    // console.log(100 + cameraValue * 100)
-    // const focalLength = defaultFocalLength - cameraValue * 100
-    // if (focalLength > 200) camera.setFocalLength(focalLength)
   })
 
   const onScroll = () => {
@@ -127,28 +99,35 @@ const Model = ({ setAnimation }: any) => {
   })
   return (
     <>
-      <primitive object={gltf.scene} scale={scale} position={[35, 1, 0]} />
+      <primitive object={gltf.scene} scale={scale} position={[10, -12, 0]} />
     </>
   )
 }
 
 export default function App() {
   const [animation, setAnimation] = useState()
+
+  console.log(animation)
   return (
     // <CanvasWrapper>
     <>
       {/* <button onClick={animation}>Hello</button> */}
       <Canvas className="model-container">
         <Suspense fallback={null}>
-          {/* <ambientLight intensity={0.3} /> */}
+          <directionalLight intensity={0.8} position={[-10, -100, 20]} color="purple" />
+          <directionalLight intensity={0.8} position={[10, -100, 50]} color="#19420c" />
+          {/* <spotLight intensity={0.5} position={[-10, -100, 20]} color="purple" /> */}
+          {/* <spotLight intensity={0.5} position={[0, 10, 20]} color="#194d0a" /> */}
+          {/* <pointLight position={[0, 10, -20]} color="purple" intensity={2.2} /> */}
+          {/* <pointLight position={[50, 10, 20]} color="green" intensity={2} /> */}
           <Model setAnimation={setAnimation} />
-          <Environment preset="warehouse" background={false} />
+          {/* <Environment preset="warehouse" background={false} /> */}
           <SpotLight
             distance={6}
             angle={0.45}
             attenuation={10}
             color="purple"
-            opacity={0.001}
+            opacity={1}
             anglePower={10} // Diffuse-cone anglePower (default: 5)
           />
         </Suspense>
