@@ -144,17 +144,33 @@ export default function App() {
           {/* <ambientLight intensity={0.3} /> */}
           <ambientLight intensity={0.1} />
           <directionalLight
-            intensity={0.8} position={[0, -100, 20]} color="purple"
+            intensity={5.8} position={[0, -100, 20]} color="black"
           />
           <Model setAnimation={setAnimation} />
           <Environment preset="warehouse" background={false} />
           <SpotLight
-            distance={6}
+            distance={8}
             angle={0.45}
             attenuation={10}
-            color="purple"
-            opacity={1.8}
+            color="black"
+            opacity={0.8}
             anglePower={15} // Diffuse-cone anglePower (default: 5)
+          />
+          <SpotLight
+            distance={10}
+            angle={0.30}
+            attenuation={10}
+            color="white"
+            opacity={0.4}
+            anglePower={5} // Diffuse-cone anglePower (default: 5)
+          />
+          <SpotLight
+            distance={5}
+            angle={0.30}
+            attenuation={18}
+            color="#fa708c"
+            opacity={0.5}
+            anglePower={10} // Diffuse-cone anglePower (default: 5)
           />
         </Suspense>
       </Canvas>

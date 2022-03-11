@@ -1,4 +1,4 @@
-import { TokenContainer, Title, TokenTextWrapper, TokenText, Utilities, UtilitiesWrapper } from 'styles/pages/home'
+import { ScrollContainer, TokenContainer, Title, TokenTextWrapper, TokenText, Utilities, UtilitiesWrapper } from 'styles/pages/home'
 import tokenfirst from 'assets/images/tokenone.png'
 import nfttoken from 'assets/images/nfttoken.png'
 import tokenthird from 'assets/images/tokentthree.png'
@@ -8,6 +8,7 @@ import tokensixth from 'assets/images/tokensix.png'
 
 const TokenUtilitiesWrapper = () => {
   return (
+    <ScrollContainer>
     <TokenContainer>
       <TokenTextWrapper>
         <Title>Token Utilities</Title>
@@ -34,6 +35,7 @@ const TokenUtilitiesWrapper = () => {
         </UtilitiesWrapper>
       </Utilities>
     </TokenContainer>
+    </ScrollContainer>
   )
 }
 

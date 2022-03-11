@@ -393,14 +393,42 @@ export const Discover = styled.div`
     align-self: center;
     top: 0;
     left: 0;
-    padding-left:80px;
+    padding-left: 116px;
+    margin-bottom: 40px;
   span{
     position: absolute;
     left:0px;
-    top: 19px;
-    width: 70px;
+    top: 5px;
+    border-radius: 50%;
+    height: 90px;
+    width: 90px;
+    line-height: 127px;
+    text-align: center;
+    // background: #9945F8;
+    z-index:0;
+    opacity: 0.78;
+   
+    &:after{
+      position: absolute;
+      left:0px;
+      top: 0px;
+      opacity: 0.78;
+      content:"";
+      background: #9945F8;
+      height: 100%;
+      border-radius: 50%;
+      width: 100%;
+      box-shadow: 0px 0px 50px #9945f8;
+      filter: blur(10px);
+    -webkit-filter: blur(10px);
+    -moz-filter: blur(10px);
+    -o-filter: blur(10px);
+    -ms-filter: blur(10px);
+    z-index:-1;
+    }
     img{
       width: 50px;
+     
     }
     }
     }
@@ -425,12 +453,39 @@ export const Model = styled.div`
   padding: 15px;
   top: 0px;
   left: 0px;
-  padding-left:80px;
+  padding-left: 116px;
+  margin-bottom: 40px;
   span{
     position: absolute;
-    left:0px;
-    top: 19px;
-    width: 70px;
+    left: 0px;
+    top: -5px;
+    border-radius: 50%;
+    height: 90px;
+    width: 90px;
+    line-height: 127px;
+    text-align: center;
+    z-index: 0;
+    opacity: 0.78;
+    &:after{
+      position: absolute;
+      left:0px;
+      top: 0px;
+      opacity: 0.78;
+      content:"";
+      background: #9945F8;
+      height: 100%;
+      border-radius: 50%;
+      width: 100%;
+      box-shadow: 0px 0px 50px #9945f8;
+      filter: blur(10px);
+    -webkit-filter: blur(10px);
+    -moz-filter: blur(10px);
+    -o-filter: blur(10px);
+    -ms-filter: blur(10px);
+    z-index:-1;
+    }
+   
+    
     img{
       width: 50px;
     }
@@ -453,12 +508,37 @@ export const Monetization = styled.div`
   font-family: Outfit; 
   justify-self: center;
   align-self: center;
-  padding-left:80px;
+  padding-left: 116px;
+    margin-bottom: 40px;
   span{
     position: absolute;
-    left:0px;
-    top: 19px;
-    width: 70px;
+    left: 0px;
+    top: 5px;
+    border-radius: 50%;
+    height: 90px;
+    width: 90px;
+    line-height: 127px;
+    text-align: center;
+    z-index: 0;
+    opacity: 0.78;
+    &:after{
+      position: absolute;
+      left:0px;
+      top: 0px;
+      opacity: 0.78;
+      content:"";
+      background: #9945F8;
+      height: 100%;
+      border-radius: 50%;
+      width: 100%;
+      box-shadow: 0px 0px 50px #9945f8;
+      filter: blur(10px);
+    -webkit-filter: blur(10px);
+    -moz-filter: blur(10px);
+    -o-filter: blur(10px);
+    -ms-filter: blur(10px);
+    z-index:-1;
+    }
     img{
       width: 50px;
     }
