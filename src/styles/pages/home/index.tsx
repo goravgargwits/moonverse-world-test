@@ -192,13 +192,13 @@ export const Player = styled.div`
 `
 
 export const ScrollContainer = styled.section`
-  min-height: 450vh;
+  min-height: 600vh;
   position: relative;
 `
 
 export const MoonverseInfo = styled.div`
   padding-top: 100px;
-  height: 800px;
+  height: 1200px;
   position: sticky;
   top: 0;
 
@@ -269,8 +269,10 @@ export const ProblemsTitle = styled.div`
   }
 `
 export const ParticipateContainer = styled.div`
-  width: 100%;
-  height: 800px;
+padding-top: 100px;
+height: 1200px;
+position: sticky;
+top: 0;
 
   background-repeat: no-repeat;
   background-size: 100vw 900px;
@@ -496,7 +498,10 @@ export const InternalText = styled.div`
 `
 export const TokenContainer = styled.div``
 export const TokenTextWrapper = styled.div`
-  padding-top: 30px;
+padding-top: 100px;
+height: 1200px;
+position: sticky;
+top: 0;
   padding-bottom: 30px;
   display: grid;
   padding-left: 74px;

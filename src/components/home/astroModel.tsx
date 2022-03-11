@@ -21,7 +21,7 @@ const Model = ({ setAnimation }: any) => {
   const gltf = useLoader(GLTFLoader, './Astro.glb', undefined, (event) => console.log('event', event))
   // const [rotation, setRotation] = useState(false)
   const defaultFocalLength = 60
-  const scale = 15.5
+  const scale = 21.5
 
   const mixer = new THREE.AnimationMixer(gltf.scene)
 
@@ -29,7 +29,7 @@ const Model = ({ setAnimation }: any) => {
 
   const cam = mainCamera as any
 
-  mainCamera.lookAt(-0.4, 1, 0)
+  mainCamera.lookAt(-0.8, 1.4, 0)
 
   console.log(gltf)
 
