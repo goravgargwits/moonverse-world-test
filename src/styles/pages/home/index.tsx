@@ -83,7 +83,7 @@ export const TextContainer = styled.div`
   display: grid;
   grid-gap: 10px;
   padding-left: 70px;
-  max-width: 475px;
+  max-width: 550px;
   @media screen and (max-width: 740px) {
     padding-left: 30px;
     max-width: 250px;
@@ -91,27 +91,30 @@ export const TextContainer = styled.div`
 `
 export const Title = styled.div`
   text-align: left;
+  max-width: 315px;
   font-size: 52px;
-  font-family: Outfit;
+  font-family: 'conthraxsb';
   font-weight: 200;
   letter-spacing: 0px;
   opacity: 1;
+  line-height: 1.2;
   z-index: 2;
-  color: #a884f5;
-  text-shadow: #a884f5 5px 0 15px;
+  text-transform: uppercase;
+  color: #fff;
   @media screen and (max-width: 740px) {
     font-size: 25px;
   }
 `
 export const Text = styled.div`
   text-align: left;
-  font-family: Outfit;
-  font-size: 25px;
-  font-weight: 200;
-  color: #ffffff;
+  font-family: Outfit; 
+  font-size: 21px;
+  font-weight: 100;
+  color: #c1c0c0;
   opacity: 1;
   width: 100%;
-  max-width: 472px;
+  line-height: 1.5;
+  max-width: 600px;
   @media screen and (max-width: 740px) {
     font-size: 12px;
   }
@@ -189,13 +192,13 @@ export const Player = styled.div`
 `
 
 export const ScrollContainer = styled.section`
-  min-height: 650vh;
+  min-height: 450vh;
   position: relative;
 `
 
 export const MoonverseInfo = styled.div`
-  padding-top: 50px;
-  height: 1200px;
+  padding-top: 100px;
+  height: 800px;
   position: sticky;
   top: 0;
 
@@ -219,8 +222,11 @@ export const MoonverseInfo = styled.div`
 `
 
 export const Problems = styled.div`
+  padding-top: 160px;
+  height: 1200px;
+  position: sticky;
+  top: 0;
   display: flex;
-  height: 690px;
   // background-image: url(${problembackground});
   padding-right: 50px;
   background-repeat: no-repeat;
@@ -246,16 +252,16 @@ export const Problems = styled.div`
 `
 
 export const ProblemsTitle = styled.div`
-  padding-left: 74px;
   text-align: left;
   font-size: 52px;
-  font-family: Outfit;
+  font-family: 'conthraxsb';
   font-weight: 200;
   letter-spacing: 0px;
   opacity: 1;
   z-index: 3;
-  color: #a884f5;
+  color: #fff;
   width: 100%;
+  margin-bottom:30px;
   max-width: 582px;
   @media screen and (max-width: 740px) {
     font-size: 25px;
@@ -303,12 +309,13 @@ export const ParticipateContainer = styled.div`
 `
 export const PartcipateText = styled.div`
   text-align: left;
-  font-family: Outfit;
-  font-size: 25px;
+  font-family: 'outfit';
+  font-size: 15px;
   font-weight: 300;
-  color: #ffffff;
+  color: #b0b0b0;
   opacity: 1;
-  max-width: 1310px;
+  max-width: 510px;
+  line-height: 1.7;
   z-index: 2;
   @media screen and (max-width: 720px) {
     font-size: 11px;
@@ -317,6 +324,7 @@ export const PartcipateText = styled.div`
 `
 export const TextWrapper = styled.div`
   display: grid;
+  max-width: 57%;
   grid-gap: 20px;
   padding-left: 70px;
   align-self: flex-start;
@@ -329,9 +337,8 @@ export const TextWrapper = styled.div`
 `
 
 export const Pointers = styled.div`
-  display: grid;
-  width: 117%;
-  margin-right: 134px;
+  width: 500px;
+  margin-right: 50px;
   margin-top: 80px;
   background-position-x: center;
   background-position-y: center;
@@ -339,6 +346,7 @@ export const Pointers = styled.div`
   background-repeat: no-repeat;
   overflow: visible;
   position: relative;
+  margin-left:auto;
 
   > img {
     position: absolute;
@@ -346,7 +354,7 @@ export const Pointers = styled.div`
     top: -41px;
     width: 118vh;
     height: auto;
-    opacity: 0.2;
+    opacity: 0;
   }
   @media screen and (max-width: 1450px) {
     background-size: 655px 655px;
@@ -370,23 +378,31 @@ export const Pointers = styled.div`
 `
 export const DiscoverDiv = styled.div`
   position: relative;
-  display: grid;
+  
 `
 
 export const Discover = styled.div`
-  position: absolute;
-  width: 100%;
-  max-width: 303px;
-  background: #262166 0% 0% no-repeat padding-box;
-  box-shadow: inset 0px 17px 6px #00000029, 0px 3px 6px #00000029;
-  border-radius: 12px;
-  opacity: 1;
-  padding: 15px;
-  display: grid;
-  grid-gap: 5px;
-  align-self: center;
-  top: 155px;
-  left: -222px;
+    position: relative;
+    width: 100%;
+    border-radius: 12px;
+    font-family: Outfit; 
+    opacity: 1;
+    padding: 15px;
+    align-self: center;
+    top: 0;
+    left: 0;
+    padding-left:80px;
+  span{
+    position: absolute;
+    left:0px;
+    top: 19px;
+    width: 70px;
+    img{
+      width: 50px;
+    }
+    }
+    }
+  
 
   justify-self: center;
   @media screen and (max-width: 1120px) {
@@ -399,19 +415,24 @@ export const Discover = styled.div`
   }
 `
 export const Model = styled.div`
-  position: absolute;
+  position: relative;
   width: 100%;
-  max-width: 243px;
-  background: #262166 0% 0% no-repeat padding-box;
-  box-shadow: inset 0px 17px 6px #00000029, 0px 3px 6px #00000029;
+  font-family: Outfit; 
   border-radius: 12px;
   opacity: 1;
   padding: 15px;
-  display: grid;
-  grid-gap: 5px;
-  top: 0;
-  right: 370px;
-
+  top: 0px;
+  left: 0px;
+  padding-left:80px;
+  span{
+    position: absolute;
+    left:0px;
+    top: 19px;
+    width: 70px;
+    img{
+      width: 50px;
+    }
+    }
   justify-self: flex-end;
   align-self: center;
   @media screen and (max-width: 720px) {
@@ -420,21 +441,26 @@ export const Model = styled.div`
   }
 `
 export const Monetization = styled.div`
-  position: absolute;
+  position: relative;
   width: 100%;
   max-width: 434px;
-  background: #262166 0% 0% no-repeat padding-box;
-  box-shadow: inset 0px 17px 6px #00000029, 0px 3px 6px #00000029;
   border-radius: 12px;
   opacity: 1;
   padding: 15px;
-  display: grid;
-  grid-gap: 5px;
-  bottom: 150px;
-  left: -306px;
-
+  right: 0;
+  font-family: Outfit; 
   justify-self: center;
   align-self: center;
+  padding-left:80px;
+  span{
+    position: absolute;
+    left:0px;
+    top: 19px;
+    width: 70px;
+    img{
+      width: 50px;
+    }
+    }
   @media screen and (max-width: 1120px) {
     align-self: end;
   }
@@ -444,10 +470,12 @@ export const Monetization = styled.div`
 `
 export const InternalTitle = styled.div`
   text-align: left;
-  font-family: Outfit;
-  font-size: 23px;
+  font-family: Outfit; 
+  font-size: 17px;
   letter-spacing: 0px;
-  color: #ffffff;
+  color: #a884f5;
+  font-weight: bold;
+  margin-bottom: 8px;
   opacity: 1;
   @media screen and (max-width: 720px) {
     font-size: 12px;
@@ -455,11 +483,13 @@ export const InternalTitle = styled.div`
 `
 export const InternalText = styled.div`
   text-align: left;
-  font-family: Outfit;
-  font-size: 17px;
+  font-family: Outfit; 
+  font-size: 15px;
   letter-spacing: 0px;
-  color: #ffffff;
+  color: #b0b0b0;
+  font-weight: 100;
   opacity: 1;
+  line-height: 1.7;
   @media screen and (max-width: 720px) {
     font-size: 8px;
   }
@@ -478,7 +508,7 @@ export const TokenTextWrapper = styled.div`
 `
 export const TokenText = styled.div`
   text-align: left;
-  font-family: Outfit;
+  font-family: 'conthraxsb';
   font-size: 25px;
   font-weight: 300;
   color: #ffffff;
@@ -565,7 +595,7 @@ export const PartnersContent = styled.div`
 export const Heading = styled.div`
   text-align: center;
   font-size: 52px;
-  font-family: Outfit;
+  font-family: 'conthraxsb';
   font-weight: 200;
   letter-spacing: 0px;
   opacity: 1;
@@ -582,7 +612,7 @@ export const Heading = styled.div`
 export const RoadmapHeading = styled.div`
   text-align: center;
   font-size: 52px;
-  font-family: Outfit;
+  font-family: 'conthraxsb';
   font-weight: 200;
   letter-spacing: 0px;
   opacity: 1;
@@ -665,7 +695,7 @@ export const QuickWrapper = styled.div`
 `
 export const Links = styled.div`
   text-align: left;
-  font-family: Outfit;
+  font-family: 'conthraxsb';
   font-size: 20px;
   letter-spacing: 0px;
   color: #6d6c87;
@@ -677,7 +707,7 @@ export const Links = styled.div`
 `
 export const QuicklinkTitle = styled.div`
   text-align: left;
-  font-family: Outfit;
+  font-family: 'conthraxsb';
   font-size: 25px;
   letter-spacing: 0px;
   color: #ffffff;
@@ -690,7 +720,7 @@ export const QuicklinkTitle = styled.div`
 export const ChannelsWrapper = styled.div`
   align-self: flex-end;
   text-align: left;
-  font-family: Outfit;
+  font-family: 'conthraxsb';
   font-size: 20px;
   letter-spacing: 0px;
   color: #6d6c87;

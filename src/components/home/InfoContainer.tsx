@@ -5,7 +5,7 @@ const MoonverseInfoWrapper = () => {
     <ScrollContainer>
       <MoonverseInfo id="moonverse">
         <TextContainer>
-          <Title>What is Moonverse</Title>
+          <Title>What is Moonverse?</Title>
           <Text>Collectibles Social Metaverse that provides all NFT holders utility in a 3D world</Text>
         </TextContainer>
       </MoonverseInfo>
