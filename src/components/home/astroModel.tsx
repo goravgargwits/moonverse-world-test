@@ -20,8 +20,8 @@ const Model = ({ setAnimation }: any) => {
   const { camera: mainCamera } = useThree()
   const gltf = useLoader(GLTFLoader, './Astro.glb', undefined, (event) => console.log('event', event))
   // const [rotation, setRotation] = useState(false)
-  const defaultFocalLength = 60
-  const scale = 21.5
+  const defaultFocalLength = 90
+  const scale = 40.5
 
   const mixer = new THREE.AnimationMixer(gltf.scene)
 
@@ -29,7 +29,7 @@ const Model = ({ setAnimation }: any) => {
 
   const cam = mainCamera as any
 
-  mainCamera.lookAt(-0.8, 1.4, 0)
+  // mainCamera.lookAt(-0.2, 0, 0)
 
   console.log(gltf)
 
@@ -66,7 +66,7 @@ const Model = ({ setAnimation }: any) => {
 
   console.log(mixer)
 
-  useFrame(() => {
+  useFrame((state,delta) => {
     // const camera = state.camera as any
 
     // gltf.animations.forEach((clip) => {
@@ -79,6 +79,7 @@ const Model = ({ setAnimation }: any) => {
 
     mixer?.setTime(timeValue)
 
+    mainCamera.lookAt(-0.2, 0, 0)
     // console.log(mixer.setTime(10))
 
     // state.camera.lookAt(0, 1.4, 0)
@@ -127,7 +128,7 @@ const Model = ({ setAnimation }: any) => {
   })
   return (
     <>
-      <primitive object={gltf.scene} scale={scale} position={[35, 1, 0]} />
+      <primitive object={gltf.scene} scale={scale} position={[105,-185, 0]} />
     </>
   )
 }
@@ -141,6 +142,10 @@ export default function App() {
       <Canvas className="model-container">
         <Suspense fallback={null}>
           {/* <ambientLight intensity={0.3} /> */}
+          <ambientLight intensity={0.1} />
+          <directionalLight
+            intensity={0.8} position={[0, -100, 20]} color="purple"
+          />
           <Model setAnimation={setAnimation} />
           <Environment preset="warehouse" background={false} />
           <SpotLight
@@ -148,8 +153,8 @@ export default function App() {
             angle={0.45}
             attenuation={10}
             color="purple"
-            opacity={0.001}
-            anglePower={10} // Diffuse-cone anglePower (default: 5)
+            opacity={1.8}
+            anglePower={15} // Diffuse-cone anglePower (default: 5)
           />
         </Suspense>
       </Canvas>
