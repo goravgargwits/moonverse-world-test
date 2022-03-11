@@ -736,10 +736,18 @@ top: 0;
 export const RoadmapDivWrapper = styled.div`
 display: flex;
 margin-left: 35px;
+position: relative;
 
 >img{
   width: 100px;
   height: 125px;
+}
+.fire-gif{
+  position: absolute;
+  width: 40px;
+  height: 60px;
+  top: 18px;
+  left: 30px;
 }
 >div{
   display: flex;
