@@ -15,7 +15,7 @@ const TokenUtilitiesWrapper = () => {
     })
   }, [])
   return (
-    <ScrollContainer>
+    <ScrollContainer id='token-utilities'>
     <TokenContainer data-aos={'fade-up'} data-aos-delay={1000}>
       <TokenTextWrapper>
         <TokenTitle>Token Utilities</TokenTitle>
