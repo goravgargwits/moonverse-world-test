@@ -6,11 +6,11 @@ import 'aos/dist/aos.css'
 const MoonverseInfoWrapper = () => {
   useEffect(() => {
     AOS.init({
-      duration : 2500,
+      duration: 2500,
     })
   }, [])
   return (
-    <ScrollContainer>
+    <ScrollContainer id="moonverse-container">
       <MoonverseInfo data-aos={'fade-up'} data-aos-delay={1000} id="moonverse">
         <TextContainer>
           <Title>What is Moonverse?</Title>

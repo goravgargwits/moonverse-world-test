@@ -1,6 +1,5 @@
 import { useEffect } from 'react'
-import { Roadmap, RoadmapImagewapper, RoadmapHeading, RoadmapContent, ScrollContainer, RoadmapDivWrapper } from 'styles/pages/home'
-import roadmapwrapper from 'assets/images/roadmap.png'
+import { Roadmap, RoadmapHeading, ScrollContainer, RoadmapDivWrapper } from 'styles/pages/home'
 import RoadmapPoints from 'assets/images/RoadmapPoints.png'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
@@ -9,7 +8,7 @@ import fireGif from 'assets/gif/fire.gif'
 const RoadmapWrapper = () => {
   useEffect(() => {
     AOS.init({
-      duration : 2500,
+      duration: 2500,
     })
   }, [])
   return (

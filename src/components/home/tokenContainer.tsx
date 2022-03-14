@@ -5,14 +5,13 @@ import tokentwo from 'assets/images/tokentwo.png'
 import tokenThree from 'assets/images/tokenThree.png'
 import tokenFour from 'assets/images/tokenfour.png'
 import tokenFive from 'assets/images/tokenfive.png'
-import tokensixth from 'assets/images/tokensix.png'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 
 const TokenUtilitiesWrapper = () => {
   useEffect(() => {
     AOS.init({
-      duration : 2500,
+      duration: 2500,
     })
   }, [])
   return (
@@ -56,8 +55,8 @@ const TokenUtilitiesWrapper = () => {
         <UtilitiesWrapper>
           <img src={tokensixth} className="utilities_type" />
         </UtilitiesWrapper> */}
-      </Utilities>
-    </TokenContainer>
+        </Utilities>
+      </TokenContainer>
     </ScrollContainer>
   )
 }

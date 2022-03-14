@@ -7,11 +7,11 @@ import 'aos/dist/aos.css'
 const ParticipateWrapper = () => {
   useEffect(() => {
     AOS.init({
-      duration : 2500,
+      duration: 2500,
     })
   }, [])
   return (
-    <ScrollContainer>
+    <ScrollContainer id='participate-container'>
     <ParticipateContainer data-aos={'fade-up'} data-aos-delay={1000} id="participate_container">
       <TextWrapper>
         <Title>Participate to Earn</Title>

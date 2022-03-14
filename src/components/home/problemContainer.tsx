@@ -21,7 +21,7 @@ import 'aos/dist/aos.css'
 const ProblemsWrapper = () => {
   useEffect(() => {
     AOS.init({
-      duration : 2500,
+      duration: 2500,
     })
   }, [])
   return (
@@ -31,19 +31,25 @@ const ProblemsWrapper = () => {
         <Pointers>
           <img src={pointerbackground} />
           <DiscoverDiv>
-          <ProblemsTitle>Problems We Are Solving</ProblemsTitle>
+            <ProblemsTitle>Problems We Are Solving</ProblemsTitle>
             <Discover>
-              <span className='problem-loader'><img src={problemsSolving}/></span>
+              <span className="problem-loader">
+                <img src={problemsSolving} />
+              </span>
               <InternalTitle>Discover</InternalTitle>
               <InternalText>Current NFT platforms are lacking discovery and social elements</InternalText>
             </Discover>
             <Model>
-            <span className='problem-loader'><img src={problemsSolving1}/></span>
+              <span className="problem-loader">
+                <img src={problemsSolving1} />
+              </span>
               <InternalTitle>3D Model Scalability</InternalTitle>
               <InternalText>Difficult to produce and integrate 3D models quickly</InternalText>
             </Model>
             <Monetization>
-            <span className='problem-loader'><img src={problemsSolving2}/></span>
+              <span className="problem-loader">
+                <img src={problemsSolving2} />
+              </span>
               <InternalTitle>Monetization</InternalTitle>
               <InternalText>
                 Profile Picture and Gaming projects are unable to provide a comprehensive “Earn” mechanism after mint or
