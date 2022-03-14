@@ -12,7 +12,7 @@ const ParticipateWrapper = () => {
   }, [])
   return (
     <ScrollContainer>
-    <ParticipateContainer data-aos={'fade-down-right'} data-aos-delay={1000} id="participate_container">
+    <ParticipateContainer data-aos={'fade-up'} data-aos-delay={1000} id="participate_container">
       <TextWrapper>
         <Title>Participate to Earn</Title>
         <PartcipateText>

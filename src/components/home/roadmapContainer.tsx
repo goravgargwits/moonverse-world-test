@@ -14,7 +14,7 @@ const RoadmapWrapper = () => {
   }, [])
   return (
     <ScrollContainer>
-    <Roadmap data-aos={'fade-down-left'} data-aos-delay={1000}>
+    <Roadmap data-aos={'fade-up'} data-aos-delay={1000}>
       <RoadmapHeading>ROAD<span>MAP</span></RoadmapHeading>
   <RoadmapDivWrapper>
     <img src={RoadmapPoints} alt="roadmap-points" />

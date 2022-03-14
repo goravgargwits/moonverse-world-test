@@ -93,6 +93,24 @@ export const Title = styled.div`
 max-width: 400px;
 font-size: 43px;
 padding-bottom: 7px;
+text-align: left;
+  font-family: 'conthraxsb';
+  font-weight: 200;
+  letter-spacing: 0px;
+  opacity: 1;
+  line-height: 1.2;
+  z-index: 2;
+  text-transform: uppercase;
+  color: #fff;
+  @media screen and (max-width: 740px) {
+    font-size: 25px;
+  }
+`
+
+export const TokenTitle = styled.div`
+max-width: 400px;
+font-size: 43px;
+padding-bottom: 7px;
 text-align: center;
   font-family: 'conthraxsb';
   font-weight: 200;
@@ -106,6 +124,7 @@ text-align: center;
     font-size: 25px;
   }
 `
+
 export const Text = styled.div`
   text-align: left;
   font-family: Outfit; 

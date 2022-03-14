@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { TokenContainer, Title, TokenTextWrapper, TokenText, Utilities, UtilitiesWrapper, ScrollContainer, Scroll } from 'styles/pages/home'
+import { TokenContainer, Title, TokenTextWrapper, TokenText, Utilities, UtilitiesWrapper, ScrollContainer, Scroll, TokenTitle } from 'styles/pages/home'
 import tokenfirst from 'assets/images/tokenone.png'
 import tokentwo from 'assets/images/tokentwo.png'
 import tokenThree from 'assets/images/tokenThree.png'
@@ -17,9 +17,9 @@ const TokenUtilitiesWrapper = () => {
   }, [])
   return (
     <ScrollContainer>
-    <TokenContainer data-aos={'zoom-in-up'} data-aos-delay={1000}>
+    <TokenContainer data-aos={'fade-up'} data-aos-delay={1000}>
       <TokenTextWrapper>
-        <Title>Token Utilities</Title>
+        <TokenTitle>Token Utilities</TokenTitle>
         {/* <TokenText>$MOONV will be the utility token for the Moonverse economy. Utilities include:</TokenText> */}
       </TokenTextWrapper>
       <Utilities>
