@@ -1,86 +1,95 @@
-import { Suspense, useEffect, useState } from 'react'
+import { Suspense, useEffect, useState, useRef } from 'react'
 import { Canvas, useThree } from '@react-three/fiber'
 import { useLoader, useFrame } from '@react-three/fiber'
-import { SpotLight } from '@react-three/drei'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 import * as THREE from 'three'
-// import { CanvasWrapper } from 'styles/pages/home'
-
-// const lerp = (start: number, end: number, amt: number): number => {
-//   return (1 - amt) * start + amt * end
-// }
 
 const normalize = (val: number, max: number, min: number): number => {
   return (val - min) / (max - min)
 }
 
 const Model = ({ setAnimation }: any) => {
-  // console.log(scroll);
   const { camera: mainCamera } = useThree()
   const gltf = useLoader(GLTFLoader, './newModel.glb')
-  // const [rotation, setRotation] = useState(false)
-  const defaultFocalLength = 100
-  const scale = 15.5
+  const moonverseContainer = document.getElementById('moonverse-container')?.getBoundingClientRect()
+  const defaultFocalLength = 90
+  const scale = 40.5
+  // const documentHeight = document.documentElement.getBoundingClientRect().height
+  const { MathUtils } = THREE
+
+  const mainLight = useRef<any>(null)
+  const secondaryLight = useRef<any>(null)
 
   const mixer = new THREE.AnimationMixer(gltf.scene)
-
-  //   mainCamera.lookAt()
 
   const cam = mainCamera as any
 
   console.log(gltf)
 
-  // const observer = new IntersectionObserver(
-  //   (e) => {
-  //     if (e[0].isIntersecting) {
-  //       setRotation(true)
-  //     } else setRotation(false)
-  //   },
-  //   { threshold: 0.15 },
-  // )
-
-  // const problemSection = document.getElementById('problem-container') as Element
-  // observer.observe(problemSection as Element)
-
-  // console.log(cam)
   useEffect(() => {
     cam.setFocalLength(defaultFocalLength)
-    // scene.attach(gltf.cameras[0])
     const blenderCamera = gltf.cameras[0] as any
     console.log(blenderCamera.parent.position)
-    // cam.position.x = blenderCamera?.parent.position.x
-    // cam.position.y = blenderCamera?.parent.position.y
-    // cam.position.z = blenderCamera?.parent.position.z
 
-    // cam.aspect = blenderCamera.aspect
-    // cam.fov = blenderCamera.fov
-    // cam.far = blenderCamera.far
-    // cam.near = blenderCamera.near
     mainCamera.lookAt(-0.4, 1, 0)
 
     console.log(gltf.animations[0])
     startAnimation()
   }, [gltf])
 
-  console.log(mixer)
-
   useFrame(() => {
     const timeValue = normalize(window.scrollY, window.innerHeight / 1.5, 0)
 
     mixer?.setTime(timeValue)
+
+    mainCamera.lookAt(-0.2, 0, 0)
+
+    // Setting the initial Colors
+    const purpleColor = new THREE.Color('rgb(128, 0, 128)')
+    const greenColor = new THREE.Color('rgb(0, 255, 0)')
+    const whiteColor = new THREE.Color('rgb(255, 255, 255)')
+
+    // Getting the current scrollHeight
+    const scroll = window.scrollY
+    if (moonverseContainer) {
+      // Mapping for the main light
+      // Convert scrollHeight to a value within range 0 to 1 based on initial height 0 and moonverse container end height
+      // Clamping the final value so it does not go out of range
+      const mainLightMap = MathUtils.clamp(
+        MathUtils.mapLinear(scroll, 0, moonverseContainer.top + moonverseContainer.height, 0, 1),
+        0,
+        1,
+      )
+
+      // Same as above
+      const secondaryLightMap = MathUtils.clamp(
+        MathUtils.mapLinear(scroll, 0, moonverseContainer.top + moonverseContainer.height, 0, 1),
+        0,
+        1,
+      )
+
+      // Lerp the Final Change of values
+      const mainLightChange = purpleColor.lerp(whiteColor, mainLightMap)
+      const secondaryLightChange = greenColor.lerp(whiteColor, secondaryLightMap)
+
+      // Set the values to the correct lights
+      if (mainLight.current) {
+        mainLight.current.color = mainLightChange
+      }
+
+      if (secondaryLight.current) {
+        secondaryLight.current.color = secondaryLightChange
+      }
+    }
   })
 
   const onScroll = () => {
-    // if (rotation) {
-    // const rotationValue = normalize(
-    //   window.scrollY,
-    //   problemSection.getBoundingClientRect().top + problemSection.getBoundingClientRect().height,
-    //   problemSection.getBoundingClientRect().top,
-    // )
-    // console.log(rotationValue * 0.01)
-    // gltf.scene.rotation.y += 0.02
-    // }
+    // pass
   }
+
+  useEffect(() => {
+    if (mainLight.current) console.log(mainLight)
+  }, [mainLight])
 
   const startAnimation = () => {
     gltf.animations.forEach((clip) => {
@@ -99,7 +108,9 @@ const Model = ({ setAnimation }: any) => {
   })
   return (
     <>
-      <primitive object={gltf.scene} scale={scale} position={[10, -12, 0]} />
+      <directionalLight ref={mainLight} intensity={0.6} position={[-10, 0, 20]} color="rgb(128, 0, 128)" />
+      <directionalLight ref={secondaryLight} intensity={2} position={[100, -10, 20]} color="rgb(255, 255, 255)" />
+      <primitive object={gltf.scene} scale={scale} position={[105, -185, 0]} />
     </>
   )
 }
@@ -114,22 +125,53 @@ export default function App() {
       {/* <button onClick={animation}>Hello</button> */}
       <Canvas className="model-container">
         <Suspense fallback={null}>
-          <directionalLight intensity={0.8} position={[-10, -100, 20]} color="purple" />
-          <directionalLight intensity={0.8} position={[10, -100, 50]} color="#19420c" />
-          {/* <spotLight intensity={0.5} position={[-10, -100, 20]} color="purple" /> */}
-          {/* <spotLight intensity={0.5} position={[0, 10, 20]} color="#194d0a" /> */}
-          {/* <pointLight position={[0, 10, -20]} color="purple" intensity={2.2} /> */}
-          {/* <pointLight position={[50, 10, 20]} color="green" intensity={2} /> */}
+          {/* <ambientLight intensity={0.3} /> */}
+          {/* <ambientLight intensity={0.1} />  */}
+
+          {/* <directionalLight
+          castShadow
+          color="black"
+          position={[105, -175, 0]}
+          intensity={1.5}
+          shadow-mapSize-width={1024}
+          shadow-mapSize-height={1024}
+          shadow-camera-far={50}
+          shadow-camera-left={-10}
+          shadow-camera-right={10}
+          shadow-camera-top={10}
+          shadow-camera-bottom={-10}
+        /> */}
+          {/* <directionalLight intensity={0.5} />
+      <ambientLight intensity={0.5} />
+      <spotLight position={[105, -165, 0]} angle={0.9} /> */}
+          {/* <pointLight position={[105, -165, 0]} intensity={0.5} />
+        <pointLight position={[0, -10, 0]} intensity={1.5} /> */}
           <Model setAnimation={setAnimation} />
           {/* <Environment preset="warehouse" background={false} /> */}
-          <SpotLight
-            distance={6}
+          {/* <SpotLight
+            distance={8}
             angle={0.45}
             attenuation={10}
-            color="purple"
-            opacity={1}
-            anglePower={10} // Diffuse-cone anglePower (default: 5)
+            color="black"
+            opacity={0.8}
+            anglePower={15} // Diffuse-cone anglePower (default: 5)
           />
+          <SpotLight
+            distance={10}
+            angle={0.30}
+            attenuation={10}
+            color="white"
+            opacity={0.4}
+            anglePower={5} // Diffuse-cone anglePower (default: 5)
+          />
+          <SpotLight
+            distance={5}
+            angle={0.30}
+            attenuation={18}
+            color="#fa708c"
+            opacity={0.5}
+            anglePower={10} // Diffuse-cone anglePower (default: 5)
+          /> */}
         </Suspense>
       </Canvas>
     </>
