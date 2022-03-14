@@ -624,15 +624,14 @@ export const TokenText = styled.div`
   }
 `
 export const Utilities = styled.div`
+width: calc(100% - 100px);
+max-width: 1320px;
+margin: 0 auto;
 display: flex;
 flex-wrap: wrap;
+margin-top: min(-3vw,-81px);
   justify-content: center;
-  grid-gap: 2px 200px;
-    padding: 0px 100px 70px 100px;
-  @media screen and (max-width: 720px) {
-    grid-gap: 3px 131px;
-    padding: 0px 50px 70px 50px;
-  }
+  gap: 0 min(3.9vw,68px);
 `
 export const UtilitiesWrapperDiv = styled.div`
 display: flex;
@@ -645,8 +644,8 @@ export const UtilitiesWrapper = styled.div`
   justify-content: center;
   img{
     width: 100%;
-    max-width: 404px;
-    height: 220px;
+    max-width: min(20.5vw,390px);
+    height: auto;
   }
   .utilities_type {
     @media screen and (max-width: 740px) {
