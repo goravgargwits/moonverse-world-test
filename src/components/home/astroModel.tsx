@@ -5,6 +5,7 @@ import { Environment, SpotLight } from '@react-three/drei'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 import * as THREE from 'three'
 import { AmbientLight } from 'three'
+import { rgb } from '@react-spring/shared'
 // import { CanvasWrapper } from 'styles/pages/home'
 
 // const lerp = (start: number, end: number, amt: number): number => {
@@ -73,6 +74,7 @@ const Model = ({ setAnimation }: any) => {
     //   const action = mixer.clipAction(clip)
     //   action?.play()
     // })
+
     const timeValue = normalize(window.scrollY, window.innerHeight / 1.5, 0)
 
     console.log(gltf?.animations?.[0]?.duration, timeValue)
@@ -142,13 +144,34 @@ export default function App() {
       <Canvas className="model-container">
         <Suspense fallback={null}>
           {/* <ambientLight intensity={0.3} /> */}
-          <ambientLight intensity={0.1} />
+          {/* <ambientLight intensity={0.1} />  */}
           <directionalLight
-            intensity={5.8} position={[0, -100, 20]} color="black"
+            intensity={0.8} position={[-10, 0, 20]} color="purple"
           />
+          <directionalLight
+            intensity={1.2} position={[100, -10, 20]} color="white"
+          />
+          {/* <directionalLight
+          castShadow
+          color="black"
+          position={[105, -175, 0]}
+          intensity={1.5}
+          shadow-mapSize-width={1024}
+          shadow-mapSize-height={1024}
+          shadow-camera-far={50}
+          shadow-camera-left={-10}
+          shadow-camera-right={10}
+          shadow-camera-top={10}
+          shadow-camera-bottom={-10}
+        /> */}
+        {/* <directionalLight intensity={0.5} />
+      <ambientLight intensity={0.5} />
+      <spotLight position={[105, -165, 0]} angle={0.9} /> */}
+        {/* <pointLight position={[105, -165, 0]} intensity={0.5} />
+        <pointLight position={[0, -10, 0]} intensity={1.5} /> */}
           <Model setAnimation={setAnimation} />
-          <Environment preset="warehouse" background={false} />
-          <SpotLight
+          {/* <Environment preset="warehouse" background={false} /> */}
+          {/* <SpotLight
             distance={8}
             angle={0.45}
             attenuation={10}
@@ -171,7 +194,7 @@ export default function App() {
             color="#fa708c"
             opacity={0.5}
             anglePower={10} // Diffuse-cone anglePower (default: 5)
-          />
+          /> */}
         </Suspense>
       </Canvas>
     </>
