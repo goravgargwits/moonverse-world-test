@@ -15,9 +15,11 @@ const Model = ({ setAnimation }: any) => {
   const [moonverseBottomContainer, setMoonverseBottomContainer] = useState(0)
   const [problemBottomContainer, setProblemBottomContainer] = useState(0)
   const [participateBottomContainer, setParticipateBottomContainer] = useState(0)
+  const [tokenUtilityBottomContainer, setTokenUtilityBottomContainer] = useState(0)
   const moonverseContainer = document.getElementById('moonverse-container')?.getBoundingClientRect()
   const problemContainer = document.getElementById('problem-container')?.getBoundingClientRect()
   const participateContainer = document.getElementById('participate-container')?.getBoundingClientRect()
+  const tokenUtilityContainer = document.getElementById('token-utilities')?.getBoundingClientRect()
   const defaultFocalLength = 90
   const scale = 40.5
   // const documentHeight = document.documentElement.getBoundingClientRect().height
@@ -33,6 +35,8 @@ const Model = ({ setAnimation }: any) => {
   console.log(gltf)
 
   useEffect(() => {
+    console.log('mainLight',mainLight);
+    
     if(moonverseContainer) {
       setMoonverseBottomContainer(moonverseContainer?.top + moonverseContainer?.height)
     }
@@ -41,6 +45,9 @@ const Model = ({ setAnimation }: any) => {
     }
     if(participateContainer) {
       setParticipateBottomContainer(participateContainer?.top + participateContainer?.height)
+    }
+    if(tokenUtilityContainer) {
+      setTokenUtilityBottomContainer(tokenUtilityContainer?.top + tokenUtilityContainer?.height)
     }
     cam.setFocalLength(defaultFocalLength)
     const blenderCamera = gltf.cameras[0] as any
@@ -60,10 +67,12 @@ const Model = ({ setAnimation }: any) => {
     mainCamera.lookAt(-0.2, 0, 0)
 
     // Setting the initial Colors
-    const purpleColor = new THREE.Color('rgb(128, 0, 128)')
-    const greenColor = new THREE.Color('rgb(0, 255, 0)')
-    const whiteColor = new THREE.Color('rgb(255, 255, 255)')
-    const redColor = new THREE.Color('rgb(128, 38, 43)')
+    const purpleColor = new THREE.Color('rgb(202, 58, 244)')
+    const greenColor = new THREE.Color('rgb(0, 255, 207)')
+    const whiteColor = new THREE.Color('rgb(255, 241, 245)')
+    const whiteBackColor = new THREE.Color('rgb(253, 255, 247)')
+    const pinkFrontColor = new THREE.Color('rgb(255, 92, 175)')
+    const pinkBackColor = new THREE.Color('rgb(255, 241, 245)')
 
     // Getting the current scrollHeight
     const scroll = window.scrollY
@@ -86,7 +95,7 @@ const Model = ({ setAnimation }: any) => {
 
       // Lerp the Final Change of values
       const mainLightChange = purpleColor.lerp(whiteColor, mainLightMap)
-      const secondaryLightChange = greenColor.lerp(whiteColor, secondaryLightMap)
+      const secondaryLightChange = greenColor.lerp(whiteBackColor, secondaryLightMap)
 
       // Set the values to the correct lights
       if (mainLight.current) {
@@ -99,7 +108,7 @@ const Model = ({ setAnimation }: any) => {
       setContainerBottom(moonverseContainer?.top + moonverseContainer?.height)
     }
 
-    if (problemContainer && scroll > moonverseBottomContainer) {
+    if (problemContainer && scroll > moonverseBottomContainer && scroll <= problemBottomContainer) {
       console.log('scroll', scroll);
       console.log('containerBottom', moonverseBottomContainer);
       console.log('problemContainer', problemContainer.top + problemContainer.height);
@@ -116,8 +125,8 @@ const Model = ({ setAnimation }: any) => {
       )
 
       // Lerp the Final Change of values
-      const mainLightChange = whiteColor.lerp(redColor, mainLightMap)
-      const secondaryLightChange = whiteColor.lerp(whiteColor, secondaryLightMap)
+      const mainLightChange = whiteColor.lerp(pinkFrontColor, mainLightMap)
+      const secondaryLightChange = whiteBackColor.lerp(pinkBackColor, secondaryLightMap)
 
       // Set the values to the correct lights
       if (mainLight.current) {
@@ -129,10 +138,13 @@ const Model = ({ setAnimation }: any) => {
       }
     }
 
-    if (participateContainer && scroll >= problemBottomContainer) {
+    if (participateContainer && scroll > problemBottomContainer && scroll <= tokenUtilityBottomContainer) {
       console.log('scroll', scroll);
       console.log('containerBottom', problemBottomContainer);
-      console.log('problemContainer', participateContainer.top + participateContainer.height);
+      console.log('problssssemContainer', participateContainer.top + participateContainer.height, mainLight);
+      console.log('pinkFrontColor', mainLight);
+
+      mainLight.current.position.x = -150
       
       const mainLightMap = MathUtils.clamp(
         MathUtils.mapLinear(scroll, problemBottomContainer, participateContainer.top + participateContainer.height, 0, 1),
@@ -146,8 +158,38 @@ const Model = ({ setAnimation }: any) => {
       )
 
       // Lerp the Final Change of values
-      const mainLightChange = redColor.lerp(purpleColor, mainLightMap)
-      const secondaryLightChange = whiteColor.lerp(redColor, secondaryLightMap)
+      const mainLightChange = pinkFrontColor.lerp(pinkFrontColor, mainLightMap)
+      const secondaryLightChange = whiteColor.lerp(pinkBackColor, secondaryLightMap)
+
+      // Set the values to the correct lights
+      if (mainLight.current) {
+        mainLight.current.color = mainLightChange
+      }
+
+      if (secondaryLight.current) {
+        secondaryLight.current.color = secondaryLightChange
+      }
+    }
+
+    if (tokenUtilityContainer && scroll >= participateBottomContainer ) {
+      console.log('scroll', scroll);
+      console.log('containerBottom', participateBottomContainer);
+      console.log('problemContainer', tokenUtilityContainer.top + tokenUtilityContainer.height);
+      
+      const mainLightMap = MathUtils.clamp(
+        MathUtils.mapLinear(scroll, participateBottomContainer, tokenUtilityContainer.top + tokenUtilityContainer.height, 0, 1),
+        0,
+        1,
+      )
+      const secondaryLightMap = MathUtils.clamp(
+        MathUtils.mapLinear(scroll, participateBottomContainer, tokenUtilityContainer.top + tokenUtilityContainer.height, 0, 1),
+        0,
+        1,
+      )
+
+      // Lerp the Final Change of values
+      const mainLightChange = pinkFrontColor.lerp(purpleColor, mainLightMap)
+      const secondaryLightChange = pinkBackColor.lerp(pinkFrontColor, secondaryLightMap)
 
       // Set the values to the correct lights
       if (mainLight.current) {
@@ -185,8 +227,8 @@ const Model = ({ setAnimation }: any) => {
   })
   return (
     <>
-      <directionalLight ref={mainLight} intensity={1.2} position={[-10, 0, 20]} color="rgb(255, 255, 255)"/>
-      <directionalLight ref={secondaryLight} intensity={0.4} position={[100, -10, 20]} color="rgb(255, 255, 255)" />
+      <directionalLight ref={mainLight} intensity={1} position={[-10, 0, -20]} color="rgb(255, 255, 255)"/>
+      <directionalLight ref={secondaryLight} intensity={0.2} position={[80, -10, 20]} color="rgb(255, 255, 255)" />
       <primitive object={gltf.scene} scale={scale} position={[105, -185, 0]} />
     </>
   )

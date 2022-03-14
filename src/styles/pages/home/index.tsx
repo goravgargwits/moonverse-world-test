@@ -90,10 +90,10 @@ export const TextContainer = styled.div`
   }
 `
 export const Title = styled.div`
-max-width: 400px;
-font-size: 43px;
-padding-bottom: 7px;
-text-align: left;
+  max-width: 400px;
+  font-size: 43px;
+  padding-bottom: 7px;
+  text-align: left;
   font-family: 'conthraxsb';
   font-weight: 200;
   letter-spacing: 0px;
@@ -108,10 +108,10 @@ text-align: left;
 `
 
 export const TokenTitle = styled.div`
-max-width: 400px;
-font-size: 43px;
-padding-bottom: 7px;
-text-align: center;
+  max-width: 400px;
+  font-size: 43px;
+  padding-bottom: 7px;
+  text-align: center;
   font-family: 'conthraxsb';
   font-weight: 200;
   letter-spacing: 0px;
@@ -620,14 +620,14 @@ export const TokenText = styled.div`
   }
 `
 export const Utilities = styled.div`
-width: calc(100% - 100px);
-max-width: 1320px;
-margin: 0 auto;
-display: flex;
-flex-wrap: wrap;
-margin-top: min(-3vw,-81px);
+  width: calc(100% - 100px);
+  max-width: 1320px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: min(-3vw, -81px);
   justify-content: center;
-  gap: 0 min(3.9vw,68px);
+  gap: 0 min(3.9vw, 68px);
 `
 export const UtilitiesWrapperDiv = styled.div`
   display: flex;
@@ -640,7 +640,7 @@ export const UtilitiesWrapper = styled.div`
   justify-content: center;
   img {
     width: 100%;
-    max-width: min(20.5vw,390px);
+    max-width: min(20.5vw, 390px);
     height: auto;
   }
   .utilities_type {
@@ -657,7 +657,7 @@ export const UtilitiesWrapper = styled.div`
   :hover {
     transform: rotateY(20deg);
     transition: transform 0.4s;
-  transform-style: preserve-3d;
+    transform-style: preserve-3d;
     /* transform: scale(0.95);
     transition: 0.3s;
     transition-timing-function: ease-out; */
@@ -723,16 +723,16 @@ export const Heading = styled.div`
   }
 `
 export const RoadmapHeading = styled.div`
-  margin-left: 100px;
-  font-size: 52px;
+margin-bottom: 60px;
+  font-size: 83px;
   font-family: 'conthraxsb';
+  margin-left: 43px;
   font-weight: 200;
   letter-spacing: 0px;
   opacity: 1;
   z-index: 2;
   color: #9945f8;
   margin-top: 20px;
-  margin-bottom: 0px;
   > span {
     color: #ffffff;
   }
@@ -743,40 +743,60 @@ export const RoadmapHeading = styled.div`
   }
 `
 export const Roadmap = styled.div`
+  width: calc(100% - 209px);
+  margin: 0 auto;
+  max-width: 1502px;
   padding-top: 100px;
-  height: 1200px;
   position: sticky;
   top: 0;
 `
 
 export const RoadmapDivWrapper = styled.div`
-  display: flex;
-  margin-left: 35px;
-  position: relative;
+      display: flex;
+    position: relative;
+    margin-bottom: 40px;
 
   > img {
     width: 100px;
     height: 125px;
   }
+
+  .imageWrapper {
+    position: relative;
+    .bg{
+      width: 60px;
+    height: 60px;
+    background: #9945f8 0% 0% no-repeat padding-box;
+    filter: blur(28px);
+  }
+  }
+
   .fire-gif {
     position: absolute;
-    width: 40px;
-    height: 60px;
-    top: 18px;
-    left: 30px;
+    width: 100%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
   }
-  > div {
+   .text-wrapper {
+    margin-left: 57px;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    /* display: flex;
+    flex-direction: column; */
     > h5 {
       color: #ffffff;
-      margin-bottom: 0;
+      margin: 0;
       > span {
         color: #9945f8;
       }
     }
     > p {
-      margin-top: 0;
+      line-height: 30px !important;
+      margin: 0;
       max-width: 558px;
       width: 100%;
       height: 64px;
