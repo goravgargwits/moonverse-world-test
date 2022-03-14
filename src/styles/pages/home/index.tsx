@@ -660,9 +660,12 @@ export const UtilitiesWrapper = styled.div`
   }
 
   :hover {
-    transform: scale(0.95);
+    transform: rotateY(20deg);
+    transition: transform 0.4s;
+  transform-style: preserve-3d;
+    /* transform: scale(0.95);
     transition: 0.3s;
-    transition-timing-function: ease-out;
+    transition-timing-function: ease-out; */
   }
   :nth-child(2) {
     @media screen and (max-width: 1440px) {
