@@ -90,10 +90,10 @@ export const TextContainer = styled.div`
   }
 `
 export const Title = styled.div`
-max-width: 400px;
-font-size: 43px;
-padding-bottom: 7px;
-text-align: left;
+  max-width: 400px;
+  font-size: 43px;
+  padding-bottom: 7px;
+  text-align: left;
   font-family: 'conthraxsb';
   font-weight: 200;
   letter-spacing: 0px;
@@ -108,10 +108,10 @@ text-align: left;
 `
 
 export const TokenTitle = styled.div`
-max-width: 400px;
-font-size: 43px;
-padding-bottom: 7px;
-text-align: center;
+  max-width: 400px;
+  font-size: 43px;
+  padding-bottom: 7px;
+  text-align: center;
   font-family: 'conthraxsb';
   font-weight: 200;
   letter-spacing: 0px;
@@ -127,7 +127,7 @@ text-align: center;
 
 export const Text = styled.div`
   text-align: left;
-  font-family: Outfit; 
+  font-family: Outfit;
   font-size: 21px;
   font-weight: 100;
   color: #c1c0c0;
@@ -280,7 +280,7 @@ export const ProblemsTitle = styled.div`
   z-index: 3;
   color: #fff;
   width: 100%;
-  margin-bottom:30px;
+  margin-bottom: 30px;
   max-width: 582px;
   @media screen and (max-width: 740px) {
     font-size: 25px;
@@ -288,10 +288,10 @@ export const ProblemsTitle = styled.div`
   }
 `
 export const ParticipateContainer = styled.div`
-padding-top: 100px;
-height: 1200px;
-position: sticky;
-top: 0;
+  padding-top: 100px;
+  height: 1200px;
+  position: sticky;
+  top: 0;
 
   background-repeat: no-repeat;
   background-size: 100vw 900px;
@@ -367,7 +367,7 @@ export const Pointers = styled.div`
   background-repeat: no-repeat;
   overflow: visible;
   position: relative;
-  margin-left:auto;
+  margin-left: auto;
 
   > img {
     position: absolute;
@@ -466,7 +466,7 @@ export const Discover = styled.div`
 export const Model = styled.div`
   position: relative;
   width: 100%;
-  font-family: Outfit; 
+  font-family: Outfit;
   border-radius: 12px;
   opacity: 1;
   padding: 15px;
@@ -474,7 +474,7 @@ export const Model = styled.div`
   left: 0px;
   padding-left: 116px;
   margin-bottom: 40px;
-  span{
+  span {
     position: absolute;
     left: 0px;
     top: -5px;
@@ -485,30 +485,29 @@ export const Model = styled.div`
     text-align: center;
     z-index: 0;
     opacity: 0.78;
-    &:after{
+    &:after {
       position: absolute;
-      left:0px;
+      left: 0px;
       top: 0px;
       opacity: 0.78;
-      content:"";
-      background: #9945F8;
+      content: '';
+      background: #9945f8;
       height: 100%;
       border-radius: 50%;
       width: 100%;
       box-shadow: 0px 0px 50px #9945f8;
       filter: blur(10px);
-    -webkit-filter: blur(10px);
-    -moz-filter: blur(10px);
-    -o-filter: blur(10px);
-    -ms-filter: blur(10px);
-    z-index:-1;
+      -webkit-filter: blur(10px);
+      -moz-filter: blur(10px);
+      -o-filter: blur(10px);
+      -ms-filter: blur(10px);
+      z-index: -1;
     }
-   
-    
-    img{
+
+    img {
       width: 50px;
     }
-    }
+  }
   justify-self: flex-end;
   align-self: center;
   @media screen and (max-width: 720px) {
@@ -524,12 +523,12 @@ export const Monetization = styled.div`
   opacity: 1;
   padding: 15px;
   right: 0;
-  font-family: Outfit; 
+  font-family: Outfit;
   justify-self: center;
   align-self: center;
   padding-left: 116px;
-    margin-bottom: 40px;
-  span{
+  margin-bottom: 40px;
+  span {
     position: absolute;
     left: 0px;
     top: 5px;
@@ -540,28 +539,28 @@ export const Monetization = styled.div`
     text-align: center;
     z-index: 0;
     opacity: 0.78;
-    &:after{
+    &:after {
       position: absolute;
-      left:0px;
+      left: 0px;
       top: 0px;
       opacity: 0.78;
-      content:"";
-      background: #9945F8;
+      content: '';
+      background: #9945f8;
       height: 100%;
       border-radius: 50%;
       width: 100%;
       box-shadow: 0px 0px 50px #9945f8;
       filter: blur(10px);
-    -webkit-filter: blur(10px);
-    -moz-filter: blur(10px);
-    -o-filter: blur(10px);
-    -ms-filter: blur(10px);
-    z-index:-1;
+      -webkit-filter: blur(10px);
+      -moz-filter: blur(10px);
+      -o-filter: blur(10px);
+      -ms-filter: blur(10px);
+      z-index: -1;
     }
-    img{
+    img {
       width: 50px;
     }
-    }
+  }
   @media screen and (max-width: 1120px) {
     align-self: end;
   }
@@ -571,7 +570,7 @@ export const Monetization = styled.div`
 `
 export const InternalTitle = styled.div`
   text-align: left;
-  font-family: Outfit; 
+  font-family: Outfit;
   font-size: 17px;
   letter-spacing: 0px;
   color: #a884f5;
@@ -584,7 +583,7 @@ export const InternalTitle = styled.div`
 `
 export const InternalText = styled.div`
   text-align: left;
-  font-family: Outfit; 
+  font-family: Outfit;
   font-size: 15px;
   letter-spacing: 0px;
   color: #b0b0b0;
@@ -596,9 +595,9 @@ export const InternalText = styled.div`
   }
 `
 export const TokenContainer = styled.div`
-height: 1200px;
-position: sticky;
-top: 0;
+  height: 1200px;
+  position: sticky;
+  top: 0;
 `
 export const TokenTextWrapper = styled.div`
   justify-content: center;
@@ -624,33 +623,32 @@ export const TokenText = styled.div`
   }
 `
 export const Utilities = styled.div`
-width: calc(100% - 100px);
-max-width: 1320px;
-margin: 0 auto;
-display: flex;
-flex-wrap: wrap;
-margin-top: min(-3vw,-81px);
+  width: calc(100% - 100px);
+  max-width: 1320px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: min(-3vw, -81px);
   justify-content: center;
-  gap: 0 min(3.9vw,68px);
+  gap: 0 min(3.9vw, 68px);
 `
 export const UtilitiesWrapperDiv = styled.div`
-display: flex;
-    margin: 0 auto;
-    width: fit-content;
-    gap: 110px;
-`;
+  display: flex;
+  margin: 0 auto;
+  width: fit-content;
+  gap: 110px;
+`
 
 export const UtilitiesWrapper = styled.div`
   justify-content: center;
-  img{
+  img {
     width: 100%;
-    max-width: min(20.5vw,390px);
+    max-width: min(20.5vw, 390px);
     height: auto;
   }
   .utilities_type {
     @media screen and (max-width: 740px) {
       height: 220px;
-
     }
   }
   .nft_type {
@@ -662,7 +660,7 @@ export const UtilitiesWrapper = styled.div`
   :hover {
     transform: rotateY(20deg);
     transition: transform 0.4s;
-  transform-style: preserve-3d;
+    transform-style: preserve-3d;
     /* transform: scale(0.95);
     transition: 0.3s;
     transition-timing-function: ease-out; */
@@ -728,18 +726,18 @@ export const Heading = styled.div`
   }
 `
 export const RoadmapHeading = styled.div`
-margin-left: 100px;
-  font-size: 52px;
+margin-bottom: 60px;
+  font-size: 83px;
   font-family: 'conthraxsb';
+  margin-left: 43px;
   font-weight: 200;
   letter-spacing: 0px;
   opacity: 1;
   z-index: 2;
-  color: #9945F8;
+  color: #9945f8;
   margin-top: 20px;
-  margin-bottom: 0px;
-  >span{
-    color: #FFFFFF; 
+  > span {
+    color: #ffffff;
   }
   @media screen and (max-width: 740px) {
     font-size: 25px;
@@ -748,50 +746,70 @@ margin-left: 100px;
   }
 `
 export const Roadmap = styled.div`
-padding-top: 100px;
-height: 1200px;
-position: sticky;
-top: 0;
-`;
+  width: calc(100% - 209px);
+  margin: 0 auto;
+  max-width: 1502px;
+  padding-top: 100px;
+  position: sticky;
+  top: 0;
+`
 
 export const RoadmapDivWrapper = styled.div`
-display: flex;
-margin-left: 35px;
-position: relative;
+      display: flex;
+    position: relative;
+    margin-bottom: 40px;
 
->img{
-  width: 100px;
-  height: 125px;
-}
-.fire-gif{
-  position: absolute;
-  width: 40px;
-  height: 60px;
-  top: 18px;
-  left: 30px;
-}
->div{
-  display: flex;
-  flex-direction: column;
->h5{
-  color: #ffffff;
-  margin-bottom: 0;
-  >span{
-    color: #9945F8;
+  > img {
+    width: 100px;
+    height: 125px;
   }
-}
->p{
-  margin-top: 0;
-  max-width: 558px;
+
+  .imageWrapper {
+    position: relative;
+    .bg{
+      width: 60px;
+    height: 60px;
+    background: #9945f8 0% 0% no-repeat padding-box;
+    filter: blur(28px);
+  }
+  }
+
+  .fire-gif {
+    position: absolute;
     width: 100%;
-    height: 64px;
-    text-align: left;
-    font: normal normal 100 21px/42px Outfit;
-    letter-spacing: 0px;
-    color: #FFFFFF;
-}
-}
-`;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+  }
+   .text-wrapper {
+    margin-left: 57px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* display: flex;
+    flex-direction: column; */
+    > h5 {
+      color: #ffffff;
+      margin: 0;
+      > span {
+        color: #9945f8;
+      }
+    }
+    > p {
+      line-height: 30px !important;
+      margin: 0;
+      max-width: 558px;
+      width: 100%;
+      height: 64px;
+      text-align: left;
+      font: normal normal 100 21px/42px Outfit;
+      letter-spacing: 0px;
+      color: #ffffff;
+    }
+  }
+`
 export const RoadmapImagewapper = styled.div`
   display: flex;
 `
