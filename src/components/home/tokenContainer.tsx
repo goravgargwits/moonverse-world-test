@@ -23,7 +23,9 @@ const TokenUtilitiesWrapper = () => {
   }, [])
   return (
     <ScrollContainer id="token-utilities">
-      <TokenContainer data-aos={'fade-up'} data-aos-delay={1000}>
+      <TokenContainer
+      // data-aos={'fade-up'} data-aos-delay={1000}
+      >
         <TokenTextWrapper>
           <TokenTitle>Token Utilities</TokenTitle>
           {/* <TokenText>$MOONV will be the utility token for the Moonverse economy. Utilities include:</TokenText> */}

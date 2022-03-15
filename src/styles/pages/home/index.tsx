@@ -212,7 +212,7 @@ export const Player = styled.div`
 `
 
 export const ScrollContainer = styled.section`
-  min-height: 1200vh;
+  min-height: 400vh;
   position: relative;
 `
 
