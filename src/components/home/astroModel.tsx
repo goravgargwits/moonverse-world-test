@@ -136,9 +136,9 @@ const Model = ({ setAnimation }: any) => {
       const mainLightChange = whiteColor.lerp(pinkFrontColor, mainLightMap)
       const secondaryLightChange = whiteBackColor.lerp(pinkBackColor, secondaryLightMap)
       const secondaryLightIntensity = MathUtils.clamp(
-        MathUtils.mapLinear(scroll, moonverseBottomContainer, problemContainer.top + problemContainer.height, 0.1, 0.1),
+        MathUtils.mapLinear(scroll, moonverseBottomContainer, problemContainer.top + problemContainer.height, 0.1, 1),
         0.1,
-        0.1,
+        1,
       )
 
       // Set the values to the correct lights
@@ -267,7 +267,6 @@ const Model = ({ setAnimation }: any) => {
         position={[-1, -0.1, -0.8]}
         color="rgb(202, 58, 244)"
       />
-      <directionalLight castShadow intensity={2} position={[30, -0, -100]} color="rgb(202, 58, 244)" />
       {/* <directionalLight ref={mainLight} intensity={0} position={[-10, 0, 20]} color="rgb(128, 0, 128)" /> */}
       <directionalLight ref={secondaryLight} intensity={0.1} position={[10, -10, 10]} color="rgb(50, 200, 130)" />
       <primitive object={gltf.scene} scale={scale} position={[105, -185, 0]} />
