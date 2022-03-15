@@ -1,21 +1,29 @@
 import { Suspense, useEffect, useState, useRef } from 'react'
-import { Canvas, useThree } from '@react-three/fiber'
-import { useLoader, useFrame } from '@react-three/fiber'
+import { Canvas, useThree, useLoader, useFrame } from '@react-three/fiber'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 import * as THREE from 'three'
+import { Box } from '@react-three/drei'
+import { Vector3 } from 'three'
+// import { SpotLight } from '@react-three/drei'
 
-const normalize = (val: number, max: number, min: number): number => {
-  return (val - min) / (max - min)
-}
+// const normalize = (val: number, max: number, min: number): number => {
+//   return (val - min) / (max - min)
+// }
 
 const Model = ({ setAnimation }: any) => {
-  const { camera: mainCamera } = useThree()
+  const { camera: mainCamera, scene } = useThree()
   const gltf = useLoader(GLTFLoader, './newModel.glb')
   const moonverseContainer = document.getElementById('moonverse-container')?.getBoundingClientRect()
-  const defaultFocalLength = 90
-  const scale = 40.5
-  // const documentHeight = document.documentElement.getBoundingClientRect().height
+  const defaultFocalLength = 100
+  const scale = 40
+  const documentHeight = document.documentElement.getBoundingClientRect().height
   const { MathUtils } = THREE
+  const bgColor = new THREE.Color('rgb(10, 0, 20)')
+
+  // const blueColor = new THREE.Color('rgb(0, 0, 255)')
+  scene.background = bgColor
+
+  console.log(scene)
 
   const mainLight = useRef<any>(null)
   const secondaryLight = useRef<any>(null)
@@ -38,12 +46,6 @@ const Model = ({ setAnimation }: any) => {
   }, [gltf])
 
   useFrame(() => {
-    const timeValue = normalize(window.scrollY, window.innerHeight / 1.5, 0)
-
-    mixer?.setTime(timeValue)
-
-    mainCamera.lookAt(-0.2, 0, 0)
-
     // Setting the initial Colors
     const purpleColor = new THREE.Color('rgb(128, 0, 128)')
     const greenColor = new THREE.Color('rgb(0, 255, 0)')
@@ -51,26 +53,38 @@ const Model = ({ setAnimation }: any) => {
 
     // Getting the current scrollHeight
     const scroll = window.scrollY
+
+    const timeValue = MathUtils.mapLinear(
+      scroll,
+      window.innerHeight - 200,
+      documentHeight,
+      0,
+      gltf.animations[0]?.duration,
+    )
+    mixer?.setTime(timeValue)
+    mainCamera.lookAt(-0.2, 0, 0)
+
     if (moonverseContainer) {
+      const moonverseClosingHeight = moonverseContainer.top + moonverseContainer.height
       // Mapping for the main light
       // Convert scrollHeight to a value within range 0 to 1 based on initial height 0 and moonverse container end height
       // Clamping the final value so it does not go out of range
       const mainLightMap = MathUtils.clamp(
-        MathUtils.mapLinear(scroll, 0, moonverseContainer.top + moonverseContainer.height, 0, 1),
+        MathUtils.mapLinear(scroll, window.innerHeight, moonverseClosingHeight, 0, 1),
         0,
         1,
       )
 
       // Same as above
       const secondaryLightMap = MathUtils.clamp(
-        MathUtils.mapLinear(scroll, 0, moonverseContainer.top + moonverseContainer.height, 0, 1),
+        MathUtils.mapLinear(scroll, window.innerHeight, moonverseClosingHeight, 0, 1),
         0,
         1,
       )
 
       // Lerp the Final Change of values
       const mainLightChange = purpleColor.lerp(whiteColor, mainLightMap)
-      const secondaryLightChange = greenColor.lerp(whiteColor, secondaryLightMap)
+      const secondaryLightChange = greenColor.lerp(purpleColor, secondaryLightMap)
 
       // Set the values to the correct lights
       if (mainLight.current) {
@@ -108,70 +122,44 @@ const Model = ({ setAnimation }: any) => {
   })
   return (
     <>
-      <directionalLight ref={mainLight} intensity={0.6} position={[-10, 0, 20]} color="rgb(128, 0, 128)" />
-      <directionalLight ref={secondaryLight} intensity={2} position={[100, -10, 20]} color="rgb(255, 255, 255)" />
+      <directionalLight ref={mainLight} intensity={1} position={[-7, -5, -10]} color="rgb(128, 0, 128)" />
+      {/* <directionalLight ref={mainLight} intensity={0} position={[-10, 0, 20]} color="rgb(128, 0, 128)" /> */}
+      <directionalLight ref={secondaryLight} intensity={0.2} position={[100, -10, 20]} color="rgb(0, 255, 0)" />
       <primitive object={gltf.scene} scale={scale} position={[105, -185, 0]} />
     </>
   )
 }
 
+const Spheres = ({ position }: { position: Vector3 | number[] }) => (
+  <mesh position={position as Vector3}>
+    <sphereBufferGeometry attach="geometry" args={[0.1]} />
+    <meshPhongMaterial attach="material" color="purple" />
+  </mesh>
+)
+
 export default function App() {
   const [animation, setAnimation] = useState()
+  // const purpleColor = new THREE.Color('rgb(128, 0, 128)')
 
   console.log(animation)
   return (
     // <CanvasWrapper>
     <>
       {/* <button onClick={animation}>Hello</button> */}
-      <Canvas className="model-container">
+      <Canvas className="model-container" style={{ filter: 'blur(2px)' }}>
         <Suspense fallback={null}>
-          {/* <ambientLight intensity={0.3} /> */}
-          {/* <ambientLight intensity={0.1} />  */}
+          <pointLight position={[0, 0, -11]} intensity={0.1} color="gray" />
+          <Box position={[1, -50, -10]} />
+          {/* <mesh position={[0, 0, -12]}>
+            <sphereBufferGeometry attach="geometry" args={[0.1]} />
+            <meshPhongMaterial attach="material" color="white" />
+          </mesh> */}
+          <Spheres position={[0, 0, -12]} />
+          <Spheres position={[0.3, 0.2, -12]} />
 
-          {/* <directionalLight
-          castShadow
-          color="black"
-          position={[105, -175, 0]}
-          intensity={1.5}
-          shadow-mapSize-width={1024}
-          shadow-mapSize-height={1024}
-          shadow-camera-far={50}
-          shadow-camera-left={-10}
-          shadow-camera-right={10}
-          shadow-camera-top={10}
-          shadow-camera-bottom={-10}
-        /> */}
-          {/* <directionalLight intensity={0.5} />
-      <ambientLight intensity={0.5} />
-      <spotLight position={[105, -165, 0]} angle={0.9} /> */}
-          {/* <pointLight position={[105, -165, 0]} intensity={0.5} />
-        <pointLight position={[0, -10, 0]} intensity={1.5} /> */}
-          <Model setAnimation={setAnimation} />
-          {/* <Environment preset="warehouse" background={false} /> */}
-          {/* <SpotLight
-            distance={8}
-            angle={0.45}
-            attenuation={10}
-            color="black"
-            opacity={0.8}
-            anglePower={15} // Diffuse-cone anglePower (default: 5)
-          />
-          <SpotLight
-            distance={10}
-            angle={0.30}
-            attenuation={10}
-            color="white"
-            opacity={0.4}
-            anglePower={5} // Diffuse-cone anglePower (default: 5)
-          />
-          <SpotLight
-            distance={5}
-            angle={0.30}
-            attenuation={18}
-            color="#fa708c"
-            opacity={0.5}
-            anglePower={10} // Diffuse-cone anglePower (default: 5)
-          /> */}
+          <mesh renderOrder={1001}>
+            <Model setAnimation={setAnimation} />
+          </mesh>
         </Suspense>
       </Canvas>
     </>
