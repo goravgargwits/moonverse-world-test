@@ -23,6 +23,7 @@ const Home = () => {
         <ParticipateWrapper />
         <TokenUtilitiesWrapper />
         <RoadmapWrapper />
+        <FooterWrapper />
       </div>
       {/*<PartnersAndInvestors>*/}
       {/*  <img className="partner_background" src={partnerimagecontainer} />*/}
@@ -31,8 +32,6 @@ const Home = () => {
       {/*<InvestorWrapper />*/}
       {/*</PartnersContent>*/}
       {/*</PartnersAndInvestors>*/}
-
-      <FooterWrapper />
     </Container>
   )
 }

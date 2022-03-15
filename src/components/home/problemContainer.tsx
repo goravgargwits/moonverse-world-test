@@ -26,7 +26,7 @@ const ProblemsWrapper = () => {
   }, [])
   return (
     <ScrollContainer id="problem-container">
-      <Problems data-aos={'fade-down-left'} data-aos-delay={1000}>
+      <Problems data-aos={'fade-up'} data-aos-delay={1000}>
         <ProblemsTitle></ProblemsTitle>
         <Pointers>
           <img src={pointerbackground} />

@@ -11,7 +11,7 @@ const MoonverseInfoWrapper = () => {
   }, [])
   return (
     <ScrollContainer id="moonverse-container">
-      <MoonverseInfo data-aos={'fade-down-right'} data-aos-delay={1000} id="moonverse">
+      <MoonverseInfo data-aos={'fade-up'} data-aos-delay={1000} id="moonverse">
         <TextContainer>
           <Title>What is Moonverse?</Title>
           <Text>Collectibles Social Metaverse that provides all NFT holders utility in a 3D world</Text>

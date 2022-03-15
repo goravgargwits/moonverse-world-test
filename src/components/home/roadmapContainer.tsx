@@ -1,6 +1,5 @@
 import { useEffect } from 'react'
 import { Roadmap, RoadmapHeading, ScrollContainer, RoadmapDivWrapper } from 'styles/pages/home'
-import RoadmapPoints from 'assets/images/RoadmapPoints.png'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 import fireGif from 'assets/gif/fire.gif'
@@ -13,14 +12,16 @@ const RoadmapWrapper = () => {
   }, [])
   return (
     <ScrollContainer>
-      <Roadmap data-aos={'fade-down-left'} data-aos-delay={1000}>
+      <Roadmap data-aos={'fade-up'} data-aos-delay={1000}>
         <RoadmapHeading>
           ROAD<span>MAP</span>
         </RoadmapHeading>
         <RoadmapDivWrapper>
-          <img src={RoadmapPoints} alt="roadmap-points" />
-          <img src={fireGif} alt="roadmap-points" className="fire-gif" />
-          <div>
+          <div className="imageWrapper">
+            <div className="bg"></div>
+            <img src={fireGif} alt="roadmap-points" className="fire-gif" />
+          </div>
+          <div className="text-wrapper">
             <h5>
               Q1 <span>2022</span>
             </h5>
@@ -28,9 +29,11 @@ const RoadmapWrapper = () => {
           </div>
         </RoadmapDivWrapper>
         <RoadmapDivWrapper>
-          <img src={RoadmapPoints} alt="roadmap-points" />
-          <img src={fireGif} alt="roadmap-points" className="fire-gif" />
-          <div>
+          <div className="imageWrapper">
+            <div className="bg"></div>
+            <img src={fireGif} alt="roadmap-points" className="fire-gif" />
+          </div>
+          <div className="text-wrapper">
             <h5>
               Q2 <span>2022</span>
             </h5>
@@ -38,9 +41,11 @@ const RoadmapWrapper = () => {
           </div>
         </RoadmapDivWrapper>
         <RoadmapDivWrapper>
-          <img src={RoadmapPoints} alt="roadmap-points" />
-          <img src={fireGif} alt="roadmap-points" className="fire-gif" />
-          <div>
+          <div className="imageWrapper">
+            <div className="bg"></div>
+            <img src={fireGif} alt="roadmap-points" className="fire-gif" />
+          </div>
+          <div className="text-wrapper">
             <h5>
               Q3 <span>2022</span>
             </h5>
@@ -48,9 +53,11 @@ const RoadmapWrapper = () => {
           </div>
         </RoadmapDivWrapper>
         <RoadmapDivWrapper>
-          <img src={RoadmapPoints} alt="roadmap-points" />
-          <img src={fireGif} alt="roadmap-points" className="fire-gif" />
-          <div>
+          <div className="imageWrapper">
+            <div className="bg"></div>
+            <img src={fireGif} alt="roadmap-points" className="fire-gif" />
+          </div>
+          <div className="text-wrapper">
             <h5>
               Q1 <span>2023</span>
             </h5>
