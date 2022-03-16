@@ -145,7 +145,7 @@ export const Logo = styled.div`
     margin-right: 50px;
     margin-top: 30px;
     width: 100%;
-    max-width: 120px;
+    max-width: 160px;
     height: 50px;
     background: #a3a0c5 0% 0% no-repeat padding-box;
     box-shadow: inset 0px 17px 6px #00000029, 0px 3px 6px #5a5a5a29;
@@ -235,23 +235,9 @@ export const Problems = styled.div`
   position: sticky;
   top: calc(50% - 20vw);
   display: flex;
-  // background-image: url(${problembackground});
-  /* padding-right: 50px; */
   background-repeat: no-repeat;
   padding-top: 0px;
 
-  /* @media screen and (max-width: 1050px) {
-    display: grid;
-    padding-top: 20px;
-    padding-right: 10px;
-    background-image: url(${problemnewbackground});
-  }
-  @media screen and (max-width: 1050px) {
-    display: grid;
-    padding-top: 20px;
-    padding-right: 10px;
-    background-image: url(${problemnewbackground});
-  } */
   @media screen and (max-width: 700px) {
     padding-top: 20px;
 
@@ -426,7 +412,7 @@ export const Discover = styled.div`
       height: 100%;
       border-radius: 50%;
       width: 100%;
-      box-shadow: 0px 0px 50px #ed960f;
+      /* box-shadow: 0px 0px 50px #ed960f; */
       filter: blur(30px);
       z-index: 0;
     }
@@ -478,7 +464,7 @@ export const Model = styled.div`
       height: 100%;
       border-radius: 50%;
       width: 100%;
-      box-shadow: 0px 0px 50px #ed960f;
+      /* box-shadow: 0px 0px 50px #ed960f; */
       filter: blur(10px);
       -webkit-filter: blur(10px);
       -moz-filter: blur(10px);
@@ -532,7 +518,7 @@ export const Monetization = styled.div`
       height: 100%;
       border-radius: 50%;
       width: 100%;
-      box-shadow: 0px 0px 50px #ed960f;
+      /* box-shadow: 0px 0px 50px #ed960f; */
       filter: blur(10px);
       -webkit-filter: blur(10px);
       -moz-filter: blur(10px);
@@ -575,7 +561,7 @@ export const InternalText = styled.div`
 export const TokenContainer = styled.div`
   height: 1200px;
   position: sticky;
-  top: 100px;
+  top: 50px;
 `
 export const TokenTextWrapper = styled.div`
   justify-content: center;
@@ -775,7 +761,7 @@ export const RoadmapDivWrapper = styled.div`
       height: 100%;
       border-radius: 50%;
       width: 100%;
-      box-shadow: 0px 0px 50px #ed960f;
+      /* box-shadow: 0px 0px 50px #ed960f; */
       -webkit-filter: blur(10px);
       filter: blur(10px);
       z-index: -1;
