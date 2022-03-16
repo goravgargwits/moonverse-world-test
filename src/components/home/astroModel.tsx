@@ -1,6 +1,7 @@
 import { Suspense, useEffect, useState, useRef } from 'react'
 import { Canvas, useThree, useLoader, useFrame } from '@react-three/fiber'
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
+
 import * as THREE from 'three'
 import { Vector3 } from 'three'
 // import { SpotLight } from '@react-three/drei'
@@ -12,7 +13,7 @@ import { Vector3 } from 'three'
 const Model = ({ setAnimation }: any) => {
   const { camera: mainCamera, scene } = useThree()
   const gltf = useLoader(GLTFLoader, './newModel.glb')
-  // const bg = useLoader(GLTFLoader, './FullScene.glb')
+
   const [moonverseBottomContainer, setMoonverseBottomContainer] = useState(0)
   const [problemBottomContainer, setProblemBottomContainer] = useState(0)
   const [participateBottomContainer, setParticipateBottomContainer] = useState(0)
@@ -21,28 +22,33 @@ const Model = ({ setAnimation }: any) => {
   const problemContainer = document.getElementById('problem-container')?.getBoundingClientRect()
   const participateContainer = document.getElementById('participate-container')?.getBoundingClientRect()
   const tokenUtilityContainer = document.getElementById('token-utilities')?.getBoundingClientRect()
-  const defaultFocalLength = 10
+  const defaultFocalLength = 60
   const scale = 40.5
   const documentHeight = document.documentElement.getBoundingClientRect().height
   const { MathUtils } = THREE
-  // const bgColor = new THREE.Color('rgb(255, 255, 255)')
+  const bgColor = new THREE.Color('rgb(10, 0, 10)')
   let scrollOffset = 0
   let scrollPercent = 0
   let scrollProgress = scrollPercent
 
   // const blueColor = new THREE.Color('rgb(0, 0, 255)')
-  // scene.background = bgColor
+  scene.background = bgColor
 
   const mainLight = useRef<any>(null)
   const secondaryLight = useRef<any>(null)
 
   const mixer = new THREE.AnimationMixer(gltf.scene)
 
-  Object.keys(gltf.nodes).map((item: string) => {
-    if ((gltf.nodes[item] as any)?.isMesh) scene.add(gltf.nodes[item])
-  })
+  // Object.keys(gltf.nodes).forEach((item: string) => {
+  //   if ((gltf.nodes[item] as any)?.isMesh) {
+  //     const name = gltf.nodes[item].name
+  //     const mesh = gltf.nodes[item]
+  //     mesh.scale.set(1, 1, 1)
+  //     if (!name.includes('Mesh')) scene.add(gltf.nodes[item])
+  //   }
+  // })
 
-  scene.add(gltf.nodes.Plane)
+  // scene.add(gltf.nodes.Plane)
 
   const cam = mainCamera as any
 
@@ -65,9 +71,6 @@ const Model = ({ setAnimation }: any) => {
 
     cam.setFocalLength(defaultFocalLength)
 
-    mainCamera.lookAt(-0.4, 1, 0)
-
-    console.log(gltf.animations[0])
     startAnimation()
   }, [gltf])
 
@@ -95,7 +98,6 @@ const Model = ({ setAnimation }: any) => {
     // console.log(MathUtils.lerp(top, top + scroll, 0.05), scroll)
     const timeValue = MathUtils.mapLinear(scroll, 0, documentHeight, 0, gltf.animations[0]?.duration)
     mixer?.setTime(timeValue)
-    mainCamera.lookAt(0.1, 0.05, 0)
     if (moonverseContainer && scroll <= moonverseBottomContainer) {
       const moonverseClosingHeight = moonverseContainer?.top + moonverseContainer?.height
       // Mapping for the main light
@@ -243,10 +245,18 @@ const Model = ({ setAnimation }: any) => {
     if (mainLight.current) console.log(mainLight)
   }, [mainLight])
 
-  const startAnimation = () => {
-    gltf.animations.forEach((clip) => {
-      const action = mixer.clipAction(clip)
+  const startAnimation = (model?: any, player?: any) => {
+    const m = model ? model : gltf
+    const mix = player ? player : mixer
+
+    console.log(mixer)
+    m.animations.forEach((clip: any) => {
+      const action = mix.clipAction(clip)
       action?.play()
+    })
+    window.addEventListener('scroll', () => {
+      const temp = MathUtils.mapLinear(window.scrollY, 0, documentHeight, 0, 50)
+      mix.setTime(temp)
     })
   }
 
