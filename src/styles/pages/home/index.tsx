@@ -1,8 +1,6 @@
 import styled from 'styled-components'
 import apebackground from 'assets/images/moonversewrapper.png'
 import apesbackground from 'assets/images/moonversemobilewrapper.png'
-import problembackground from 'assets/images/problemsbackground.png'
-import problemnewbackground from 'assets/images/problemmobilewrapper.png'
 import partnermobile from 'assets/images/partnersmobilebackground.png'
 import roadmapbackground from 'assets/images/mobileroadmapwrapper.png'
 
