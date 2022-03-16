@@ -82,29 +82,24 @@ export const VideoContainer = styled.div`
 export const TextContainer = styled.div`
   display: grid;
   grid-gap: 10px;
-  padding-left: 70px;
-  max-width: 550px;
-  @media screen and (max-width: 740px) {
+  padding-left: min(7.6vw, 140px);
+  max-width: min(49vw, 903px);
+  /* @media screen and (max-width: 740px) {
     padding-left: 30px;
     max-width: 250px;
-  }
+  } */
 `
 export const Title = styled.div`
-  max-width: 400px;
-  font-size: 43px;
-  padding-bottom: 7px;
+  font-size: min(4.5vw, 83px);
   text-align: left;
   font-family: 'conthraxsb';
-  font-weight: 200;
-  letter-spacing: 0px;
-  opacity: 1;
   line-height: 1.2;
   z-index: 2;
   text-transform: uppercase;
   color: #fff;
-  @media screen and (max-width: 740px) {
+  /* @media screen and (max-width: 740px) {
     font-size: 25px;
-  }
+  } */
 `
 
 export const TokenTitle = styled.div`
@@ -120,24 +115,17 @@ export const TokenTitle = styled.div`
   z-index: 2;
   text-transform: uppercase;
   color: #fff;
-  @media screen and (max-width: 740px) {
-    font-size: 25px;
-  }
 `
 
 export const Text = styled.div`
   text-align: left;
   font-family: Outfit;
-  font-size: 21px;
+  font-size: min(1.9vw, 35px);
   font-weight: 100;
   color: #c1c0c0;
   opacity: 1;
   width: 100%;
   line-height: 1.5;
-  max-width: 600px;
-  @media screen and (max-width: 740px) {
-    font-size: 12px;
-  }
 `
 export const Logo = styled.div`
   position: absolute;
@@ -163,7 +151,7 @@ export const Logo = styled.div`
     border-radius: 79px;
     opacity: 0.96;
     text-align: left;
-    font-size: 15px;
+    font-size: min(1.3vw, 24px);
     letter-spacing: 0.5px;
     color: #ffffff;
     text-transform: capitalize;
@@ -217,10 +205,9 @@ export const ScrollContainer = styled.section`
 `
 
 export const MoonverseInfo = styled.div`
-  padding-top: 100px;
   height: 1200px;
   position: sticky;
-  top: 0;
+  top: calc(50% - 9vw);
 
   /* background-image: url(${apebackground}); */
   background-size: 100%;
@@ -244,14 +231,14 @@ export const MoonverseInfo = styled.div`
 export const Problems = styled.div`
   height: 1200px;
   position: sticky;
-  top: 0;
+  top: calc(50% - 20vw);
   display: flex;
   // background-image: url(${problembackground});
-  padding-right: 50px;
+  /* padding-right: 50px; */
   background-repeat: no-repeat;
   padding-top: 0px;
 
-  @media screen and (max-width: 1050px) {
+  /* @media screen and (max-width: 1050px) {
     display: grid;
     padding-top: 20px;
     padding-right: 10px;
@@ -262,7 +249,7 @@ export const Problems = styled.div`
     padding-top: 20px;
     padding-right: 10px;
     background-image: url(${problemnewbackground});
-  }
+  } */
   @media screen and (max-width: 700px) {
     padding-top: 20px;
 
@@ -272,16 +259,15 @@ export const Problems = styled.div`
 
 export const ProblemsTitle = styled.div`
   text-align: left;
-  font-size: 52px;
+  font-size: min(4.5vw, 83px);
   font-family: 'conthraxsb';
   font-weight: 200;
-  letter-spacing: 0px;
-  opacity: 1;
   z-index: 3;
   color: #fff;
   width: 100%;
-  margin-bottom: 30px;
-  max-width: 582px;
+  text-transform: uppercase;
+  margin-bottom: min(3.2vw, 60px);
+  padding-left: min(2.7vw, 50px);
   @media screen and (max-width: 740px) {
     font-size: 25px;
     padding-left: 24px;
@@ -305,21 +291,21 @@ export const ParticipateContainer = styled.div`
   .playButton {
     background: #262166 0% 0% no-repeat padding-box;
     box-shadow: inset 0px 17px 6px #00000029, 0px 3px 6px #5a5a5a29;
-    border-radius: 79px;
     opacity: 0.58;
     color: #ffffff;
-    height: 59px;
     width: 100%;
-    max-width: 135px;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: left;
-    font-size: 20px;
     font-weight: 500;
     color: #ffffff;
     text-transform: capitalize;
     opacity: 1;
+    border-radius: min(1.6vw, 79px);
+    height: min(3.2vw, 59px);
+    width: min(7.4vw, 135px);
+    font-size: min(1vw, 20px);
     :hover {
       background: #262166 0% 0% no-repeat padding-box;
       box-shadow: inset 0px 17px 6px #00000029, 0px 3px 6px #5a5a5a29;
@@ -331,11 +317,11 @@ export const ParticipateContainer = styled.div`
 export const PartcipateText = styled.div`
   text-align: left;
   font-family: 'outfit';
-  font-size: 15px;
+  font-size: min(1.3vw, 24px);
   font-weight: 300;
   color: #b0b0b0;
   opacity: 1;
-  max-width: 510px;
+  /* max-width: 510px; */
   line-height: 1.7;
   z-index: 2;
   @media screen and (max-width: 720px) {
@@ -345,30 +331,31 @@ export const PartcipateText = styled.div`
 `
 export const TextWrapper = styled.div`
   display: grid;
-  max-width: 57%;
-  grid-gap: 20px;
-  padding-left: 70px;
   align-self: flex-start;
   z-index: 2;
   grid-column: 1;
-  padding-right: 50px;
-  @media screen and (max-width: 720px) {
+  padding-left: min(7.6vw, 140px);
+  max-width: min(40.1vw, 742px);
+  grid-gap: min(1.8vw, 20px);
+  padding-top: min(7.6vw, 140px);
+  /* @media screen and (max-width: 720px) {
     padding-left: 25px;
-  }
+  } */
 `
 
 export const Pointers = styled.div`
-  width: 500px;
+  /* width: 500px;
   margin-right: 50px;
-  margin-top: 10px;
-  background-position-x: center;
+  margin-top: 10px; */
+  /* background-position-x: center;
   background-position-y: center;
   background-size: 795px 795px;
   background-repeat: no-repeat;
-  overflow: visible;
+  overflow: visible; */
   position: relative;
   margin-left: auto;
-
+  max-width: min(47.2vw, 871px);
+  padding-right: min(7.6vw, 140px);
   > img {
     position: absolute;
     left: -70px;
@@ -377,7 +364,7 @@ export const Pointers = styled.div`
     height: auto;
     opacity: 0;
   }
-  @media screen and (max-width: 1450px) {
+  /* @media screen and (max-width: 1450px) {
     background-size: 655px 655px;
   }
   @media screen and (max-width: 1120px) {
@@ -395,38 +382,38 @@ export const Pointers = styled.div`
     height: 337px;
     padding-left: 5px;
     justify-content: center;
-  }
+  } */
 `
 export const DiscoverDiv = styled.div`
   position: relative;
-  padding-top: 35px;
+  /* padding-top: 35px; */
 `
 
 export const Discover = styled.div`
   position: relative;
   width: 100%;
-  border-radius: 12px;
+  /* border-radius: 12px; */
   font-family: Outfit;
   opacity: 1;
-  padding: 15px;
-  align-self: center;
-  top: 0;
-  left: 0;
-  padding-left: 116px;
-  margin-bottom: 40px;
+  display: flex;
+  align-items: flex-start;
+  padding: min(0.8vw, 15px);
+  gap: min(2.7vw, 50px);
+  margin-bottom: min(2.1vw, 40px);
+  > div {
+    padding-top: min(0.5vw, 9px);
+  }
   span {
-    position: absolute;
-    left: 0px;
-    top: 5px;
+    position: relative;
     border-radius: 50%;
-    height: 90px;
-    width: 90px;
-    line-height: 127px;
-    text-align: center;
-    // background: #9945F8;
+
+    height: min(4.8vw, 87px);
+    min-width: min(4.8vw, 87px);
     z-index: 0;
     opacity: 0.78;
-
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     &:after {
       position: absolute;
       left: 0px;
@@ -446,7 +433,7 @@ export const Discover = styled.div`
       z-index: -1;
     }
     img {
-      width: 50px;
+      max-width: min(2.8vw, 50px);
     }
   }
 
@@ -566,10 +553,8 @@ export const Monetization = styled.div`
   }
 `
 export const InternalTitle = styled.div`
-  text-align: left;
   font-family: Outfit;
-  font-size: 17px;
-  letter-spacing: 0px;
+  font-size: min(1.3vw, 24px);
   color: #a884f5;
   font-weight: bold;
   margin-bottom: 8px;
@@ -579,14 +564,11 @@ export const InternalTitle = styled.div`
   }
 `
 export const InternalText = styled.div`
-  text-align: left;
   font-family: Outfit;
-  font-size: 15px;
-  letter-spacing: 0px;
+  font-size: min(1.3vw, 24px);
   color: #b0b0b0;
   font-weight: 100;
   opacity: 1;
-  line-height: 1.7;
   @media screen and (max-width: 720px) {
     font-size: 8px;
   }
@@ -594,7 +576,7 @@ export const InternalText = styled.div`
 export const TokenContainer = styled.div`
   height: 1200px;
   position: sticky;
-  top: 0;
+  top: 100px;
 `
 export const TokenTextWrapper = styled.div`
   justify-content: center;
@@ -891,7 +873,7 @@ export const QuicklinkTitle = styled.div`
   opacity: 1;
   margin-bottom: 10px;
   @media screen and (max-width: 740px) {
-    font-size: 15px;
+    font-size: min(1.3vw, 24px);
   }
 `
 export const ChannelsWrapper = styled.div`

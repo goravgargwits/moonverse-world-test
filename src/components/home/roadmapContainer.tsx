@@ -1,20 +1,10 @@
-import { useEffect } from 'react'
 import { Roadmap, RoadmapHeading, ScrollContainer, RoadmapDivWrapper } from 'styles/pages/home'
-import AOS from 'aos'
-import 'aos/dist/aos.css'
 import fireGif from 'assets/gif/fire.gif'
 
 const RoadmapWrapper = () => {
-  useEffect(() => {
-    AOS.init({
-      duration: 2500,
-    })
-  }, [])
   return (
     <ScrollContainer>
-      <Roadmap
-      //  data-aos={'fade-up'} data-aos-delay={1000}
-      >
+      <Roadmap>
         <RoadmapHeading>
           ROAD<span>MAP</span>
         </RoadmapHeading>

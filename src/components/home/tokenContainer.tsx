@@ -1,4 +1,3 @@
-import { useEffect } from 'react'
 import {
   TokenContainer,
   TokenTextWrapper,
@@ -12,20 +11,11 @@ import tokentwo from 'assets/images/tokentwo.png'
 import tokenThree from 'assets/images/tokenThree.png'
 import tokenFour from 'assets/images/tokenfour.png'
 import tokenFive from 'assets/images/tokenfive.png'
-import AOS from 'aos'
-import 'aos/dist/aos.css'
 
 const TokenUtilitiesWrapper = () => {
-  useEffect(() => {
-    AOS.init({
-      duration: 2500,
-    })
-  }, [])
   return (
     <ScrollContainer id="token-utilities">
-      <TokenContainer
-      // data-aos={'fade-up'} data-aos-delay={1000}
-      >
+      <TokenContainer>
         <TokenTextWrapper>
           <TokenTitle>Token Utilities</TokenTitle>
           {/* <TokenText>$MOONV will be the utility token for the Moonverse economy. Utilities include:</TokenText> */}
