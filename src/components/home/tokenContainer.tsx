@@ -8,7 +8,7 @@ import {
 } from 'styles/pages/home'
 import tokenfirst from 'assets/images/tokenone.png'
 import tokentwo from 'assets/images/tokentwo.png'
-import tokenThree from 'assets/images/tokenThree.png'
+import tokenThree from 'assets/images/tokenthree.png'
 import tokenFour from 'assets/images/tokenfour.png'
 import tokenFive from 'assets/images/tokenfive.png'
 

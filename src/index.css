@@ -33,9 +33,9 @@ span.problem-loader:before {
     height: calc(100% - 4px);
     top: 0px;
     content:"";
-    border-top-color: #0eb7da;
-    border-right-color: #0eb7da;
-    border-bottom-color: #0eb7da;
+    border-top-color: #ed972d;
+    border-right-color: #ed972d;
+    border-bottom-color: #ed972d;
     transition: border-top-color 0.15s linear, border-right-color 0.15s linear 0.1s, border-bottom-color 0.15s linear 0.2s;
     -webkit-animation-name: rotating; 
     -webkit-animation-duration: 1s; 

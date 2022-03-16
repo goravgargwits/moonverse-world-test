@@ -25,6 +25,7 @@ const Home = () => {
         <RoadmapWrapper />
         <FooterWrapper />
       </div>
+
       {/*<PartnersAndInvestors>*/}
       {/*  <img className="partner_background" src={partnerimagecontainer} />*/}
       {/*<PartnersContent>*/}

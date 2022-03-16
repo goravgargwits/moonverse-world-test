@@ -80,17 +80,20 @@ export const VideoContainer = styled.div`
   }
 `
 export const TextContainer = styled.div`
-  display: grid;
-  grid-gap: 10px;
+  display: flex;
+  gap: 10px;
   padding-left: min(7.6vw, 140px);
-  max-width: min(49vw, 903px);
+  max-width: min(44vw, 903px);
+  height: 100vh;
+  flex-direction: column;
+  justify-content: center;
   /* @media screen and (max-width: 740px) {
     padding-left: 30px;
     max-width: 250px;
   } */
 `
 export const Title = styled.div`
-  font-size: min(4.5vw, 83px);
+  font-size: min(4.5vw, 65px);
   text-align: left;
   font-family: 'conthraxsb';
   line-height: 1.2;
@@ -104,7 +107,7 @@ export const Title = styled.div`
 
 export const TokenTitle = styled.div`
   max-width: min(28vw, 513px);
-  font-size: min(4.5vw, 83px);
+  font-size: min(4.5vw, 65px);
   text-align: center;
   font-family: 'conthraxsb';
   font-weight: 200;
@@ -117,12 +120,13 @@ export const TokenTitle = styled.div`
 export const Text = styled.div`
   text-align: left;
   font-family: Outfit;
-  font-size: min(1.9vw, 35px);
+  font-size: min(1.5vw, 29px);
   font-weight: 100;
   color: #c1c0c0;
   opacity: 1;
   width: 100%;
   line-height: 1.5;
+  max-width: 39vw;
 `
 export const Logo = styled.div`
   position: absolute;
@@ -199,12 +203,13 @@ export const Player = styled.div`
 export const ScrollContainer = styled.section`
   min-height: 400vh;
   position: relative;
+  padding-bottom: 80px;
 `
 
 export const MoonverseInfo = styled.div`
   height: 1200px;
   position: sticky;
-  top: calc(50% - 9vw);
+  top: 0;
 
   /* background-image: url(${apebackground}); */
   background-size: 100%;
@@ -256,7 +261,7 @@ export const Problems = styled.div`
 
 export const ProblemsTitle = styled.div`
   text-align: left;
-  font-size: min(4.5vw, 83px);
+  font-size: min(4.5vw, 65px);
   font-family: 'conthraxsb';
   font-weight: 200;
   z-index: 3;
@@ -332,7 +337,7 @@ export const TextWrapper = styled.div`
   z-index: 2;
   grid-column: 1;
   padding-left: min(7.6vw, 140px);
-  max-width: min(40.1vw, 742px);
+  max-width: min(30.1vw, 556px);
   grid-gap: min(1.8vw, 20px);
   padding-top: min(7.6vw, 140px);
   /* @media screen and (max-width: 720px) {
@@ -351,7 +356,7 @@ export const Pointers = styled.div`
   overflow: visible; */
   position: relative;
   margin-left: auto;
-  max-width: min(47.2vw, 871px);
+  max-width: min(38.2vw, 871px);
   padding-right: min(7.6vw, 140px);
   > img {
     position: absolute;
@@ -407,7 +412,7 @@ export const Discover = styled.div`
     height: min(4.8vw, 87px);
     min-width: min(4.8vw, 87px);
     z-index: 0;
-    opacity: 0.78;
+    /* opacity: 0.78; */
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -422,15 +427,12 @@ export const Discover = styled.div`
       border-radius: 50%;
       width: 100%;
       box-shadow: 0px 0px 50px #ed960f;
-      filter: blur(10px);
-      -webkit-filter: blur(10px);
-      -moz-filter: blur(10px);
-      -o-filter: blur(10px);
-      -ms-filter: blur(10px);
-      z-index: -1;
+      filter: blur(30px);
+      z-index: 0;
     }
     img {
       max-width: min(2.8vw, 50px);
+      opacity: 0.6;
     }
   }
 
@@ -602,7 +604,6 @@ export const Utilities = styled.div`
   margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
-  margin-top: -4.4vw;
   justify-content: center;
   gap: 0 min(3.9vw, 68px);
 `
@@ -701,7 +702,7 @@ export const Heading = styled.div`
 `
 export const RoadmapHeading = styled.div`
   text-align: left;
-  font-size: min(4.5vw, 83px);
+  font-size: min(4.5vw, 65px);
   font-family: 'conthraxsb';
   font-weight: 200;
   z-index: 3;
@@ -763,6 +764,7 @@ export const RoadmapDivWrapper = styled.div`
     img {
       max-width: min(2.8vw, 50px);
     }
+
     ::after {
       position: absolute;
       left: 0px;
@@ -777,6 +779,57 @@ export const RoadmapDivWrapper = styled.div`
       -webkit-filter: blur(10px);
       filter: blur(10px);
       z-index: -1;
+    }
+    ::before {
+      border: 2px solid transparent;
+      border-radius: 100%;
+      position: absolute;
+      left: 0px;
+      width: calc(100% - 4px);
+      height: calc(100% - 4px);
+      top: 0px;
+      content: '';
+      border-top-color: #ed972d;
+      border-right-color: #ed972d;
+      border-bottom-color: #ed972d;
+      transition: border-top-color 0.15s linear, border-right-color 0.15s linear 0.1s,
+        border-bottom-color 0.15s linear 0.2s;
+      -webkit-animation-name: rotating;
+      -webkit-animation-duration: 1s;
+      -webkit-animation-iteration-count: infinite;
+      -webkit-animation-timing-function: linear;
+      -moz-animation-name: rotating;
+      -moz-animation-duration: 1s;
+      -moz-animation-iteration-count: infinite;
+      -moz-animation-timing-function: linear;
+    }
+    @-webkit-keyframes rotating /* Safari and Chrome */ {
+      from {
+        -webkit-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+      }
+      to {
+        -webkit-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+      }
+    }
+    @keyframes rotating {
+      from {
+        -ms-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+      }
+      to {
+        -ms-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+      }
     }
   }
 
@@ -838,19 +891,16 @@ export const RoadmapContent = styled.div`
 `
 
 export const FooterContainer = styled.div`
-  margin: 50px;
+  /* margin: 50px; */
   padding: 32px;
   background: linear-gradient(145deg, #c37a08 27%, #ed960f 50%);
-  box-shadow: 0px 14px 24px rgb(0 0 0 / 65%);
-  border-radius: 50px;
+  /* box-shadow: 0px 14px 24px rgb(0 0 0 / 65%); */
+  /* border-radius: 50px; */
   display: flex;
   justify-content: space-between;
-  @media screen and (max-width: 740px) {
-    background: linear-gradient(125deg, #0a0d5b 5%, #808080 90%);
-    padding: 40px 8px 35px 8px;
-    margin: 10px;
-    border-radius: 15px;
-  }
+  background: rgb(255 254 254 / 7%);
+  box-shadow: 0 4px 30px rgb(0 0 0 / 10%);
+  backdrop-filter: blur(11.8px);
 `
 export const LogoImagewrapper = styled.div`
   .footer_logo {
