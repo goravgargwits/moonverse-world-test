@@ -227,14 +227,16 @@ const Model = ({ setAnimation }: any) => {
   }
 
   useEffect(() => {
-    if (mainLight.current) console.log(mainLight)
+    if (mainLight.current) {
+      // console.log(mainLight)
+    }
   }, [mainLight])
 
   const startAnimation = (model?: any, player?: any) => {
     const m = model ? model : gltf
     const mix = player ? player : mixer
 
-    console.log(mixer)
+    // console.log(mixer)
     m.animations.forEach((clip: any) => {
       const action = mix.clipAction(clip)
       action?.play()
@@ -254,7 +256,7 @@ const Model = ({ setAnimation }: any) => {
     }
   })
 
-  console.log(gltf)
+  // console.log(gltf)
 
   return (
     <>
@@ -273,9 +275,7 @@ const Model = ({ setAnimation }: any) => {
 // )
 
 const AstroModel = () => {
-  const [animation, setAnimation] = useState()
-
-  console.log(animation)
+  const [, setAnimation] = useState()
   return (
     <>
       <Canvas className="model-container" style={{ filter: 'blur(0px)' }}>
