@@ -1,18 +1,61 @@
 import styled from 'styled-components'
 import apebackground from 'assets/images/moonversewrapper.png'
 import apesbackground from 'assets/images/moonversemobilewrapper.png'
-import problembackground from 'assets/images/problemsbackground.png'
-import problemnewbackground from 'assets/images/problemmobilewrapper.png'
-import pointerbackground from 'assets/images/cube.png'
 import partnermobile from 'assets/images/partnersmobilebackground.png'
 import roadmapbackground from 'assets/images/mobileroadmapwrapper.png'
 
+export const CanvasWrapper = styled.div`
+  position: static;
+  /* height: 100vh;
+  min-width: 100vw;
+  
+  position: sticky;
+  z-index: -1;
+  top: 0; */
+
+  .model-container {
+    height: 100vh !important;
+    width: 100vw !important;
+    position: fixed !important;
+    z-index: -1;
+    top: 0;
+  }
+
+  .model-container > canvas {
+    height: 100vh;
+    left: 0;
+    top: 0;
+    width: 100vw;
+  }
+`
+
 export const Container = styled.div`
   width: 100%;
-  background: linear-gradient(180deg, #120a1d 40%, #1f0a3c 50%);
-  overflow-x: hidden;
+  z-index: 0;
+  background: linear-gradient(180deg, #120a1d 40%, #a76703 50%);
   @media screen and (max-width: 740px) {
     background: #120a1d;
+  }
+
+  .canvas-container {
+    position: relative;
+  }
+
+  .model-container {
+    position: static !important;
+    height: 100vh !important;
+    width: 100vw !important;
+    position: sticky !important;
+    z-index: -1;
+    top: 0;
+  }
+
+  .model-container > canvas {
+    position: sticky;
+    height: 100vh;
+    left: 0;
+    top: 0;
+    width: 100vw;
   }
 `
 export const VideoContainer = styled.div`
@@ -35,41 +78,53 @@ export const VideoContainer = styled.div`
   }
 `
 export const TextContainer = styled.div`
-  display: grid;
-  grid-gap: 10px;
-  padding-left: 70px;
-  max-width: 475px;
-  @media screen and (max-width: 740px) {
+  display: flex;
+  gap: 10px;
+  padding-left: min(7.6vw, 140px);
+  max-width: min(44vw, 903px);
+  height: 100vh;
+  flex-direction: column;
+  justify-content: center;
+  /* @media screen and (max-width: 740px) {
     padding-left: 30px;
     max-width: 250px;
-  }
+  } */
 `
 export const Title = styled.div`
+  font-size: min(4.5vw, 65px);
   text-align: left;
-  font-size: 52px;
-  font-family: Outfit;
-  font-weight: 200;
-  letter-spacing: 0px;
-  opacity: 1;
+  font-family: 'conthraxsb';
+  line-height: 1.2;
   z-index: 2;
-  color: #a884f5;
-  text-shadow: #a884f5 5px 0 15px;
-  @media screen and (max-width: 740px) {
+  text-transform: uppercase;
+  color: #fff;
+  /* @media screen and (max-width: 740px) {
     font-size: 25px;
-  }
+  } */
 `
+
+export const TokenTitle = styled.div`
+  max-width: min(28vw, 513px);
+  font-size: min(4.5vw, 65px);
+  text-align: center;
+  font-family: 'conthraxsb';
+  font-weight: 200;
+  line-height: 1.2;
+  z-index: 2;
+  text-transform: uppercase;
+  color: #fff;
+`
+
 export const Text = styled.div`
   text-align: left;
   font-family: Outfit;
-  font-size: 25px;
-  font-weight: 200;
-  color: #ffffff;
+  font-size: min(1.5vw, 29px);
+  font-weight: 100;
+  color: #c1c0c0;
   opacity: 1;
   width: 100%;
-  max-width: 472px;
-  @media screen and (max-width: 740px) {
-    font-size: 12px;
-  }
+  line-height: 1.5;
+  max-width: 39vw;
 `
 export const Logo = styled.div`
   position: absolute;
@@ -88,14 +143,14 @@ export const Logo = styled.div`
     margin-right: 50px;
     margin-top: 30px;
     width: 100%;
-    max-width: 120px;
+    max-width: 160px;
     height: 50px;
     background: #a3a0c5 0% 0% no-repeat padding-box;
     box-shadow: inset 0px 17px 6px #00000029, 0px 3px 6px #5a5a5a29;
     border-radius: 79px;
     opacity: 0.96;
     text-align: left;
-    font-size: 15px;
+    font-size: min(1.3vw, 24px);
     letter-spacing: 0.5px;
     color: #ffffff;
     text-transform: capitalize;
@@ -143,10 +198,18 @@ export const Player = styled.div`
   }
 `
 
+export const ScrollContainer = styled.section`
+  min-height: 400vh;
+  position: relative;
+  padding-bottom: 80px;
+`
+
 export const MoonverseInfo = styled.div`
-  padding-top: 50px;
-  height: 900px;
-  background-image: url(${apebackground});
+  height: 1200px;
+  position: sticky;
+  top: 0;
+
+  /* background-image: url(${apebackground}); */
   background-size: 100%;
   background-repeat: no-repeat;
 
@@ -166,25 +229,13 @@ export const MoonverseInfo = styled.div`
 `
 
 export const Problems = styled.div`
+  height: 1200px;
+  position: sticky;
+  top: calc(50% - 20vw);
   display: flex;
-  height: 832px;
-  background-image: url(${problembackground});
-  padding-right: 50px;
   background-repeat: no-repeat;
-  padding-top: 20px;
+  padding-top: 0px;
 
-  @media screen and (max-width: 1050px) {
-    display: grid;
-    padding-top: 20px;
-    padding-right: 10px;
-    background-image: url(${problemnewbackground});
-  }
-  @media screen and (max-width: 1050px) {
-    display: grid;
-    padding-top: 20px;
-    padding-right: 10px;
-    background-image: url(${problemnewbackground});
-  }
   @media screen and (max-width: 700px) {
     padding-top: 20px;
 
@@ -193,25 +244,26 @@ export const Problems = styled.div`
 `
 
 export const ProblemsTitle = styled.div`
-  padding-left: 74px;
   text-align: left;
-  font-size: 52px;
-  font-family: Outfit;
+  font-size: min(4.5vw, 65px);
+  font-family: 'conthraxsb';
   font-weight: 200;
-  letter-spacing: 0px;
-  opacity: 1;
   z-index: 3;
-  color: #a884f5;
+  color: #fff;
   width: 100%;
-  max-width: 582px;
+  text-transform: uppercase;
+  margin-bottom: min(3.2vw, 60px);
+  padding-left: min(2.7vw, 50px);
   @media screen and (max-width: 740px) {
     font-size: 25px;
     padding-left: 24px;
   }
 `
 export const ParticipateContainer = styled.div`
-  width: 100%;
-  height: 800px;
+  padding-top: 100px;
+  height: 1200px;
+  position: sticky;
+  top: 0;
 
   background-repeat: no-repeat;
   background-size: 100vw 900px;
@@ -223,25 +275,25 @@ export const ParticipateContainer = styled.div`
     height: 400px;
   }
   .playButton {
-    background: #262166 0% 0% no-repeat padding-box;
+    background: #ed960f 0% 0% no-repeat padding-box;
     box-shadow: inset 0px 17px 6px #00000029, 0px 3px 6px #5a5a5a29;
-    border-radius: 79px;
     opacity: 0.58;
     color: #ffffff;
-    height: 59px;
     width: 100%;
-    max-width: 135px;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: left;
-    font-size: 20px;
     font-weight: 500;
     color: #ffffff;
     text-transform: capitalize;
     opacity: 1;
+    border-radius: min(1.6vw, 79px);
+    height: min(3.2vw, 59px);
+    width: min(7.4vw, 135px);
+    font-size: min(1vw, 20px);
     :hover {
-      background: #262166 0% 0% no-repeat padding-box;
+      background: #ed960f 0% 0% no-repeat padding-box;
       box-shadow: inset 0px 17px 6px #00000029, 0px 3px 6px #5a5a5a29;
       transform: scale(1.1);
       transition: 0.2s;
@@ -250,12 +302,13 @@ export const ParticipateContainer = styled.div`
 `
 export const PartcipateText = styled.div`
   text-align: left;
-  font-family: Outfit;
-  font-size: 25px;
+  font-family: 'outfit';
+  font-size: min(1.3vw, 24px);
   font-weight: 300;
-  color: #ffffff;
+  color: #b0b0b0;
   opacity: 1;
-  max-width: 1310px;
+  /* max-width: 510px; */
+  line-height: 1.7;
   z-index: 2;
   @media screen and (max-width: 720px) {
     font-size: 11px;
@@ -264,26 +317,40 @@ export const PartcipateText = styled.div`
 `
 export const TextWrapper = styled.div`
   display: grid;
-  grid-gap: 20px;
-  padding-left: 70px;
   align-self: flex-start;
   z-index: 2;
   grid-column: 1;
-  padding-right: 50px;
-  @media screen and (max-width: 720px) {
+  padding-left: min(7.6vw, 140px);
+  max-width: min(30.1vw, 556px);
+  grid-gap: min(1.8vw, 20px);
+  padding-top: min(7.6vw, 140px);
+  /* @media screen and (max-width: 720px) {
     padding-left: 25px;
-  }
+  } */
 `
 
 export const Pointers = styled.div`
-  display: grid;
-  width: 100%;
-  background-image: url(${pointerbackground});
-  background-position-x: center;
+  /* width: 500px;
+  margin-right: 50px;
+  margin-top: 10px; */
+  /* background-position-x: center;
   background-position-y: center;
   background-size: 795px 795px;
   background-repeat: no-repeat;
-  @media screen and (max-width: 1450px) {
+  overflow: visible; */
+  position: relative;
+  margin-left: auto;
+  max-width: min(38.2vw, 871px);
+  padding-right: min(7.6vw, 140px);
+  > img {
+    position: absolute;
+    left: -70px;
+    top: -41px;
+    width: 118vh;
+    height: auto;
+    opacity: 0;
+  }
+  /* @media screen and (max-width: 1450px) {
     background-size: 655px 655px;
   }
   @media screen and (max-width: 1120px) {
@@ -301,19 +368,57 @@ export const Pointers = styled.div`
     height: 337px;
     padding-left: 5px;
     justify-content: center;
-  }
+  } */
 `
+export const DiscoverDiv = styled.div`
+  position: relative;
+  /* padding-top: 35px; */
+`
+
 export const Discover = styled.div`
+  position: relative;
   width: 100%;
-  max-width: 303px;
-  background: #262166 0% 0% no-repeat padding-box;
-  box-shadow: inset 0px 17px 6px #00000029, 0px 3px 6px #00000029;
-  border-radius: 12px;
+  /* border-radius: 12px; */
+  font-family: Outfit;
   opacity: 1;
-  padding: 15px;
-  display: grid;
-  grid-gap: 5px;
-  align-self: center;
+  display: flex;
+  align-items: flex-start;
+  padding: min(0.8vw, 15px);
+  gap: min(2.7vw, 50px);
+  margin-bottom: min(2.1vw, 40px);
+  > div {
+    padding-top: min(0.5vw, 9px);
+  }
+  span {
+    position: relative;
+    border-radius: 50%;
+
+    height: min(4.8vw, 87px);
+    min-width: min(4.8vw, 87px);
+    z-index: 0;
+    /* opacity: 0.78; */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    &:after {
+      position: absolute;
+      left: 0px;
+      top: 0px;
+      opacity: 0.78;
+      content: '';
+      background: #ed960f;
+      height: 100%;
+      border-radius: 50%;
+      width: 100%;
+      /* box-shadow: 0px 0px 50px #ed960f; */
+      filter: blur(30px);
+      z-index: 0;
+    }
+    img {
+      max-width: min(2.8vw, 50px);
+      opacity: 0.6;
+    }
+  }
 
   justify-self: center;
   @media screen and (max-width: 1120px) {
@@ -326,16 +431,50 @@ export const Discover = styled.div`
   }
 `
 export const Model = styled.div`
+  position: relative;
   width: 100%;
-  max-width: 243px;
-  background: #262166 0% 0% no-repeat padding-box;
-  box-shadow: inset 0px 17px 6px #00000029, 0px 3px 6px #00000029;
+  font-family: Outfit;
   border-radius: 12px;
   opacity: 1;
   padding: 15px;
-  display: grid;
-  grid-gap: 5px;
+  top: 0px;
+  left: 0px;
+  padding-left: 116px;
+  margin-bottom: 40px;
+  span {
+    position: absolute;
+    left: 0px;
+    top: -5px;
+    border-radius: 50%;
+    height: 90px;
+    width: 90px;
+    line-height: 127px;
+    text-align: center;
+    z-index: 0;
+    opacity: 0.78;
+    &:after {
+      position: absolute;
+      left: 0px;
+      top: 0px;
+      opacity: 0.78;
+      content: '';
+      background: #ed960f;
+      height: 100%;
+      border-radius: 50%;
+      width: 100%;
+      /* box-shadow: 0px 0px 50px #ed960f; */
+      filter: blur(10px);
+      -webkit-filter: blur(10px);
+      -moz-filter: blur(10px);
+      -o-filter: blur(10px);
+      -ms-filter: blur(10px);
+      z-index: -1;
+    }
 
+    img {
+      width: 50px;
+    }
+  }
   justify-self: flex-end;
   align-self: center;
   @media screen and (max-width: 720px) {
@@ -344,18 +483,51 @@ export const Model = styled.div`
   }
 `
 export const Monetization = styled.div`
+  position: relative;
   width: 100%;
   max-width: 434px;
-  background: #262166 0% 0% no-repeat padding-box;
-  box-shadow: inset 0px 17px 6px #00000029, 0px 3px 6px #00000029;
   border-radius: 12px;
   opacity: 1;
   padding: 15px;
-  display: grid;
-  grid-gap: 5px;
-
+  right: 0;
+  font-family: Outfit;
   justify-self: center;
   align-self: center;
+  padding-left: 116px;
+  margin-bottom: 40px;
+  span {
+    position: absolute;
+    left: 0px;
+    top: 5px;
+    border-radius: 50%;
+    height: 90px;
+    width: 90px;
+    line-height: 127px;
+    text-align: center;
+    z-index: 0;
+    opacity: 0.78;
+    &:after {
+      position: absolute;
+      left: 0px;
+      top: 0px;
+      opacity: 0.78;
+      content: '';
+      background: #ed960f;
+      height: 100%;
+      border-radius: 50%;
+      width: 100%;
+      /* box-shadow: 0px 0px 50px #ed960f; */
+      filter: blur(10px);
+      -webkit-filter: blur(10px);
+      -moz-filter: blur(10px);
+      -o-filter: blur(10px);
+      -ms-filter: blur(10px);
+      z-index: -1;
+    }
+    img {
+      width: 50px;
+    }
+  }
   @media screen and (max-width: 1120px) {
     align-self: end;
   }
@@ -364,34 +536,34 @@ export const Monetization = styled.div`
   }
 `
 export const InternalTitle = styled.div`
-  text-align: left;
   font-family: Outfit;
-  font-size: 23px;
-  letter-spacing: 0px;
-  color: #ffffff;
+  font-size: min(1.3vw, 24px);
+  color: #ed960f;
+  font-weight: bold;
+  margin-bottom: 8px;
   opacity: 1;
   @media screen and (max-width: 720px) {
     font-size: 12px;
   }
 `
 export const InternalText = styled.div`
-  text-align: left;
   font-family: Outfit;
-  font-size: 17px;
-  letter-spacing: 0px;
-  color: #ffffff;
+  font-size: min(1.3vw, 24px);
+  color: #b0b0b0;
+  font-weight: 100;
   opacity: 1;
   @media screen and (max-width: 720px) {
     font-size: 8px;
   }
 `
-export const TokenContainer = styled.div``
+export const TokenContainer = styled.div`
+  height: 1200px;
+  position: sticky;
+  top: 50px;
+`
 export const TokenTextWrapper = styled.div`
-  padding-top: 30px;
-  padding-bottom: 30px;
-  display: grid;
-  padding-left: 74px;
-  grid-gap: 20px;
+  justify-content: center;
+  display: flex;
   @media screen and (max-width: 720px) {
     padding-left: 30px;
     max-width: 250px;
@@ -399,7 +571,7 @@ export const TokenTextWrapper = styled.div`
 `
 export const TokenText = styled.div`
   text-align: left;
-  font-family: Outfit;
+  font-family: 'conthraxsb';
   font-size: 25px;
   font-weight: 300;
   color: #ffffff;
@@ -411,34 +583,46 @@ export const TokenText = styled.div`
   }
 `
 export const Utilities = styled.div`
-  display: grid;
+  width: calc(100% - 28vw);
+  max-width: 1320px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
   justify-content: center;
-  grid-gap: 30px;
-  grid-template-columns: repeat(auto-fit, minmax(500px, 3fr));
-  padding: 0px 70px 70px 70px;
-  align-items: center;
-  justify-items: center;
-  @media screen and (max-width: 720px) {
-    grid-gap: 10px;
-  }
+  gap: 0 min(3.9vw, 68px);
 `
+export const UtilitiesWrapperDiv = styled.div`
+  display: flex;
+  margin: 0 auto;
+  width: fit-content;
+  gap: 110px;
+`
+
 export const UtilitiesWrapper = styled.div`
   justify-content: center;
+  img {
+    width: 100%;
+    max-width: min(21.2vw, 390px);
+    height: auto;
+  }
   .utilities_type {
     @media screen and (max-width: 740px) {
-      width: 290px;
+      height: 220px;
     }
   }
   .nft_type {
     @media screen and (max-width: 740px) {
-      width: 310px;
+      width: 150px;
     }
   }
 
   :hover {
-    transform: scale(0.95);
+    transform: rotateY(20deg);
+    transition: transform 0.4s;
+    transform-style: preserve-3d;
+    /* transform: scale(0.95);
     transition: 0.3s;
-    transition-timing-function: ease-out;
+    transition-timing-function: ease-out; */
   }
   :nth-child(2) {
     @media screen and (max-width: 1440px) {
@@ -486,32 +670,34 @@ export const PartnersContent = styled.div`
 export const Heading = styled.div`
   text-align: center;
   font-size: 52px;
-  font-family: Outfit;
+  font-family: 'conthraxsb';
   font-weight: 200;
   letter-spacing: 0px;
   opacity: 1;
   z-index: 2;
-  color: #a884f5;
+  color: #ed960f;
   margin-top: 20px;
   fill-opacity: 100%;
   max-width: 1446px;
-  text-shadow: #a884f5 5px 0 15px;
+  text-shadow: #ed960f 5px 0 15px;
   @media screen and (max-width: 740px) {
     font-size: 25px;
   }
 `
 export const RoadmapHeading = styled.div`
-  text-align: center;
-  font-size: 52px;
-  font-family: Outfit;
+  text-align: left;
+  font-size: min(4.5vw, 65px);
+  font-family: 'conthraxsb';
   font-weight: 200;
-  letter-spacing: 0px;
-  opacity: 1;
-  z-index: 2;
-  color: #a884f5;
-  margin-top: 20px;
-  margin-bottom: 0px;
-  text-shadow: #a884f5 5px 0 15px;
+  z-index: 3;
+  width: 100%;
+  text-transform: uppercase;
+  margin-bottom: min(3.2vw, 60px);
+  padding-left: min(2.7vw, 50px);
+  color: #ed960f;
+  > span {
+    color: #ffffff;
+  }
   @media screen and (max-width: 740px) {
     font-size: 25px;
     margin-top: 70px;
@@ -519,7 +705,151 @@ export const RoadmapHeading = styled.div`
   }
 `
 export const Roadmap = styled.div`
-  margin-top: 20px;
+  padding-top: min(7.6vw, 140px);
+  position: sticky;
+  top: 0;
+  padding-left: min(7.6vw, 140px);
+  max-width: min(43.4vw, 804px);
+`
+
+export const RoadmapDivWrapper = styled.div`
+  position: relative;
+  width: 100%;
+  font-family: Outfit;
+  opacity: 1;
+  display: flex;
+  align-items: flex-start;
+  padding: min(0.8vw, 15px);
+  gap: min(2.7vw, 50px);
+  margin-bottom: min(2.1vw, 40px);
+  justify-self: center;
+
+  > img {
+    width: 100px;
+    height: 125px;
+  }
+
+  .imageWrapper {
+    position: relative;
+    border-radius: 50%;
+    height: min(4.8vw, 87px);
+    min-width: min(4.8vw, 87px);
+    z-index: 0;
+    opacity: 0.78;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    .bg {
+      width: 60px;
+      height: 60px;
+      background: #ed960f 0% 0% no-repeat padding-box;
+      filter: blur(28px);
+    }
+    img {
+      max-width: min(2.8vw, 50px);
+    }
+
+    ::after {
+      position: absolute;
+      left: 0px;
+      top: 0px;
+      opacity: 0.78;
+      content: '';
+      background: #ed960f;
+      height: 100%;
+      border-radius: 50%;
+      width: 100%;
+      /* box-shadow: 0px 0px 50px #ed960f; */
+      -webkit-filter: blur(10px);
+      filter: blur(10px);
+      z-index: -1;
+    }
+    ::before {
+      border: 2px solid transparent;
+      border-radius: 100%;
+      position: absolute;
+      left: 0px;
+      width: calc(100% - 4px);
+      height: calc(100% - 4px);
+      top: 0px;
+      content: '';
+      border-top-color: #ed972d;
+      border-right-color: #ed972d;
+      border-bottom-color: #ed972d;
+      transition: border-top-color 0.15s linear, border-right-color 0.15s linear 0.1s,
+        border-bottom-color 0.15s linear 0.2s;
+      -webkit-animation-name: rotating;
+      -webkit-animation-duration: 1s;
+      -webkit-animation-iteration-count: infinite;
+      -webkit-animation-timing-function: linear;
+      -moz-animation-name: rotating;
+      -moz-animation-duration: 1s;
+      -moz-animation-iteration-count: infinite;
+      -moz-animation-timing-function: linear;
+    }
+    @-webkit-keyframes rotating /* Safari and Chrome */ {
+      from {
+        -webkit-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+      }
+      to {
+        -webkit-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+      }
+    }
+    @keyframes rotating {
+      from {
+        -ms-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+      }
+      to {
+        -ms-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+      }
+    }
+  }
+
+  /* .fire-gif {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+  } */
+  .text-wrapper {
+    padding-top: min(0.5vw, 9px);
+    > h5 {
+      font-family: Outfit;
+      color: #ffffff;
+      font-weight: bold;
+      margin-bottom: 8px;
+      opacity: 1;
+      margin-top: 0;
+      font-size: min(1.77vw, 33px);
+      > span {
+        color: #ed960f;
+        font-size: min(1.3vw, 24px);
+      }
+    }
+    > p {
+      font-family: Outfit;
+      font-size: min(1.3vw, 24px);
+      color: #b0b0b0;
+      font-weight: 100;
+      opacity: 1;
+      margin: 0;
+    }
+  }
 `
 export const RoadmapImagewapper = styled.div`
   display: flex;
@@ -529,7 +859,7 @@ export const RoadmapContent = styled.div`
     display: none;
     @media screen and (max-width: 740px) {
       display: block;
-      background: url(${roadmapbackground});
+      // background: url(${roadmapbackground});
       background-size: 100% 1500px;
       background-repeat: no-repeat;
     }
@@ -545,19 +875,16 @@ export const RoadmapContent = styled.div`
 `
 
 export const FooterContainer = styled.div`
-  margin: 50px;
+  /* margin: 50px; */
   padding: 32px;
-  background: linear-gradient(145deg, #0a0c34 27%, #240e44 50%);
-  box-shadow: 0px 14px 24px rgb(0 0 0 / 65%);
-  border-radius: 50px;
+  background: linear-gradient(145deg, #c37a08 27%, #ed960f 50%);
+  /* box-shadow: 0px 14px 24px rgb(0 0 0 / 65%); */
+  /* border-radius: 50px; */
   display: flex;
   justify-content: space-between;
-  @media screen and (max-width: 740px) {
-    background: linear-gradient(125deg, #0a0d5b 5%, #808080 90%);
-    padding: 40px 8px 35px 8px;
-    margin: 10px;
-    border-radius: 15px;
-  }
+  background: rgb(255 254 254 / 7%);
+  box-shadow: 0 4px 30px rgb(0 0 0 / 10%);
+  backdrop-filter: blur(11.8px);
 `
 export const LogoImagewrapper = styled.div`
   .footer_logo {
@@ -586,7 +913,7 @@ export const QuickWrapper = styled.div`
 `
 export const Links = styled.div`
   text-align: left;
-  font-family: Outfit;
+  font-family: 'conthraxsb';
   font-size: 20px;
   letter-spacing: 0px;
   color: #6d6c87;
@@ -598,20 +925,20 @@ export const Links = styled.div`
 `
 export const QuicklinkTitle = styled.div`
   text-align: left;
-  font-family: Outfit;
+  font-family: 'conthraxsb';
   font-size: 25px;
   letter-spacing: 0px;
   color: #ffffff;
   opacity: 1;
   margin-bottom: 10px;
   @media screen and (max-width: 740px) {
-    font-size: 15px;
+    font-size: min(1.3vw, 24px);
   }
 `
 export const ChannelsWrapper = styled.div`
   align-self: flex-end;
   text-align: left;
-  font-family: Outfit;
+  font-family: 'conthraxsb';
   font-size: 20px;
   letter-spacing: 0px;
   color: #6d6c87;

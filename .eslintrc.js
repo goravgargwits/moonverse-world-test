@@ -9,18 +9,20 @@ module.exports = {
     sourceType: 'module',
   },
   plugins: ['@typescript-eslint', 'prettier'],
-  extends: ['eslint:recommended', 'plugin:@typescript-eslint/recommended'],
+  extends: ['eslint:recommended', 'plugin:@typescript-eslint/recommended', 'plugin:react/recommended'],
   rules: {
-    '@typescript-eslint/explicit-module-boundary-types': ['off'],
     'node/no-unsupported-features/es-syntax': 'off',
     '@typescript-eslint/indent': 'off',
     '@typescript-eslint/no-use-before-define': 'off',
     '@typescript-eslint/no-explicit-any': 'off',
     '@typescript-eslint/no-var-requires': 'off',
     '@typescript-eslint/no-inferrable-types': 'off',
+    '@typescript-eslint/explicit-module-boundary-types': 'off',
     '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/no-extra-semi': 'off',
+    'react/react-in-jsx-scope': 'off',
     'no-extra-semi': 'off',
+    'no-console': 'warn',
     'padding-line-between-statements': [
       'error',
       { blankLine: 'always', prev: 'class', next: '*' },
@@ -32,7 +34,14 @@ module.exports = {
         next: ['const', 'let', 'var'],
       },
     ],
-    'no-unused-vars': ['error', { vars: 'all', args: 'after-used' }],
+    'no-unused-vars': [
+      'error',
+      {
+        vars: 'all',
+        args: 'all',
+      },
+    ],
+    'id-match': 0,
 
     // Turn on prettier rules
     'prettier/prettier': 'error',

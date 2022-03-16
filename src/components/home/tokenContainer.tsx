@@ -1,20 +1,42 @@
-import { TokenContainer, Title, TokenTextWrapper, TokenText, Utilities, UtilitiesWrapper } from 'styles/pages/home'
+import {
+  TokenContainer,
+  TokenTextWrapper,
+  Utilities,
+  UtilitiesWrapper,
+  ScrollContainer,
+  TokenTitle,
+} from 'styles/pages/home'
 import tokenfirst from 'assets/images/tokenone.png'
-import nfttoken from 'assets/images/nfttoken.png'
-import tokenthird from 'assets/images/tokentthree.png'
-import tokenfourth from 'assets/images/tokenfour.png'
-import tokenfifth from 'assets/images/tokenfive.png'
-import tokensixth from 'assets/images/tokensix.png'
+import tokentwo from 'assets/images/tokentwo.png'
+import tokenThree from 'assets/images/tokenthree.png'
+import tokenFour from 'assets/images/tokenfour.png'
+import tokenFive from 'assets/images/tokenfive.png'
 
 const TokenUtilitiesWrapper = () => {
   return (
-    <TokenContainer>
-      <TokenTextWrapper>
-        <Title>Token Utilities</Title>
-        <TokenText>$MOONV will be the utility token for the Moonverse economy. Utilities include:</TokenText>
-      </TokenTextWrapper>
-      <Utilities>
-        <UtilitiesWrapper>
+    <ScrollContainer id="token-utilities">
+      <TokenContainer>
+        <TokenTextWrapper>
+          <TokenTitle>Token Utilities</TokenTitle>
+          {/* <TokenText>$MOONV will be the utility token for the Moonverse economy. Utilities include:</TokenText> */}
+        </TokenTextWrapper>
+        <Utilities>
+          <UtilitiesWrapper>
+            <img src={tokenfirst} className="utilities_type" />
+          </UtilitiesWrapper>
+          <UtilitiesWrapper>
+            <img src={tokentwo} className="utilities_type" />
+          </UtilitiesWrapper>
+          <UtilitiesWrapper>
+            <img src={tokenThree} className="utilities_type" />
+          </UtilitiesWrapper>
+          <UtilitiesWrapper>
+            <img src={tokenFour} className="utilities_type" />
+          </UtilitiesWrapper>
+          <UtilitiesWrapper>
+            <img src={tokenFive} className="utilities_type" />
+          </UtilitiesWrapper>
+          {/* <UtilitiesWrapper>
           <img src={tokenfirst} className="utilities_type" />
         </UtilitiesWrapper>
         <UtilitiesWrapper>
@@ -31,9 +53,10 @@ const TokenUtilitiesWrapper = () => {
         </UtilitiesWrapper>
         <UtilitiesWrapper>
           <img src={tokensixth} className="utilities_type" />
-        </UtilitiesWrapper>
-      </Utilities>
-    </TokenContainer>
+        </UtilitiesWrapper> */}
+        </Utilities>
+      </TokenContainer>
+    </ScrollContainer>
   )
 }
 
