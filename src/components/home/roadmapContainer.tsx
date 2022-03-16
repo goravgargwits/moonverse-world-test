@@ -9,10 +9,9 @@ const RoadmapWrapper = () => {
           ROAD<span>MAP</span>
         </RoadmapHeading>
         <RoadmapDivWrapper>
-          <div className="imageWrapper">
-            <div className="bg"></div>
+          <span className="imageWrapper">
             <img src={fireGif} alt="roadmap-points" className="fire-gif" />
-          </div>
+          </span>
           <div className="text-wrapper">
             <h5>
               Q1 <span>2022</span>
@@ -21,10 +20,9 @@ const RoadmapWrapper = () => {
           </div>
         </RoadmapDivWrapper>
         <RoadmapDivWrapper>
-          <div className="imageWrapper">
-            <div className="bg"></div>
+          <span className="imageWrapper">
             <img src={fireGif} alt="roadmap-points" className="fire-gif" />
-          </div>
+          </span>
           <div className="text-wrapper">
             <h5>
               Q2 <span>2022</span>
@@ -33,10 +31,9 @@ const RoadmapWrapper = () => {
           </div>
         </RoadmapDivWrapper>
         <RoadmapDivWrapper>
-          <div className="imageWrapper">
-            <div className="bg"></div>
+          <span className="imageWrapper">
             <img src={fireGif} alt="roadmap-points" className="fire-gif" />
-          </div>
+          </span>
           <div className="text-wrapper">
             <h5>
               Q3 <span>2022</span>
@@ -45,10 +42,9 @@ const RoadmapWrapper = () => {
           </div>
         </RoadmapDivWrapper>
         <RoadmapDivWrapper>
-          <div className="imageWrapper">
-            <div className="bg"></div>
+          <span className="imageWrapper">
             <img src={fireGif} alt="roadmap-points" className="fire-gif" />
-          </div>
+          </span>
           <div className="text-wrapper">
             <h5>
               Q1 <span>2023</span>

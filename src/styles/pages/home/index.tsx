@@ -103,14 +103,11 @@ export const Title = styled.div`
 `
 
 export const TokenTitle = styled.div`
-  max-width: 400px;
-  font-size: 43px;
-  padding-bottom: 7px;
+  max-width: min(28vw, 513px);
+  font-size: min(4.5vw, 83px);
   text-align: center;
   font-family: 'conthraxsb';
   font-weight: 200;
-  letter-spacing: 0px;
-  opacity: 1;
   line-height: 1.2;
   z-index: 2;
   text-transform: uppercase;
@@ -581,8 +578,6 @@ export const TokenContainer = styled.div`
 export const TokenTextWrapper = styled.div`
   justify-content: center;
   display: flex;
-  padding-left: 74px;
-  grid-gap: 20px;
   @media screen and (max-width: 720px) {
     padding-left: 30px;
     max-width: 250px;
@@ -602,12 +597,12 @@ export const TokenText = styled.div`
   }
 `
 export const Utilities = styled.div`
-  width: calc(100% - 100px);
+  width: calc(100% - 28vw);
   max-width: 1320px;
   margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
-  margin-top: min(-3vw, -81px);
+  margin-top: -4.4vw;
   justify-content: center;
   gap: 0 min(3.9vw, 68px);
 `
@@ -622,7 +617,7 @@ export const UtilitiesWrapper = styled.div`
   justify-content: center;
   img {
     width: 100%;
-    max-width: min(20.5vw, 390px);
+    max-width: min(21.2vw, 390px);
     height: auto;
   }
   .utilities_type {
@@ -705,16 +700,16 @@ export const Heading = styled.div`
   }
 `
 export const RoadmapHeading = styled.div`
-  margin-bottom: 60px;
-  font-size: 83px;
+  text-align: left;
+  font-size: min(4.5vw, 83px);
   font-family: 'conthraxsb';
-  margin-left: 43px;
   font-weight: 200;
-  letter-spacing: 0px;
-  opacity: 1;
-  z-index: 2;
+  z-index: 3;
+  width: 100%;
+  text-transform: uppercase;
+  margin-bottom: min(3.2vw, 60px);
+  padding-left: min(2.7vw, 50px);
   color: #ed960f;
-  margin-top: 20px;
   > span {
     color: #ffffff;
   }
@@ -725,18 +720,24 @@ export const RoadmapHeading = styled.div`
   }
 `
 export const Roadmap = styled.div`
-  width: calc(100% - 209px);
-  margin: 0 auto;
-  max-width: 1502px;
-  padding-top: 100px;
+  padding-top: min(7.6vw, 140px);
   position: sticky;
   top: 0;
+  padding-left: min(7.6vw, 140px);
+  max-width: min(43.4vw, 804px);
 `
 
 export const RoadmapDivWrapper = styled.div`
-  display: flex;
   position: relative;
-  margin-bottom: 40px;
+  width: 100%;
+  font-family: Outfit;
+  opacity: 1;
+  display: flex;
+  align-items: flex-start;
+  padding: min(0.8vw, 15px);
+  gap: min(2.7vw, 50px);
+  margin-bottom: min(2.1vw, 40px);
+  justify-self: center;
 
   > img {
     width: 100px;
@@ -745,15 +746,41 @@ export const RoadmapDivWrapper = styled.div`
 
   .imageWrapper {
     position: relative;
+    border-radius: 50%;
+    height: min(4.8vw, 87px);
+    min-width: min(4.8vw, 87px);
+    z-index: 0;
+    opacity: 0.78;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     .bg {
       width: 60px;
       height: 60px;
       background: #ed960f 0% 0% no-repeat padding-box;
       filter: blur(28px);
     }
+    img {
+      max-width: min(2.8vw, 50px);
+    }
+    ::after {
+      position: absolute;
+      left: 0px;
+      top: 0px;
+      opacity: 0.78;
+      content: '';
+      background: #ed960f;
+      height: 100%;
+      border-radius: 50%;
+      width: 100%;
+      box-shadow: 0px 0px 50px #ed960f;
+      -webkit-filter: blur(10px);
+      filter: blur(10px);
+      z-index: -1;
+    }
   }
 
-  .fire-gif {
+  /* .fire-gif {
     position: absolute;
     width: 100%;
     top: 0;
@@ -761,31 +788,29 @@ export const RoadmapDivWrapper = styled.div`
     left: 0;
     right: 0;
     margin: 0 auto;
-  }
+  } */
   .text-wrapper {
-    margin-left: 57px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    /* display: flex;
-    flex-direction: column; */
+    padding-top: min(0.5vw, 9px);
     > h5 {
+      font-family: Outfit;
       color: #ffffff;
-      margin: 0;
+      font-weight: bold;
+      margin-bottom: 8px;
+      opacity: 1;
+      margin-top: 0;
+      font-size: min(1.77vw, 33px);
       > span {
         color: #ed960f;
+        font-size: min(1.3vw, 24px);
       }
     }
     > p {
-      line-height: 30px !important;
+      font-family: Outfit;
+      font-size: min(1.3vw, 24px);
+      color: #b0b0b0;
+      font-weight: 100;
+      opacity: 1;
       margin: 0;
-      max-width: 558px;
-      width: 100%;
-      height: 64px;
-      text-align: left;
-      font: normal normal 100 21px/42px Outfit;
-      letter-spacing: 0px;
-      color: #ffffff;
     }
   }
 `
