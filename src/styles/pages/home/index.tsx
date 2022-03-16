@@ -34,7 +34,7 @@ export const CanvasWrapper = styled.div`
 export const Container = styled.div`
   width: 100%;
   z-index: 0;
-  background: linear-gradient(180deg, #120a1d 40%, #1f0a3c 50%);
+  background: linear-gradient(180deg, #120a1d 40%, #a76703 50%);
   @media screen and (max-width: 740px) {
     background: #120a1d;
   }
@@ -289,7 +289,7 @@ export const ParticipateContainer = styled.div`
     height: 400px;
   }
   .playButton {
-    background: #262166 0% 0% no-repeat padding-box;
+    background: #ed960f 0% 0% no-repeat padding-box;
     box-shadow: inset 0px 17px 6px #00000029, 0px 3px 6px #5a5a5a29;
     opacity: 0.58;
     color: #ffffff;
@@ -307,7 +307,7 @@ export const ParticipateContainer = styled.div`
     width: min(7.4vw, 135px);
     font-size: min(1vw, 20px);
     :hover {
-      background: #262166 0% 0% no-repeat padding-box;
+      background: #ed960f 0% 0% no-repeat padding-box;
       box-shadow: inset 0px 17px 6px #00000029, 0px 3px 6px #5a5a5a29;
       transform: scale(1.1);
       transition: 0.2s;
@@ -420,11 +420,11 @@ export const Discover = styled.div`
       top: 0px;
       opacity: 0.78;
       content: '';
-      background: #9945f8;
+      background: #ed960f;
       height: 100%;
       border-radius: 50%;
       width: 100%;
-      box-shadow: 0px 0px 50px #9945f8;
+      box-shadow: 0px 0px 50px #ed960f;
       filter: blur(10px);
       -webkit-filter: blur(10px);
       -moz-filter: blur(10px);
@@ -475,11 +475,11 @@ export const Model = styled.div`
       top: 0px;
       opacity: 0.78;
       content: '';
-      background: #9945f8;
+      background: #ed960f;
       height: 100%;
       border-radius: 50%;
       width: 100%;
-      box-shadow: 0px 0px 50px #9945f8;
+      box-shadow: 0px 0px 50px #ed960f;
       filter: blur(10px);
       -webkit-filter: blur(10px);
       -moz-filter: blur(10px);
@@ -529,11 +529,11 @@ export const Monetization = styled.div`
       top: 0px;
       opacity: 0.78;
       content: '';
-      background: #9945f8;
+      background: #ed960f;
       height: 100%;
       border-radius: 50%;
       width: 100%;
-      box-shadow: 0px 0px 50px #9945f8;
+      box-shadow: 0px 0px 50px #ed960f;
       filter: blur(10px);
       -webkit-filter: blur(10px);
       -moz-filter: blur(10px);
@@ -555,7 +555,7 @@ export const Monetization = styled.div`
 export const InternalTitle = styled.div`
   font-family: Outfit;
   font-size: min(1.3vw, 24px);
-  color: #a884f5;
+  color: #ed960f;
   font-weight: bold;
   margin-bottom: 8px;
   opacity: 1;
@@ -695,11 +695,11 @@ export const Heading = styled.div`
   letter-spacing: 0px;
   opacity: 1;
   z-index: 2;
-  color: #a884f5;
+  color: #ed960f;
   margin-top: 20px;
   fill-opacity: 100%;
   max-width: 1446px;
-  text-shadow: #a884f5 5px 0 15px;
+  text-shadow: #ed960f 5px 0 15px;
   @media screen and (max-width: 740px) {
     font-size: 25px;
   }
@@ -713,7 +713,7 @@ export const RoadmapHeading = styled.div`
   letter-spacing: 0px;
   opacity: 1;
   z-index: 2;
-  color: #9945f8;
+  color: #ed960f;
   margin-top: 20px;
   > span {
     color: #ffffff;
@@ -748,7 +748,7 @@ export const RoadmapDivWrapper = styled.div`
     .bg {
       width: 60px;
       height: 60px;
-      background: #9945f8 0% 0% no-repeat padding-box;
+      background: #ed960f 0% 0% no-repeat padding-box;
       filter: blur(28px);
     }
   }
@@ -773,7 +773,7 @@ export const RoadmapDivWrapper = styled.div`
       color: #ffffff;
       margin: 0;
       > span {
-        color: #9945f8;
+        color: #ed960f;
       }
     }
     > p {
@@ -815,7 +815,7 @@ export const RoadmapContent = styled.div`
 export const FooterContainer = styled.div`
   margin: 50px;
   padding: 32px;
-  background: linear-gradient(145deg, #0a0c34 27%, #240e44 50%);
+  background: linear-gradient(145deg, #c37a08 27%, #ed960f 50%);
   box-shadow: 0px 14px 24px rgb(0 0 0 / 65%);
   border-radius: 50px;
   display: flex;

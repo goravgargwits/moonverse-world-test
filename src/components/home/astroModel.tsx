@@ -3,12 +3,7 @@ import { Canvas, useThree, useLoader, useFrame } from '@react-three/fiber'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
 
 import * as THREE from 'three'
-import { Vector3 } from 'three'
-// import { SpotLight } from '@react-three/drei'
-
-// const normalize = (val: number, max: number, min: number): number => {
-//   return (val - min) / (max - min)
-// }
+// import { Vector3 } from 'three'
 
 const Model = ({ setAnimation }: any) => {
   const { camera: mainCamera, scene } = useThree()
@@ -39,17 +34,6 @@ const Model = ({ setAnimation }: any) => {
 
   const mixer = new THREE.AnimationMixer(gltf.scene)
 
-  // Object.keys(gltf.nodes).forEach((item: string) => {
-  //   if ((gltf.nodes[item] as any)?.isMesh) {
-  //     const name = gltf.nodes[item].name
-  //     const mesh = gltf.nodes[item]
-  //     mesh.scale.set(1, 1, 1)
-  //     if (!name.includes('Mesh')) scene.add(gltf.nodes[item])
-  //   }
-  // })
-
-  // scene.add(gltf.nodes.Plane)
-
   const cam = mainCamera as any
 
   useEffect(() => {
@@ -76,8 +60,10 @@ const Model = ({ setAnimation }: any) => {
 
   useFrame(() => {
     // Setting the initial Colors
-    const purpleColor = new THREE.Color('rgb(202, 58, 244)')
-    const greenColor = new THREE.Color('rgb(0, 255, 207)')
+    // const purpleColor = new THREE.Color('rgb(202, 58, 244)')
+    const orangeColor = new THREE.Color('rgba(237,150,15)')
+    const babyBlueColor = new THREE.Color('rgba(75,212,213)')
+    // const greenColor = new THREE.Color('rgb(0, 255, 207)')
     const whiteColor = new THREE.Color('rgb(255, 241, 245)')
     const whiteBackColor = new THREE.Color('rgb(253, 255, 247)')
     const pinkFrontColor = new THREE.Color('rgb(255, 92, 175)')
@@ -95,7 +81,6 @@ const Model = ({ setAnimation }: any) => {
 
     const scroll = MathUtils.mapLinear(scrollProgress, 0, 1, 0, documentHeight)
 
-    // console.log(MathUtils.lerp(top, top + scroll, 0.05), scroll)
     const timeValue = MathUtils.mapLinear(scroll, 0, documentHeight, 0, gltf.animations[0]?.duration)
     mixer?.setTime(timeValue)
     if (moonverseContainer && scroll <= moonverseBottomContainer) {
@@ -115,8 +100,8 @@ const Model = ({ setAnimation }: any) => {
         1,
       )
       // Lerp the Final Change of values
-      const mainLightChange = purpleColor.lerp(whiteBackColor, mainLightMap)
-      const secondaryLightChange = greenColor.lerp(whiteBackColor, secondaryLightMap)
+      const mainLightChange = orangeColor.lerp(whiteBackColor, mainLightMap)
+      const secondaryLightChange = babyBlueColor.lerp(whiteBackColor, secondaryLightMap)
       const mainLightPosChange = mainLightPos.lerp(mainLightPosDest, secondaryLightMap)
       // Set the values to the correct lights
       if (mainLight.current) {
@@ -184,8 +169,8 @@ const Model = ({ setAnimation }: any) => {
         1,
       )
       // Lerp the Final Change of values
-      const mainLightChange = pinkFrontColor.lerp(pinkFrontColor, mainLightMap)
-      const secondaryLightChange = whiteColor.lerp(pinkBackColor, secondaryLightMap)
+      const mainLightChange = pinkFrontColor.lerp(orangeColor, mainLightMap)
+      const secondaryLightChange = whiteColor.lerp(babyBlueColor, secondaryLightMap)
       // Set the values to the correct lights
       if (mainLight.current) {
         mainLight.current.color = mainLightChange
@@ -220,7 +205,7 @@ const Model = ({ setAnimation }: any) => {
         1,
       )
       // Lerp the Final Change of values
-      const mainLightChange = pinkFrontColor.lerp(purpleColor, mainLightMap)
+      const mainLightChange = pinkFrontColor.lerp(orangeColor, mainLightMap)
       const secondaryLightChange = pinkBackColor.lerp(blackColor, secondaryLightMap)
       const mainLightPosChange = mainLightPosDest.lerp(mainLightPosDest2, secondaryLightMap)
       // Set the values to the correct lights
@@ -273,58 +258,30 @@ const Model = ({ setAnimation }: any) => {
 
   return (
     <>
-      {/* <spotLight
-        ref={mainLight}
-        target={gltf.nodes['SpaceKid001']}
-        intensity={2}
-        position={[0, 0, -100]}
-        color="purple"
-        angle={180}
-        penumbra={1}
-      /> */}
-      {/* <spotLight
-        ref={mainLight}
-        // target={gltf.nodes['SpaceKid001']}
-        intensity={2}
-        position={[-20, 0, 9]}
-        color="rgb(50, 230, 198 )"
-        penumbra={1}
-      /> */}
       <directionalLight ref={mainLight} intensity={1} position={[-1, -0.1, -0.8]} color="rgb(202, 58, 244)" />
-      {/* <directionalLight ref={mainLight} intensity={0} position={[-10, 0, 20]} color="rgb(128, 0, 128)" /> */}
       <directionalLight ref={secondaryLight} intensity={0.1} position={[10, -10, 10]} color="rgb(0, 255, 207)" />
       <primitive object={gltf.scene} scale={scale} position={[105, -185, 0]} />
-      {/* <primitive object={bg.scene} scale={scale} position={[105, -185, 0]} /> */}
     </>
   )
 }
 
-const Spheres = ({ position }: { position: Vector3 | number[] }) => (
-  <mesh position={position as Vector3}>
-    <sphereBufferGeometry attach="geometry" args={[0.1]} />
-    <meshPhongMaterial attach="material" color="purple" />
-  </mesh>
-)
+// const Spheres = ({ position }: { position: Vector3 | number[] }) => (
+//   <mesh position={position as Vector3}>
+//     <sphereBufferGeometry attach="geometry" args={[0.1]} />
+//     <meshPhongMaterial attach="material" color="purple" />
+//   </mesh>
+// )
 
-export default function App() {
+const AstroModel = () => {
   const [animation, setAnimation] = useState()
-  // const purpleColor = new THREE.Color('rgb(128, 0, 128)')
 
   console.log(animation)
   return (
-    // <CanvasWrapper>
     <>
-      {/* <button onClick={animation}>Hello</button> */}
       <Canvas className="model-container" style={{ filter: 'blur(0px)' }}>
         <Suspense fallback={null}>
-          {/* <pointLight position={[0, 0, -11]} intensity={1} color="gray" /> */}
-          {/* <Box position={[1, -50, -10]} /> */}
-          {/* <mesh position={[0, 0, -12]}>
-            <sphereBufferGeometry attach="geometry" args={[0.1]} />
-            <meshPhongMaterial attach="material" color="white" />
-          </mesh> */}
-          <Spheres position={[0, 0, -12]} />
-          <Spheres position={[1, 0, -12]} />
+          {/* <Spheres position={[0, 0, -12]} /> */}
+          {/* <Spheres position={[1, 0, -12]} /> */}
 
           <mesh renderOrder={1001}>
             <Model setAnimation={setAnimation} />
@@ -332,7 +289,7 @@ export default function App() {
         </Suspense>
       </Canvas>
     </>
-
-    // </CanvasWrapper>
   )
 }
+
+export default AstroModel
