@@ -2,7 +2,7 @@ import { VideoContainer, Logo, Scroll, Player } from 'styles/pages/home'
 import Button from '@mui/material/Button'
 import homevideo from 'assets/video/homevideo.mp4'
 import mobilevideo from 'assets/video/mobilevideo.mp4'
-import logo from 'assets/images/logo.png'
+import logo from 'assets/images/chapter-x-logo.png'
 import scroll from 'assets/images/scroll-bar.png'
 
 const VideoWrapper = () => {
