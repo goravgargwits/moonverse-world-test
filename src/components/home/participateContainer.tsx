@@ -6,10 +6,14 @@ const ParticipateWrapper = () => {
     <ScrollContainer id="participate-container">
       <ParticipateContainer id="participate_container">
         <TextWrapper>
-          <Title>Participate to Earn</Title>
+          <Title>Build Your Own Chapter</Title>
           <PartcipateText>
-            Simply Participate to Earn, in a new P2E economy. NFT projects can create 3D avatars quickly by staking
-            $MOONV. NFT holders can join the world and play to earn $MOONV
+            As a Seeker, you are forever searching for new experiences to bank in your memory. The more experiences you
+            have, memories you make, and interactions you share, the richer you become in this brave, new, evolving
+            world. Be it 10 in Roman Numeral, interaction or unknown factor, “X” has its unique place in our world.
+            <br />
+            <br />
+            Explore and unleash your potential in our ten Chapters.
           </PartcipateText>
           <Button className="playButton">Soon...</Button>
         </TextWrapper>

@@ -2,11 +2,14 @@ import { MoonverseInfo, Title, Text, TextContainer, ScrollContainer } from 'styl
 
 const MoonverseInfoWrapper = () => {
   return (
-    <ScrollContainer id="moonverse-container">
-      <MoonverseInfo id="moonverse">
+    <ScrollContainer id="chapter-x-container">
+      <MoonverseInfo id="chapter-x">
         <TextContainer>
-          <Title>What is Moonverse?</Title>
-          <Text>Collectibles Social Metaverse that provides all NFT holders utility in a 3D world</Text>
+          <Title>Web 3.0 Socials Re-defined</Title>
+          <Text>
+            Immersive, customizable collections of virtual worlds. Created to enable projects to design, build, and
+            interact with their communities in a 3-dimensional landscape
+          </Text>
         </TextContainer>
       </MoonverseInfo>
     </ScrollContainer>

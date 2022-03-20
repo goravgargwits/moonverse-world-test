@@ -21,14 +21,14 @@ const ProblemsWrapper = () => {
         <Pointers>
           <img src={pointerbackground} />
           <DiscoverDiv>
-            <ProblemsTitle>Problems We Are Solving</ProblemsTitle>
+            <ProblemsTitle>Limitless Potential for Creativity</ProblemsTitle>
             <Discover>
               <span className="problem-loader">
                 <img src={problemsSolving} />
               </span>
               <div>
                 <InternalTitle>Discover</InternalTitle>
-                <InternalText>Difficult to produce and integrate 3D models quickly</InternalText>
+                <InternalText>Enter the magical worlds and be a part of the community like never before</InternalText>
               </div>
             </Discover>
             <Discover>
@@ -36,8 +36,8 @@ const ProblemsWrapper = () => {
                 <img src={problemsSolving1} />
               </span>
               <div>
-                <InternalTitle>3D Model Scalability</InternalTitle>
-                <InternalText>Difficult to produce and integrate 3D models quickly</InternalText>
+                <InternalTitle>Create</InternalTitle>
+                <InternalText>Create your full set of 3D avatars through a few clicks</InternalText>
               </div>
             </Discover>
             <Discover>
@@ -45,10 +45,9 @@ const ProblemsWrapper = () => {
                 <img src={problemsSolving2} />
               </span>
               <div>
-                <InternalTitle>Monetization</InternalTitle>
+                <InternalTitle>Earn</InternalTitle>
                 <InternalText>
-                  Profile Picture and Gaming projects are unable to provide a comprehensive “Earn” mechanism after mint
-                  or during game development
+                  Have fun exploring while also receiving rewards from quests, events and games
                 </InternalText>
               </div>
             </Discover>

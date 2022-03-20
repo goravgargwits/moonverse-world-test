@@ -17,7 +17,7 @@ const TokenUtilitiesWrapper = () => {
     <ScrollContainer id="token-utilities">
       <TokenContainer>
         <TokenTextWrapper>
-          <TokenTitle>Token Utilities</TokenTitle>
+          <TokenTitle>Our Utility Token $SEEK</TokenTitle>
           {/* <TokenText>$MOONV will be the utility token for the Moonverse economy. Utilities include:</TokenText> */}
         </TokenTextWrapper>
         <Utilities>
