@@ -10,6 +10,32 @@
        url('fonts/conthraxsb.svg#conthraxsb') format('svg');
 }
 
+@font-face {
+  font-family: 'neue_machinaultrabold';
+  src: url('./fonts/neuemachina-ultrabold-webfont.woff2') format('woff2'),
+       url('./fonts/neuemachina-ultrabold-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+@font-face {
+  font-family: 'neue_machinaregular';
+  src: url('./fonts/neuemachina-regular-webfont.woff2') format('woff2'),
+       url('./fonts/neuemachina-regular-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+@font-face {
+  font-family: 'neue_machinalight';
+  src: url('./fonts/neuemachina-light-webfont.woff2') format('woff2'),
+       url('./fonts/neuemachina-light-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
 
 body {
   margin: 0;
