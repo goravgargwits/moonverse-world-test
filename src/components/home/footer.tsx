@@ -20,7 +20,7 @@ const FooterWrapper = () => {
       <LinkWrapper>
         <QuickWrapper>
           <QuicklinkTitle>Quicklinks</QuicklinkTitle>
-          <Links onClick={() => window.open('https://www.moonverse.market/')}> Marketplace</Links>
+          <Links onClick={() => window.open('https://www.chapterx.market')}> Marketplace</Links>
         </QuickWrapper>
         <ChannelsWrapper>
           <img src={twitter} width="20" height="20" onClick={() => window.open('https://twitter.com/Moonverse_sol')} />
