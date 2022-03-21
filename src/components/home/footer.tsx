@@ -3,8 +3,6 @@ import {
   LogoImagewrapper,
   LinkWrapper,
   QuickWrapper,
-  // QuicklinkTitle,
-  // Links,
   ChannelsWrapper,
   RightSection,
 } from 'styles/pages/home'
@@ -32,7 +30,7 @@ const FooterWrapper = () => {
       </LogoImagewrapper>
       <LinkWrapper>
         <img src={logo} className="footer_logo" />
-        <p>© 2021 moonverse. All rights reserved.</p>
+        <p>© 2021 Chapter X. All rights reserved.</p>
       </LinkWrapper>
     </FooterContainer>
   )
