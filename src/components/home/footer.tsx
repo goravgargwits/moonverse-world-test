@@ -7,7 +7,7 @@ import {
   Links,
   ChannelsWrapper,
 } from 'styles/pages/home'
-import logo from 'assets/images/logo.png'
+import logo from 'assets/images/chapter-x-logo.png'
 import twitter from 'assets/images/twitter.png'
 import discord from 'assets/images/discord.png'
 
