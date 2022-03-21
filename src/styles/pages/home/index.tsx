@@ -205,9 +205,9 @@ export const Player = styled.div`
 `
 
 export const ScrollContainer = styled.section`
-  min-height: 400vh;
+  min-height: 150vh;
   position: relative;
-  padding-bottom: 80px;
+  padding-bottom: 100px;
 `
 
 export const MoonverseInfo = styled.div`

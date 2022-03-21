@@ -7,7 +7,7 @@ import * as THREE from 'three'
 
 const Model = ({ setAnimation }: any) => {
   const { camera: mainCamera, scene } = useThree()
-  const gltf = useLoader(GLTFLoader, './newModel.glb')
+  const gltf = useLoader(GLTFLoader, './Mesh3.gltf')
 
   const [moonverseBottomContainer, setMoonverseBottomContainer] = useState(0)
   const [problemBottomContainer, setProblemBottomContainer] = useState(0)
@@ -77,9 +77,9 @@ const Model = ({ setAnimation }: any) => {
     // Getting the current scrollHeight
     scrollOffset = document.documentElement.scrollTop || document.body.scrollTop
     scrollPercent = scrollOffset / documentHeight || 0
-    scrollProgress += (scrollPercent - scrollProgress) * 0.05
+    scrollProgress += (scrollPercent - scrollProgress) * 0.03
 
-    const scroll = MathUtils.mapLinear(scrollProgress, 0, 1, 0, documentHeight)
+    const scroll = MathUtils.mapLinear(scrollProgress, 0, 1.2, 0, documentHeight)
 
     const timeValue = MathUtils.mapLinear(scroll, 0, documentHeight, 0, gltf.animations[0]?.duration)
     mixer?.setTime(timeValue)
@@ -226,28 +226,30 @@ const Model = ({ setAnimation }: any) => {
     // pass
   }
 
-  useEffect(() => {
-    if (mainLight.current) {
-      // console.log(mainLight)
-    }
-  }, [mainLight])
-
   const startAnimation = (model?: any, player?: any) => {
     const m = model ? model : gltf
     const mix = player ? player : mixer
 
-    // console.log(mixer)
+    // const scroll = document.documentElement.scrollTop
     m.animations.forEach((clip: any) => {
       const action = mix.clipAction(clip)
-      action?.play()
+      if (window.scrollY < 6000) {
+        action?.play()
+      } else {
+        action?.paused()
+      }
     })
-    window.addEventListener('scroll', () => {
-      const temp = MathUtils.mapLinear(window.scrollY, 0, documentHeight, 0, 50)
-      mix.setTime(temp)
-    })
+    if (window.scrollY < 6000) {
+      window.addEventListener('scroll', () => {
+        const temp = MathUtils.mapLinear(window.scrollY, 0, documentHeight, 0, 50)
+        mix.setTime(temp)
+      })
+    }
   }
 
-  setAnimation(startAnimation)
+  if (window.scrollY < 6000) {
+    setAnimation(startAnimation)
+  }
 
   useEffect(() => {
     window.addEventListener('scroll', onScroll)
@@ -255,8 +257,6 @@ const Model = ({ setAnimation }: any) => {
       window.removeEventListener('scroll', onScroll)
     }
   })
-
-  // console.log(gltf)
 
   return (
     <>
