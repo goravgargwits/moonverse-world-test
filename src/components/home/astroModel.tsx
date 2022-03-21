@@ -82,8 +82,8 @@ const Model = ({ setAnimation }: any) => {
     const scroll = MathUtils.mapLinear(scrollProgress, 0, 0.95, 0, documentHeight)
 
     const timeValue = MathUtils.mapLinear(scroll, 0, documentHeight, 0, gltf.animations[0]?.duration)
-    console.log('timevalue', timeValue);
-     mixer?.setTime(timeValue)
+    console.log('timevalue', timeValue)
+    mixer?.setTime(timeValue)
     if (moonverseContainer && scroll <= moonverseBottomContainer) {
       const moonverseClosingHeight = moonverseContainer?.top + moonverseContainer?.height
       // Mapping for the main light
@@ -238,31 +238,30 @@ const Model = ({ setAnimation }: any) => {
     const mix = player ? player : mixer
 
     // console.log(mixer)
-    const scroll = document.documentElement.scrollTop;
-      m.animations.forEach((clip: any) => {
-        const action = mix.clipAction(clip)
-        console.log(action);
-        
-        if(window.scrollY < 6000){
+    // const scroll = document.documentElement.scrollTop
+    m.animations.forEach((clip: any) => {
+      const action = mix.clipAction(clip)
+      console.log(action)
+
+      if (window.scrollY < 6000) {
         action?.play()
-        }
-        else{
-          action?.paused()
-        }
-      })
-      if(window.scrollY < 6000){
+      } else {
+        action?.paused()
+      }
+    })
+    if (window.scrollY < 6000) {
       window.addEventListener('scroll', () => {
-        console.log(window.scrollY);
-        
+        console.log(window.scrollY)
+
         const temp = MathUtils.mapLinear(window.scrollY, 0, documentHeight, 0, 50)
-        console.log(temp);
-        
+        console.log(temp)
+
         mix.setTime(temp)
       })
     }
   }
 
-  if(window.scrollY < 6000){
+  if (window.scrollY < 6000) {
     setAnimation(startAnimation)
   }
 
