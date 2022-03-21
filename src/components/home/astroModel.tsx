@@ -77,9 +77,9 @@ const Model = ({ setAnimation }: any) => {
     // Getting the current scrollHeight
     scrollOffset = document.documentElement.scrollTop || document.body.scrollTop
     scrollPercent = scrollOffset / documentHeight || 0
-    scrollProgress += (scrollPercent - scrollProgress) * 0.03
+    scrollProgress += (scrollPercent - scrollProgress) * 0.01
 
-    const scroll = MathUtils.mapLinear(scrollProgress, 0, 1.2, 0, documentHeight)
+    const scroll = MathUtils.mapLinear(scrollProgress, 0, 0.95, 0, documentHeight)
 
     const timeValue = MathUtils.mapLinear(scroll, 0, documentHeight, 0, gltf.animations[0]?.duration)
     mixer?.setTime(timeValue)
@@ -230,7 +230,6 @@ const Model = ({ setAnimation }: any) => {
     const m = model ? model : gltf
     const mix = player ? player : mixer
 
-    // const scroll = document.documentElement.scrollTop
     m.animations.forEach((clip: any) => {
       const action = mix.clipAction(clip)
       if (window.scrollY < 6000) {
