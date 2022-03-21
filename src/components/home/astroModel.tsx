@@ -226,11 +226,6 @@ const Model = ({ setAnimation }: any) => {
     // pass
   }
 
-  useEffect(() => {
-    if (mainLight.current) {
-    }
-  }, [mainLight])
-
   const startAnimation = (model?: any, player?: any) => {
     const m = model ? model : gltf
     const mix = player ? player : mixer
@@ -247,9 +242,7 @@ const Model = ({ setAnimation }: any) => {
     })
     if (window.scrollY < 6000) {
       window.addEventListener('scroll', () => {
-
         const temp = MathUtils.mapLinear(window.scrollY, 0, documentHeight, 0, 50)
-
         mix.setTime(temp)
       })
     }
@@ -265,7 +258,6 @@ const Model = ({ setAnimation }: any) => {
       window.removeEventListener('scroll', onScroll)
     }
   })
-
 
   return (
     <>
