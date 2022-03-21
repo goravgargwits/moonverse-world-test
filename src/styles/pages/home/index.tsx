@@ -205,13 +205,13 @@ export const Player = styled.div`
 `
 
 export const ScrollContainer = styled.section`
-  min-height: 70vh;
+  min-height: 150vh;
   position: relative;
-  padding-bottom: 80px;
+  padding-bottom: 100px;
 `
 
 export const MoonverseInfo = styled.div`
-  height: 800px;
+  height: 1200px;
   position: sticky;
   top: 0;
 
@@ -220,7 +220,7 @@ export const MoonverseInfo = styled.div`
   background-repeat: no-repeat;
 
   @media screen and (max-width: 1440px) {
-    height: 600px;
+    height: 800px;
     background-size: 100vw 800px;
   }
   @media screen and (max-width: 1000px) {
@@ -235,7 +235,7 @@ export const MoonverseInfo = styled.div`
 `
 
 export const Problems = styled.div`
-  height: 1000px;
+  height: 1200px;
   position: sticky;
   top: 0;
   display: flex;
@@ -266,14 +266,14 @@ export const ProblemsTitle = styled.div`
   }
 `
 export const ParticipateContainer = styled.div`
-  height: 600px;
+  height: 1200px;
   position: sticky;
   top: 0;
 
   background-repeat: no-repeat;
   background-size: 100vw 900px;
   @media screen and (max-width: 1000px) {
-    background-size: 100vw 500px;
+    background-size: 100vw 800px;
   }
   @media screen and (max-width: 720px) {
     background-size: 100vw 400px;
