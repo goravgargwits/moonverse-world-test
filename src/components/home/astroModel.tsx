@@ -82,7 +82,6 @@ const Model = ({ setAnimation }: any) => {
     const scroll = MathUtils.mapLinear(scrollProgress, 0, 0.95, 0, documentHeight)
 
     const timeValue = MathUtils.mapLinear(scroll, 0, documentHeight, 0, gltf.animations[0]?.duration)
-    console.log('timevalue', timeValue)
     mixer?.setTime(timeValue)
     if (moonverseContainer && scroll <= moonverseBottomContainer) {
       const moonverseClosingHeight = moonverseContainer?.top + moonverseContainer?.height
@@ -229,7 +228,6 @@ const Model = ({ setAnimation }: any) => {
 
   useEffect(() => {
     if (mainLight.current) {
-      // console.log(mainLight)
     }
   }, [mainLight])
 
@@ -237,11 +235,9 @@ const Model = ({ setAnimation }: any) => {
     const m = model ? model : gltf
     const mix = player ? player : mixer
 
-    // console.log(mixer)
     // const scroll = document.documentElement.scrollTop
     m.animations.forEach((clip: any) => {
       const action = mix.clipAction(clip)
-      console.log(action)
 
       if (window.scrollY < 6000) {
         action?.play()
@@ -251,10 +247,8 @@ const Model = ({ setAnimation }: any) => {
     })
     if (window.scrollY < 6000) {
       window.addEventListener('scroll', () => {
-        console.log(window.scrollY)
 
         const temp = MathUtils.mapLinear(window.scrollY, 0, documentHeight, 0, 50)
-        console.log(temp)
 
         mix.setTime(temp)
       })
@@ -272,7 +266,6 @@ const Model = ({ setAnimation }: any) => {
     }
   })
 
-  // console.log(gltf)
 
   return (
     <>
