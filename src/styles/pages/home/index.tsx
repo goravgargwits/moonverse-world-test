@@ -199,13 +199,13 @@ export const Player = styled.div`
 `
 
 export const ScrollContainer = styled.section`
-  min-height: 400vh;
+  min-height: 100vh;
   position: relative;
-  padding-bottom: 80px;
+  padding-bottom: 360px;
 `
 
 export const MoonverseInfo = styled.div`
-  height: 1200px;
+  height: 300px;
   position: sticky;
   top: 0;
 
@@ -214,11 +214,11 @@ export const MoonverseInfo = styled.div`
   background-repeat: no-repeat;
 
   @media screen and (max-width: 1440px) {
-    height: 800px;
+    height: 350px;
     background-size: 100vw 800px;
   }
   @media screen and (max-width: 1000px) {
-    height: 400px;
+    height: 300px;
     background-size: 100vw;
   }
   @media screen and (max-width: 720px) {
@@ -229,7 +229,7 @@ export const MoonverseInfo = styled.div`
 `
 
 export const Problems = styled.div`
-  height: 1200px;
+  height: 350px;
   position: sticky;
   top: calc(50% - 20vw);
   display: flex;
@@ -261,7 +261,7 @@ export const ProblemsTitle = styled.div`
 `
 export const ParticipateContainer = styled.div`
   padding-top: 100px;
-  height: 1200px;
+  height: 1000px;
   position: sticky;
   top: 0;
 
@@ -705,7 +705,7 @@ export const RoadmapHeading = styled.div`
   }
 `
 export const Roadmap = styled.div`
-  padding-top: min(7.6vw, 140px);
+  padding-top: min(7.6vw, 100px);
   position: sticky;
   top: 0;
   padding-left: min(7.6vw, 140px);
