@@ -900,13 +900,13 @@ export const FooterContainer = styled.div`
   background: transparent linear-gradient(90deg, #2ebec080 0%, #ff9a0080 100%) 0% 0% no-repeat padding-box;
   /* display: flex;
   justify-content: space-between; */
-  padding: min(6.5vw, 120px) min(7.6vw, 140px);
+  padding: 45px;
 `
 export const LogoImagewrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 103px;
+  margin-bottom: 10px;
   .footer_logo {
     max-width: 100%;
   }
