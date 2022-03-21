@@ -10,7 +10,7 @@ const VideoWrapper = () => {
     <VideoContainer>
       <Logo>
         <img src={logo} className="header_logo" />
-        <Button className="marketplace" onClick={() => window.open('https://www.moonverse.market')}>
+        <Button className="marketplace" onClick={() => window.open('https://www.chapterx.market')}>
           Marketplace
         </Button>
       </Logo>

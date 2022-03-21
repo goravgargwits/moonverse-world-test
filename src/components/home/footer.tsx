@@ -3,9 +3,8 @@ import {
   LogoImagewrapper,
   LinkWrapper,
   QuickWrapper,
-  QuicklinkTitle,
-  Links,
   ChannelsWrapper,
+  RightSection,
 } from 'styles/pages/home'
 import logo from 'assets/images/chapter-x-logo.png'
 import twitter from 'assets/images/twitter.png'
@@ -15,17 +14,23 @@ const FooterWrapper = () => {
   return (
     <FooterContainer>
       <LogoImagewrapper>
-        <img src={logo} className="footer_logo" />
+        <RightSection>
+          <p className="sub-text">Subscribe and follow</p>
+          <ChannelsWrapper>
+            <img src={twitter} onClick={() => window.open('https://twitter.com/Moonverse_sol')} />
+            <img src={discord} onClick={() => window.open('https://discord.gg/px4HJJgfNe')} />
+          </ChannelsWrapper>
+        </RightSection>
+        <QuickWrapper>
+          <form>
+            <input placeholder="Enter your email" /> <button>Subscribe</button>
+          </form>
+          {/* <Links onClick={() => window.open('https://www.moonverse.market/')}> Marketplace</Links> */}
+        </QuickWrapper>
       </LogoImagewrapper>
       <LinkWrapper>
-        <QuickWrapper>
-          <QuicklinkTitle>Quicklinks</QuicklinkTitle>
-          <Links onClick={() => window.open('https://www.moonverse.market/')}> Marketplace</Links>
-        </QuickWrapper>
-        <ChannelsWrapper>
-          <img src={twitter} width="20" height="20" onClick={() => window.open('https://twitter.com/Moonverse_sol')} />
-          <img src={discord} width="20" height="20" onClick={() => window.open('https://discord.gg/px4HJJgfNe')} />
-        </ChannelsWrapper>
+        <img src={logo} className="footer_logo" />
+        <p>© 2021 Chapter X. All rights reserved.</p>
       </LinkWrapper>
     </FooterContainer>
   )
