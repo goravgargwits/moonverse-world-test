@@ -77,9 +77,9 @@ const Model = ({ setAnimation }: any) => {
     // Getting the current scrollHeight
     scrollOffset = document.documentElement.scrollTop || document.body.scrollTop
     scrollPercent = scrollOffset / documentHeight || 0
-    scrollProgress += (scrollPercent - scrollProgress) * 0.01
+    scrollProgress += (scrollPercent - scrollProgress) * 0.03
 
-    const scroll = MathUtils.mapLinear(scrollProgress, 0, 0.95, 0, documentHeight)
+    const scroll = MathUtils.mapLinear(scrollProgress, 0, 1.2, 0, documentHeight)
 
     const timeValue = MathUtils.mapLinear(scroll, 0, documentHeight, 0, gltf.animations[0]?.duration)
     console.log('timevalue', timeValue);
