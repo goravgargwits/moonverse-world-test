@@ -226,29 +226,19 @@ const Model = ({ setAnimation }: any) => {
     // pass
   }
 
-  useEffect(() => {
-    if (mainLight.current) {
-      // console.log(mainLight)
-    }
-  }, [mainLight])
-
   const startAnimation = (model?: any, player?: any) => {
     const m = model ? model : gltf
     const mix = player ? player : mixer
 
-    // console.log(mixer)
-      m.animations.forEach((clip: any) => {
-        const action = mix.clipAction(clip)
-        console.log(action);
-        
-        if(window.scrollY < 6000){
+    m.animations.forEach((clip: any) => {
+      const action = mix.clipAction(clip)
+      if (window.scrollY < 6000) {
         action?.play()
-        }
-        else{
-          action?.paused()
-        }
-      })
-      if(window.scrollY < 6000){
+      } else {
+        action?.paused()
+      }
+    })
+    if (window.scrollY < 6000) {
       window.addEventListener('scroll', () => {
         const temp = MathUtils.mapLinear(window.scrollY, 0, documentHeight, 0, 50)
         mix.setTime(temp)
