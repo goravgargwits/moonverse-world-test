@@ -40,8 +40,7 @@ const Model = ({ setAnimation }: any) => {
     name.setLoader(false)
   }
 
-  // eslint-disable-next-line no-unused-vars
-  THREE.DefaultLoadingManager.onProgress = function (url, itemsLoaded, itemsTotal) {
+  THREE.DefaultLoadingManager.onProgress = function () {
     name.setLoader(true)
   }
 
