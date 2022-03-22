@@ -144,6 +144,7 @@ export const Logo = styled.div`
     height: 100%;
   }
   .marketplace {
+    font-family: 'neue_machinaregular';
     width: 100%;
     max-width: 160px;
     height: 50px;
