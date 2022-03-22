@@ -17,7 +17,6 @@ const ProblemsWrapper = () => {
   return (
     <ScrollContainer id="problem-container">
       <Problems>
-        {/* <ProblemsTitle></ProblemsTitle> */}
         <Pointers>
           <img src={pointerbackground} />
           <DiscoverDiv>

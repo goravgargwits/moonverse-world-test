@@ -1,17 +1,9 @@
 import styled from 'styled-components'
-import apebackground from 'assets/images/moonversewrapper.png'
 import apesbackground from 'assets/images/moonversemobilewrapper.png'
 import partnermobile from 'assets/images/partnersmobilebackground.png'
-import roadmapbackground from 'assets/images/mobileroadmapwrapper.png'
 
 export const CanvasWrapper = styled.div`
   position: static;
-  /* height: 100vh;
-  min-width: 100vw;
-  
-  position: sticky;
-  z-index: -1;
-  top: 0; */
 
   .model-container {
     height: 100vh !important;
@@ -58,13 +50,11 @@ export const Container = styled.div`
   }
 
   .model-loader {
-    height: 100vh !important;
-    width: 100vw !important;
-    position: fixed;
+    height: 20vh !important;
+    width: 20vw !important;
+    position: sticky !important;
+    z-index: 1;
     top: 0;
-    right: 0;
-    left: 0;
-    bottom: 0;
   }
 `
 export const VideoContainer = styled.div`
@@ -94,10 +84,6 @@ export const TextContainer = styled.div`
   height: 100vh;
   flex-direction: column;
   justify-content: center;
-  /* @media screen and (max-width: 740px) {
-    padding-left: 30px;
-    max-width: 250px;
-  } */
 `
 export const Title = styled.div`
   font-size: min(4.5vw, 65px);
@@ -107,9 +93,6 @@ export const Title = styled.div`
   z-index: 2;
   text-transform: uppercase;
   color: #fff;
-  /* @media screen and (max-width: 740px) {
-    font-size: 25px;
-  } */
 `
 
 export const TokenTitle = styled.div`
@@ -225,7 +208,6 @@ export const MoonverseInfo = styled.div`
   position: sticky;
   top: 0;
 
-  /* background-image: url(${apebackground}); */
   background-size: 100%;
   background-repeat: no-repeat;
 
@@ -322,7 +304,6 @@ export const PartcipateText = styled.div`
   font-weight: 300;
   color: #b0b0b0;
   opacity: 1;
-  /* max-width: 510px; */
   line-height: 1.7;
   z-index: 2;
   @media screen and (max-width: 720px) {
@@ -358,25 +339,6 @@ export const Pointers = styled.div`
     height: auto;
     opacity: 0;
   }
-  /* @media screen and (max-width: 1450px) {
-    background-size: 655px 655px;
-  }
-  @media screen and (max-width: 1120px) {
-    background-size: 575px 575px;
-    width: 100%;
-    max-width: 659px;
-    margin: 0 auto;
-    height: 637px;
-  }
-  @media screen and (max-width: 720px) {
-    background-size: 301px 301px;
-    width: 100%;
-    max-width: 300px;
-    margin: 0 auto;
-    height: 337px;
-    padding-left: 5px;
-    justify-content: center;
-  } */
 `
 export const DiscoverDiv = styled.div`
   position: relative;
@@ -470,7 +432,6 @@ export const Model = styled.div`
       height: 100%;
       border-radius: 50%;
       width: 100%;
-      /* box-shadow: 0px 0px 50px #ed960f; */
       filter: blur(10px);
       -webkit-filter: blur(10px);
       -moz-filter: blur(10px);
@@ -524,7 +485,6 @@ export const Monetization = styled.div`
       height: 100%;
       border-radius: 50%;
       width: 100%;
-      /* box-shadow: 0px 0px 50px #ed960f; */
       filter: blur(10px);
       -webkit-filter: blur(10px);
       -moz-filter: blur(10px);
@@ -647,9 +607,6 @@ export const UtilitiesWrapper = styled.div`
     transform: rotateY(20deg);
     transition: transform 0.4s;
     transform-style: preserve-3d;
-    /* transform: scale(0.95);
-    transition: 0.3s;
-    transition-timing-function: ease-out; */
   }
   :nth-child(2) {
     @media screen and (max-width: 1440px) {
@@ -659,16 +616,10 @@ export const UtilitiesWrapper = styled.div`
   }
 `
 export const Partners = styled.div`
-  /* display: grid;
-  width: 100%;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); */
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  @media screen and (max-width: 740px) {
-    /* grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); */
-  }
 `
 export const PartnersLogo = styled.div`
   justify-content: center;
@@ -791,7 +742,6 @@ export const RoadmapDivWrapper = styled.div`
       height: 100%;
       border-radius: 50%;
       width: 100%;
-      /* box-shadow: 0px 0px 50px #ed960f; */
       -webkit-filter: blur(10px);
       filter: blur(10px);
       z-index: -1;
@@ -849,15 +799,6 @@ export const RoadmapDivWrapper = styled.div`
     }
   }
 
-  /* .fire-gif {
-    position: absolute;
-    width: 100%;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: 0 auto;
-  } */
   .text-wrapper {
     padding-top: min(0.5vw, 9px);
     > h5 {
@@ -891,7 +832,6 @@ export const RoadmapContent = styled.div`
     display: none;
     @media screen and (max-width: 740px) {
       display: block;
-      // background: url(${roadmapbackground});
       background-size: 100% 1500px;
       background-repeat: no-repeat;
     }
@@ -908,8 +848,6 @@ export const RoadmapContent = styled.div`
 
 export const FooterContainer = styled.div`
   background: transparent linear-gradient(90deg, #2ebec080 0%, #ff9a0080 100%) 0% 0% no-repeat padding-box;
-  /* display: flex;
-  justify-content: space-between; */
   padding: 45px;
 `
 export const LogoImagewrapper = styled.div`
@@ -922,7 +860,6 @@ export const LogoImagewrapper = styled.div`
   }
 `
 export const RightSection = styled.div`
-  /* margin-bottom: 103px; */
   .sub-text {
     margin-top: 0;
     margin-bottom: 24px;
@@ -1007,6 +944,14 @@ export const QuicklinkTitle = styled.div`
   @media screen and (max-width: 740px) {
     font-size: min(1.3vw, 24px);
   }
+`
+
+export const LoaderContainer = styled.div`
+  position: fixed;
+  top: 0;
+  z-index: 9999;
+  min-height: 100vh;
+  min-width: 100vw;
 `
 export const ChannelsWrapper = styled.div`
   display: flex;

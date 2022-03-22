@@ -20,7 +20,6 @@ const TokenUtilitiesWrapper = () => {
         <TokenContainerWrapper>
           <TokenTextWrapper>
             <TokenTitle>Our Utility Token $SEEK</TokenTitle>
-            {/* <TokenText>$MOONV will be the utility token for the Moonverse economy. Utilities include:</TokenText> */}
           </TokenTextWrapper>
           <Utilities>
             <UtilitiesWrapper>
@@ -43,24 +42,6 @@ const TokenUtilitiesWrapper = () => {
               <img src={tokenFive} className="utilities_type" />
               <p>3D avatar creation</p>
             </UtilitiesWrapper>
-            {/* <UtilitiesWrapper>
-          <img src={tokenfirst} className="utilities_type" />
-        </UtilitiesWrapper>
-        <UtilitiesWrapper>
-          <img src={nfttoken} className="nft_type" width="600" />
-        </UtilitiesWrapper>
-        <UtilitiesWrapper>
-          <img src={tokenthird} className="utilities_type" />
-        </UtilitiesWrapper>
-        <UtilitiesWrapper>
-          <img src={tokenfourth} className="utilities_type" />
-        </UtilitiesWrapper>
-        <UtilitiesWrapper>
-          <img src={tokenfifth} className="utilities_type" />
-        </UtilitiesWrapper>
-        <UtilitiesWrapper>
-          <img src={tokensixth} className="utilities_type" />
-        </UtilitiesWrapper> */}
           </Utilities>
         </TokenContainerWrapper>
       </TokenContainer>
