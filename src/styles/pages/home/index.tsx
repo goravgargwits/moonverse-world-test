@@ -28,7 +28,6 @@ export const CanvasWrapper = styled.div`
     width: 100vw;
   }
 `
-
 export const Container = styled.div`
   width: 100%;
   z-index: 0;
@@ -56,6 +55,14 @@ export const Container = styled.div`
     left: 0;
     top: 0;
     width: 100vw;
+  }
+
+  .model-loader {
+    height: 20vh !important;
+    width: 20vw !important;
+    position: sticky !important;
+    z-index: 1;
+    top: 0;
   }
 `
 export const VideoContainer = styled.div`
@@ -144,6 +151,7 @@ export const Logo = styled.div`
     height: 100%;
   }
   .marketplace {
+    font-family: 'neue_machinaregular';
     width: 100%;
     max-width: 160px;
     height: 50px;
@@ -593,7 +601,7 @@ export const Utilities = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 0 min(3.9vw, 68px);
+  gap: 40px min(3.9vw, 68px);
 `
 export const UtilitiesWrapperDiv = styled.div`
   display: flex;
