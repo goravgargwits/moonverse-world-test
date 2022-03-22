@@ -8,7 +8,6 @@ import {
   InternalText,
   DiscoverDiv,
 } from 'styles/pages/home'
-import pointerbackground from 'assets/images/bubble_transparent.png'
 import problemsSolving from 'assets/svg/problem-1.svg'
 import problemsSolving1 from 'assets/svg/problem-2.svg'
 import problemsSolving2 from 'assets/svg/problem-3.svg'
@@ -19,7 +18,6 @@ const ProblemsWrapper = () => {
       <Problems>
         {/* <ProblemsTitle></ProblemsTitle> */}
         <Pointers>
-          <img src={pointerbackground} />
           <DiscoverDiv>
             <ProblemsTitle>Limitless Potential for Creativity</ProblemsTitle>
             <Discover>
