@@ -1,3 +1,4 @@
+import { useContext } from 'react'
 import { Container } from 'styles/pages/home'
 import MoonverseInfoWrapper from 'components/home/InfoContainer'
 import ProblemsWrapper from 'components/home/problemContainer'
@@ -7,6 +8,7 @@ import RoadmapWrapper from 'components/home/roadmapContainer'
 import FooterWrapper from 'components/home/footer'
 import VideoWrapper from 'components/home/videoContainer'
 import AstroModel from 'components/home/astroModel'
+
 
 const Home = () => {
   return (
@@ -26,3 +28,5 @@ const Home = () => {
 }
 
 export default Home
+
+

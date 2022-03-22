@@ -58,8 +58,11 @@ export const Container = styled.div`
   }
 
   .model-loader {
-    height: 100% !important;
-    width: 100% !important;
+    height: 20vh !important;
+    width: 20vw !important;
+    position: sticky !important;
+    z-index: 1;
+    top: 0;
   }
 `
 export const VideoContainer = styled.div`

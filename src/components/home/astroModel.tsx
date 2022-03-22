@@ -1,14 +1,18 @@
-import { Suspense, useEffect, useState, useRef } from 'react'
+import { Suspense, useEffect, useState, useRef, useContext } from 'react'
 import { Canvas, useThree, useLoader, useFrame } from '@react-three/fiber'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
 import { Html, useProgress } from '@react-three/drei'
 import loader from 'assets/gif/loader.gif'
 import * as THREE from 'three'
+import { LoaderContext } from 'Context/Context'
 // import { Vector3 } from 'three'
+
 
 const Model = ({ setAnimation }: any) => {
   const { camera: mainCamera, scene } = useThree()
   const gltf = useLoader(GLTFLoader, './Mesh.glb')
+  const name = useContext(LoaderContext)
+  // const [loader, setLoader] = useState(false)
 
   const [moonverseBottomContainer, setMoonverseBottomContainer] = useState(0)
   const [problemBottomContainer, setProblemBottomContainer] = useState(0)
@@ -36,6 +40,22 @@ const Model = ({ setAnimation }: any) => {
   const mixer = new THREE.AnimationMixer(gltf.scene)
 
   const cam = mainCamera as any
+
+  THREE.DefaultLoadingManager.onLoad = function ( ) {
+    name.setLoader(false)
+    console.log( 'Loading Complete!');
+    console.log('context loader', name);
+    
+  };
+  
+  
+  THREE.DefaultLoadingManager.onProgress = function ( url, itemsLoaded, itemsTotal ) {
+  
+    console.log( 'Loading file: ' + url + '.\nLoaded ' + itemsLoaded + ' of ' + itemsTotal + ' files.' );
+    name.setLoader(true)
+    console.log('progress', name);
+    
+  };
 
   useEffect(() => {
     if (moonverseContainer) {
@@ -83,7 +103,6 @@ const Model = ({ setAnimation }: any) => {
     const scroll = MathUtils.mapLinear(scrollProgress, 0, 1.2, 0, documentHeight)
 
     const timeValue = MathUtils.mapLinear(scroll, 0, documentHeight, 0, gltf.animations[0]?.duration)
-    console.log('timevalue', timeValue);
      mixer?.setTime(timeValue)
     if (moonverseContainer && scroll <= moonverseBottomContainer) {
       const moonverseClosingHeight = moonverseContainer?.top + moonverseContainer?.height
@@ -238,12 +257,8 @@ const Model = ({ setAnimation }: any) => {
     const m = model ? model : gltf
     const mix = player ? player : mixer
 
-    // console.log(mixer)
-    const scroll = document.documentElement.scrollTop;
       m.animations.forEach((clip: any) => {
-        const action = mix.clipAction(clip)
-        console.log(action);
-        
+        const action = mix.clipAction(clip)        
         if(window.scrollY < 6000){
         action?.play()
         }
@@ -251,7 +266,6 @@ const Model = ({ setAnimation }: any) => {
           action?.paused()
         }
       })
-      if(window.scrollY < 6000){
       window.addEventListener('scroll', () => {
         console.log(window.scrollY);
         
@@ -260,12 +274,9 @@ const Model = ({ setAnimation }: any) => {
         
         mix.setTime(temp)
       })
-    }
   }
 
-  if(window.scrollY < 6000){
-    setAnimation(startAnimation)
-  }
+  setAnimation(startAnimation)
 
   useEffect(() => {
     window.addEventListener('scroll', onScroll)
@@ -288,8 +299,8 @@ const Model = ({ setAnimation }: any) => {
 useLoader.preload(GLTFLoader, '/Mesh3.gltf')
 
 function Loader() {
-  // const { progress } = useProgress()
-  const progress = <img src={loader} />
+  const { progress } = useProgress()
+  // const progress = <img src={loader} />
   return <Html className='model-loader' center>{progress} % loaded</Html>
 }
 // const Spheres = ({ position }: { position: Vector3 | number[] }) => (
@@ -304,6 +315,7 @@ const AstroModel = () => {
   return (
     <>
     {/* <img src={loader} /> */}
+    {/* <Loader /> */}
       <Canvas className="model-container" style={{ filter: 'blur(0px)' }}>
         <Suspense fallback={<Loader />}>
           {/* <Spheres position={[0, 0, -12]} /> */}
