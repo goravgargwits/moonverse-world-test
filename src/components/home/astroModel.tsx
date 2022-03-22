@@ -1,13 +1,14 @@
-import { Suspense, useEffect, useState, useRef } from 'react'
+import { Suspense, useEffect, useState, useRef, useContext } from 'react'
 import { Canvas, useThree, useLoader, useFrame } from '@react-three/fiber'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
-
+import { Html, useProgress } from '@react-three/drei'
 import * as THREE from 'three'
-// import { Vector3 } from 'three'
+import { LoaderContext } from 'Context/Context'
 
 const Model = ({ setAnimation }: any) => {
   const { camera: mainCamera, scene } = useThree()
-  const gltf = useLoader(GLTFLoader, './Mesh3.gltf')
+  const gltf = useLoader(GLTFLoader, './Mesh.glb')
+  const name = useContext(LoaderContext)
 
   const [moonverseBottomContainer, setMoonverseBottomContainer] = useState(0)
   const [problemBottomContainer, setProblemBottomContainer] = useState(0)
@@ -26,7 +27,6 @@ const Model = ({ setAnimation }: any) => {
   let scrollPercent = 0
   let scrollProgress = scrollPercent
 
-  // const blueColor = new THREE.Color('rgb(0, 0, 255)')
   scene.background = bgColor
 
   const mainLight = useRef<any>(null)
@@ -35,6 +35,14 @@ const Model = ({ setAnimation }: any) => {
   const mixer = new THREE.AnimationMixer(gltf.scene)
 
   const cam = mainCamera as any
+
+  THREE.DefaultLoadingManager.onLoad = function () {
+    name.setLoader(false)
+  }
+
+  THREE.DefaultLoadingManager.onProgress = function () {
+    name.setLoader(true)
+  }
 
   useEffect(() => {
     if (moonverseContainer) {
@@ -77,9 +85,9 @@ const Model = ({ setAnimation }: any) => {
     // Getting the current scrollHeight
     scrollOffset = document.documentElement.scrollTop || document.body.scrollTop
     scrollPercent = scrollOffset / documentHeight || 0
-    scrollProgress += (scrollPercent - scrollProgress) * 0.01
+    scrollProgress += (scrollPercent - scrollProgress) * 0.03
 
-    const scroll = MathUtils.mapLinear(scrollProgress, 0, 0.95, 0, documentHeight)
+    const scroll = MathUtils.mapLinear(scrollProgress, 0, 1.2, 0, documentHeight)
 
     const timeValue = MathUtils.mapLinear(scroll, 0, documentHeight, 0, gltf.animations[0]?.duration)
     mixer?.setTime(timeValue)
@@ -238,17 +246,13 @@ const Model = ({ setAnimation }: any) => {
         action?.paused()
       }
     })
-    if (window.scrollY < 6000) {
-      window.addEventListener('scroll', () => {
-        const temp = MathUtils.mapLinear(window.scrollY, 0, documentHeight, 0, 50)
-        mix.setTime(temp)
-      })
-    }
+    window.addEventListener('scroll', () => {
+      const temp = MathUtils.mapLinear(window.scrollY, 0, documentHeight, 0, 50)
+      mix.setTime(temp)
+    })
   }
 
-  if (window.scrollY < 6000) {
-    setAnimation(startAnimation)
-  }
+  setAnimation(startAnimation)
 
   useEffect(() => {
     window.addEventListener('scroll', onScroll)
@@ -266,6 +270,17 @@ const Model = ({ setAnimation }: any) => {
   )
 }
 
+useLoader.preload(GLTFLoader, '/Mesh3.gltf')
+
+function Loader() {
+  const { progress } = useProgress()
+  // const progress = <img src={loader} />
+  return (
+    <Html className="model-loader" center>
+      {progress} % loaded
+    </Html>
+  )
+}
 // const Spheres = ({ position }: { position: Vector3 | number[] }) => (
 //   <mesh position={position as Vector3}>
 //     <sphereBufferGeometry attach="geometry" args={[0.1]} />
@@ -277,8 +292,10 @@ const AstroModel = () => {
   const [, setAnimation] = useState()
   return (
     <>
+      {/* <img src={loader} /> */}
+      {/* <Loader /> */}
       <Canvas className="model-container" style={{ filter: 'blur(0px)' }}>
-        <Suspense fallback={null}>
+        <Suspense fallback={<Loader />}>
           {/* <Spheres position={[0, 0, -12]} /> */}
           {/* <Spheres position={[1, 0, -12]} /> */}
 
