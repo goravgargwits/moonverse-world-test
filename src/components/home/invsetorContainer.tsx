@@ -1,5 +1,4 @@
 import { Partners, PartnersLogo, Heading } from 'styles/pages/home'
-
 import babylons from 'assets/images/babyolns.png'
 import zokyologo from 'assets/images/zokyo.png'
 import anzulogo from 'assets/images/anzu.png'
@@ -10,7 +9,6 @@ const InvestorWrapper = () => {
   return (
     <>
       <Heading>Investors</Heading>
-
       <Partners>
         <PartnersLogo>
           <img src={babylons} className="partners" />

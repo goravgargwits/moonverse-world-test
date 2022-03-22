@@ -1,18 +1,18 @@
+import { useState } from 'react'
 import Home from 'pages/home'
 import './App.css'
-import AOS from 'aos'
-import { useEffect } from 'react'
+import { LoaderContext } from 'Context/Context'
 
 const App = () => {
-  useEffect(() => {
-    AOS.init({})
-  }, [])
+  const [loader, setLoader] = useState(true)
   return (
-    <div className="App">
-      <header className="App-header">
-        <Home />
-      </header>
-    </div>
+    <LoaderContext.Provider value={[loader, setLoader]}>
+      <div className="App">
+        <header className="App-header">
+          <Home />
+        </header>
+      </div>
+    </LoaderContext.Provider>
   )
 }
 

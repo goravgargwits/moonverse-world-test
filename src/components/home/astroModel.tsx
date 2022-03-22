@@ -1,13 +1,13 @@
-import { Suspense, useEffect, useState, useRef } from 'react'
+import { Suspense, useEffect, useState, useRef, useContext } from 'react'
 import { Canvas, useThree, useLoader, useFrame } from '@react-three/fiber'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
-
 import * as THREE from 'three'
+import { LoaderContext } from 'Context/Context'
 // import { Vector3 } from 'three'
 
-const Model = ({ setAnimation }: any) => {
+const Model = ({ setAnimation, setLoader }: any) => {
   const { camera: mainCamera, scene } = useThree()
-  const gltf = useLoader(GLTFLoader, './Mesh3.gltf')
+  const gltf = useLoader(GLTFLoader, './Mesh.glb')
 
   const [moonverseBottomContainer, setMoonverseBottomContainer] = useState(0)
   const [problemBottomContainer, setProblemBottomContainer] = useState(0)
@@ -82,6 +82,7 @@ const Model = ({ setAnimation }: any) => {
     const scroll = MathUtils.mapLinear(scrollProgress, 0, 0.95, 0, documentHeight)
 
     const timeValue = MathUtils.mapLinear(scroll, 0, documentHeight, 0, gltf.animations[0]?.duration)
+    // console.log('timevalue', timeValue);
     mixer?.setTime(timeValue)
     if (moonverseContainer && scroll <= moonverseBottomContainer) {
       const moonverseClosingHeight = moonverseContainer?.top + moonverseContainer?.height
@@ -222,6 +223,16 @@ const Model = ({ setAnimation }: any) => {
     }
   })
 
+  THREE.DefaultLoadingManager.onLoad = function () {
+    setLoader(false)
+    console.log('Loading Complete!')
+  }
+
+  THREE.DefaultLoadingManager.onProgress = function (url, itemsLoaded, itemsTotal) {
+    setLoader(true)
+    console.log('Loading file: ' + url + '.\nLoaded ' + itemsLoaded + ' of ' + itemsTotal + ' files.')
+  }
+
   const onScroll = () => {
     // pass
   }
@@ -230,8 +241,11 @@ const Model = ({ setAnimation }: any) => {
     const m = model ? model : gltf
     const mix = player ? player : mixer
 
+    // console.log(mixer)
     m.animations.forEach((clip: any) => {
       const action = mix.clipAction(clip)
+      console.log(action)
+
       if (window.scrollY < 6000) {
         action?.play()
       } else {
@@ -240,7 +254,11 @@ const Model = ({ setAnimation }: any) => {
     })
     if (window.scrollY < 6000) {
       window.addEventListener('scroll', () => {
+        console.log(window.scrollY)
+
         const temp = MathUtils.mapLinear(window.scrollY, 0, documentHeight, 0, 50)
+        console.log(temp)
+
         mix.setTime(temp)
       })
     }
@@ -266,6 +284,8 @@ const Model = ({ setAnimation }: any) => {
   )
 }
 
+useLoader.preload(GLTFLoader, '/Mesh3.gltf')
+
 // const Spheres = ({ position }: { position: Vector3 | number[] }) => (
 //   <mesh position={position as Vector3}>
 //     <sphereBufferGeometry attach="geometry" args={[0.1]} />
@@ -274,16 +294,18 @@ const Model = ({ setAnimation }: any) => {
 // )
 
 const AstroModel = () => {
+  const [loader, setLoader]: any = useContext(LoaderContext)
   const [, setAnimation] = useState()
   return (
     <>
+      {/* <img src={loader} /> */}
       <Canvas className="model-container" style={{ filter: 'blur(0px)' }}>
         <Suspense fallback={null}>
           {/* <Spheres position={[0, 0, -12]} /> */}
           {/* <Spheres position={[1, 0, -12]} /> */}
 
           <mesh renderOrder={1001}>
-            <Model setAnimation={setAnimation} />
+            <Model setAnimation={setAnimation} loader={loader} setLoader={setLoader} />
           </mesh>
         </Suspense>
       </Canvas>

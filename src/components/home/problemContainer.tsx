@@ -16,7 +16,6 @@ const ProblemsWrapper = () => {
   return (
     <ScrollContainer id="problem-container">
       <Problems>
-        {/* <ProblemsTitle></ProblemsTitle> */}
         <Pointers>
           <DiscoverDiv>
             <ProblemsTitle>Limitless Potential for Creativity</ProblemsTitle>

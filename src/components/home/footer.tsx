@@ -25,7 +25,6 @@ const FooterWrapper = () => {
           <form>
             <input placeholder="Enter your email" /> <button>Subscribe</button>
           </form>
-          {/* <Links onClick={() => window.open('https://www.moonverse.market/')}> Marketplace</Links> */}
         </QuickWrapper>
       </LogoImagewrapper>
       <LinkWrapper>
