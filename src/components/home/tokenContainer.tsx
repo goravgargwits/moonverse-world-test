@@ -25,7 +25,7 @@ const TokenUtilitiesWrapper = () => {
           <Utilities>
             <UtilitiesWrapper>
               <img src={tokenfirst} className="utilities_type" />
-              <p>Each $SEEK represents 1 vote in the platform’s future</p>
+              <p>Each $SEEK represents a vote in the platform’s future</p>
             </UtilitiesWrapper>
             <UtilitiesWrapper>
               <img src={tokentwo} className="utilities_type" />
