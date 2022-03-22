@@ -227,16 +227,16 @@ const Model = ({ setAnimation }: any) => {
 
   THREE.DefaultLoadingManager.onLoad = function ( ) {
 
-    console.log( 'Loading Complete!');
-  
-  };
-  
-  
-  THREE.DefaultLoadingManager.onProgress = function ( url, itemsLoaded, itemsTotal ) {
-  
-    console.log( 'Loading file: ' + url + '.\nLoaded ' + itemsLoaded + ' of ' + itemsTotal + ' files.' );
-  
-  };
+	console.log( 'Loading Complete!');
+
+};
+
+
+THREE.DefaultLoadingManager.onProgress = function ( url, itemsLoaded, itemsTotal ) {
+
+	console.log( 'Loading file: ' + url + '.\nLoaded ' + itemsLoaded + ' of ' + itemsTotal + ' files.' );
+
+};
 
   const onScroll = () => {
     // pass
