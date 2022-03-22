@@ -7,7 +7,7 @@ export const CanvasWrapper = styled.div`
 
   .model-container {
     height: 100vh !important;
-    width: 100vw !important;
+    width: 100% !important;
     position: fixed !important;
     z-index: -1;
     top: 0;
@@ -35,11 +35,18 @@ export const Container = styled.div`
   .model-container {
     position: static !important;
     height: 100vh !important;
-    width: 100vw !important;
+    width: 100% !important;
     position: sticky !important;
     z-index: -1;
     top: 0;
   }
+
+  // @media only screen and (max-width: 768px) {
+  //   /* For mobile phones: */
+  //   .model-container {
+  //     width: 100%;
+  //   }
+  // }
 
   .model-container > canvas {
     position: sticky;
@@ -84,6 +91,11 @@ export const TextContainer = styled.div`
   height: 100vh;
   flex-direction: column;
   justify-content: center;
+  @media screen and (max-width: 740px) {
+    padding-left: 10px;
+    max-width: 250px;
+    margin: 0 auto;
+  }
 `
 export const Title = styled.div`
   font-size: min(4.5vw, 65px);
@@ -93,6 +105,10 @@ export const Title = styled.div`
   z-index: 2;
   text-transform: uppercase;
   color: #fff;
+  @media screen and (max-width: 740px) {
+    font-size: 25px;
+    max-width: 250px;
+  }
 `
 
 export const TokenTitle = styled.div`
@@ -105,6 +121,11 @@ export const TokenTitle = styled.div`
   z-index: 2;
   text-transform: uppercase;
   color: #fff;
+  @media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    font-size: 25px;
+    max-width: 250px;
+  }
 `
 
 export const Text = styled.div`
@@ -117,6 +138,10 @@ export const Text = styled.div`
   width: 100%;
   line-height: 1.5;
   max-width: 39vw;
+  @media screen and (max-width: 740px) {
+    font-size: 12px;
+    max-width: 250px;
+  }
 `
 export const Logo = styled.div`
   position: absolute;
@@ -135,10 +160,19 @@ export const Logo = styled.div`
     max-width: 248px;
     height: 100%;
   }
+  @media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    .header_logo {
+      width: 100%;
+      max-width: 180px;
+      height: 100%;
+    }
+  }
+
   .marketplace {
     font-family: 'neue_machinaregular';
     width: 100%;
-    max-width: 160px;
+    max-width: 180px;
     height: 50px;
     background: #a3a0c5 0% 0% no-repeat padding-box;
     box-shadow: inset 0px 17px 6px #00000029, 0px 3px 6px #5a5a5a29;
@@ -155,13 +189,15 @@ export const Logo = styled.div`
       box-shadow: inset 0px 17px 6px #00000029, 0px 3px 6px #5a5a5a29;
     }
     @media screen and (max-width: 740px) {
-      margin-right: 10px;
-      margin-top: 20px;
+      width: 30%;
+      font-size: 12px;
     }
   }
   @media screen and (max-width: 740px) {
     padding-top: 15px;
-    width: calc(100% - 30px);
+    width: 90%;
+    align-items: center;
+    justify-content: space-between;
   }
 `
 export const Scroll = styled.div`
@@ -198,9 +234,19 @@ export const Player = styled.div`
 `
 
 export const ScrollContainer = styled.section`
-  min-height: 150vh;
+  // min-height: 150vh;
   position: relative;
   padding-bottom: 100px;
+  @media screen and (max-width: 760px) {
+    min-height: 60vh;
+    padding-bottom: 100px;
+    > section {
+      height: 100%;
+    }
+    > section > div > div {
+      height: 60vh;
+    }
+  }
 `
 
 export const MoonverseInfo = styled.div`
@@ -220,7 +266,7 @@ export const MoonverseInfo = styled.div`
     background-size: 100vw;
   }
   @media screen and (max-width: 720px) {
-    background-image: url(${apesbackground});
+    // background-image: url(${apesbackground});
     background-size: 100% 375px;
     height: 340px;
   }
@@ -254,7 +300,8 @@ export const ProblemsTitle = styled.div`
   padding-left: min(2.7vw, 50px);
   @media screen and (max-width: 740px) {
     font-size: 25px;
-    padding-left: 24px;
+    padding-left: 10px;
+    max-width: 250px;
   }
 `
 export const ParticipateContainer = styled.div`
@@ -295,6 +342,10 @@ export const ParticipateContainer = styled.div`
       transform: scale(1.1);
       transition: 0.2s;
     }
+    @media screen and (max-width: 480px) {
+      font-size: 10px;
+      height: 16px;
+    }
   }
 `
 export const PartcipateText = styled.div`
@@ -307,7 +358,7 @@ export const PartcipateText = styled.div`
   line-height: 1.7;
   z-index: 2;
   @media screen and (max-width: 720px) {
-    font-size: 11px;
+    font-size: 12px;
     max-width: 260px;
   }
 `
@@ -321,6 +372,13 @@ export const TextWrapper = styled.div`
   justify-content: center;
   height: 100vh;
   flex-direction: column;
+  @media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    height: 60vh;
+    margin: 0 auto;
+    max-width: 250px;
+    padding-left: 10px;
+  }
 `
 
 export const Pointers = styled.div`
@@ -338,6 +396,29 @@ export const Pointers = styled.div`
     width: 118vh;
     height: auto;
     opacity: 0;
+  }
+  /* @media screen and (max-width: 1450px) {
+    background-size: 655px 655px;
+  }
+  @media screen and (max-width: 1120px) {
+    background-size: 575px 575px;
+    width: 100%;
+    max-width: 659px;
+    margin: 0 auto;
+    height: 637px;
+  }*/
+  @media screen and (max-width: 720px) {
+    // background-size: 301px 301px;
+    // width: 100%;
+    // max-width: 300px;
+    // margin: 0 auto;
+    // height: 337px;
+    // padding-left: 5px;
+    // justify-content: center;
+    // height: 60vh;
+    margin: 0 auto;
+    padding-right: 0px;
+    max-width: 250px;
   }
 `
 export const DiscoverDiv = styled.div`
@@ -395,7 +476,7 @@ export const Discover = styled.div`
     align-self: center;
   }
   @media screen and (max-width: 720px) {
-    max-width: 103px;
+    max-width: 250px;
     align-self: flex-start;
     justify-self: flex-start;
   }
@@ -520,26 +601,35 @@ export const InternalText = styled.div`
   font-weight: 100;
   opacity: 1;
   @media screen and (max-width: 720px) {
-    font-size: 8px;
+    font-size: 10px;
   }
 `
 export const TokenContainer = styled.div`
   height: 1200px;
   position: sticky;
   top: 0;
+  @media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    height: 60vh;
+    margin: 150px 0px;
+  }
 `
 export const TokenContainerWrapper = styled.div`
   height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  @media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    height: 60vh;
+  }
 `
 
 export const TokenTextWrapper = styled.div`
   justify-content: center;
   display: flex;
   @media screen and (max-width: 720px) {
-    padding-left: 30px;
+    margin: 0 auto;
     max-width: 250px;
   }
 `
@@ -560,10 +650,23 @@ export const Utilities = styled.div`
   width: calc(100% - 28vw);
   max-width: 1320px;
   margin: 0 auto;
+  margin-top: 50px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 40px min(3.9vw, 68px);
+  gap: 20px min(3.9vw, 68px);
+  @media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    max-width: 250px;
+  }
+  @media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    > div {
+      max-width: 250px;
+      width: 100%;
+      margin-bottom: 20px;
+    }
+  }
 `
 export const UtilitiesWrapperDiv = styled.div`
   display: flex;
@@ -587,6 +690,22 @@ export const UtilitiesWrapper = styled.div`
     top: 8.3vw;
     max-width: min(15.5vw, 286px);
   }
+  @media only screen and (max-width: 650px) {
+    /* For mobile phones: */
+    > p {
+      top: 8vw;
+      font-size: 7px;
+    }
+  }
+  @media only screen and (max-width: 480px) {
+    /* For mobile phones: */
+    > p {
+      top: 13vw;
+    font-size: 7px;
+    max-width: 100px;
+}
+    }
+  }
   img {
     width: 100%;
     max-width: min(21.2vw, 390px);
@@ -594,7 +713,8 @@ export const UtilitiesWrapper = styled.div`
   }
   .utilities_type {
     @media screen and (max-width: 740px) {
-      height: 220px;
+      height: auto;
+      max-width: 150px;
     }
   }
   .nft_type {
@@ -678,7 +798,7 @@ export const RoadmapHeading = styled.div`
   }
   @media screen and (max-width: 740px) {
     font-size: 25px;
-    margin-top: 70px;
+    margin-top: 10px;
     margin-bottom: 30px;
   }
 `
@@ -689,6 +809,12 @@ export const Roadmap = styled.div`
   flex-direction: column;
   justify-content: center;
   height: 100vh;
+  @media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    height: 60vh;
+    margin: 0 auto;
+    max-width: 250px;
+  }
 `
 export const RoadmapConatinerWrapper = styled.div`
   position: sticky;
@@ -706,6 +832,11 @@ export const RoadmapDivWrapper = styled.div`
   gap: min(2.7vw, 50px);
   margin-bottom: min(0.9vw, 15px);
   justify-self: center;
+
+  @media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    max-width: 250px;
+  }
 
   > img {
     width: 100px;
@@ -823,6 +954,18 @@ export const RoadmapDivWrapper = styled.div`
       margin: 0;
     }
   }
+  @media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    .text-wrapper > h5 {
+      font-size: 12px;
+    }
+    .text-wrapper > h5 > span {
+      font-size: 12px;
+    }
+    .text-wrapper > p {
+      font-size: 12px;
+    }
+  }
 `
 export const RoadmapImagewapper = styled.div`
   display: flex;
@@ -854,6 +997,7 @@ export const LogoImagewrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
   margin-bottom: 10px;
   .footer_logo {
     max-width: 100%;
@@ -866,10 +1010,17 @@ export const RightSection = styled.div`
     font-size: 33px;
     color: #fff;
   }
+  @media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    .sub-text {
+      font-size: 20px;
+    }
+  }
 `
 export const LinkWrapper = styled.div`
   display: flex;
   gap: 20px;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
   p {
@@ -880,11 +1031,30 @@ export const LinkWrapper = styled.div`
   @media screen and (max-width: 740px) {
     grid-gap: 50px;
   }
+  @media screen and (max-width: 740px) {
+    p {
+      font-size: 13px;
+    }
+  }
+  @media screen and (max-width: 740px) {
+    img {
+      width: 180px;
+      height: auto;
+    }
+  }
 `
 export const QuickWrapper = styled.div`
   display: grid;
   grid-gap: 20px;
   align-items: center;
+  @media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    form {
+      display: flex;
+      align-items: center;
+      margin: 20px 0px;
+    }
+  }
   input {
     height: 55px;
     width: 100%;
@@ -901,6 +1071,7 @@ export const QuickWrapper = styled.div`
     ::-webkit-input-placeholder {
       /* Edge */
       color: #c7c7c7;
+      font-size: 12px;
     }
 
     :-ms-input-placeholder {
@@ -912,6 +1083,16 @@ export const QuickWrapper = styled.div`
       color: #c7c7c7;
     }
   }
+
+  @media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    input {
+      width: 60%;
+      height: 50px;
+      font-size: 12px;
+    }
+  }
+
   button {
     font-size: 20px;
     width: 180px;
@@ -919,6 +1100,20 @@ export const QuickWrapper = styled.div`
     background-color: transparent;
     border: 1px solid #fff;
     color: #fff;
+    text-transform: uppercase;
+    font-family: 'neue_machinaregular';
+  }
+
+  @media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    button {
+      font-size: 20px;
+      width: 140px;
+      height: 50px;
+      background-color: transparent;
+      border: 1px solid #fff;
+      color: #fff;
+    }
   }
 `
 export const Links = styled.div`
