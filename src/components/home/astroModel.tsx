@@ -82,7 +82,6 @@ const Model = ({ setAnimation, setLoader }: any) => {
     const scroll = MathUtils.mapLinear(scrollProgress, 0, 0.95, 0, documentHeight)
 
     const timeValue = MathUtils.mapLinear(scroll, 0, documentHeight, 0, gltf.animations[0]?.duration)
-    // console.log('timevalue', timeValue);
     mixer?.setTime(timeValue)
     if (moonverseContainer && scroll <= moonverseBottomContainer) {
       const moonverseClosingHeight = moonverseContainer?.top + moonverseContainer?.height
@@ -225,12 +224,10 @@ const Model = ({ setAnimation, setLoader }: any) => {
 
   THREE.DefaultLoadingManager.onLoad = function () {
     setLoader(false)
-    console.log('Loading Complete!')
   }
 
-  THREE.DefaultLoadingManager.onProgress = function (url, itemsLoaded, itemsTotal) {
+  THREE.DefaultLoadingManager.onProgress = function () {
     setLoader(true)
-    console.log('Loading file: ' + url + '.\nLoaded ' + itemsLoaded + ' of ' + itemsTotal + ' files.')
   }
 
   const onScroll = () => {
@@ -241,10 +238,8 @@ const Model = ({ setAnimation, setLoader }: any) => {
     const m = model ? model : gltf
     const mix = player ? player : mixer
 
-    // console.log(mixer)
     m.animations.forEach((clip: any) => {
       const action = mix.clipAction(clip)
-      console.log(action)
 
       if (window.scrollY < 6000) {
         action?.play()
@@ -254,10 +249,7 @@ const Model = ({ setAnimation, setLoader }: any) => {
     })
     if (window.scrollY < 6000) {
       window.addEventListener('scroll', () => {
-        console.log(window.scrollY)
-
         const temp = MathUtils.mapLinear(window.scrollY, 0, documentHeight, 0, 50)
-        console.log(temp)
 
         mix.setTime(temp)
       })
