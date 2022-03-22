@@ -594,7 +594,7 @@ export const Utilities = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 0 min(3.9vw, 68px);
+  gap: 40px min(3.9vw, 68px);
 `
 export const UtilitiesWrapperDiv = styled.div`
   display: flex;
