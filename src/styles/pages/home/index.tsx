@@ -28,7 +28,6 @@ export const CanvasWrapper = styled.div`
     width: 100vw;
   }
 `
-
 export const Container = styled.div`
   width: 100%;
   z-index: 0;
@@ -56,6 +55,11 @@ export const Container = styled.div`
     left: 0;
     top: 0;
     width: 100vw;
+  }
+
+  .model-loader {
+    height: 100% !important;
+    width: 100% !important;
   }
 `
 export const VideoContainer = styled.div`

@@ -1,13 +1,14 @@
 import { Suspense, useEffect, useState, useRef } from 'react'
 import { Canvas, useThree, useLoader, useFrame } from '@react-three/fiber'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
-
+import { Html, useProgress } from '@react-three/drei'
+import loader from 'assets/gif/loader.gif'
 import * as THREE from 'three'
 // import { Vector3 } from 'three'
 
 const Model = ({ setAnimation }: any) => {
   const { camera: mainCamera, scene } = useThree()
-  const gltf = useLoader(GLTFLoader, './Mesh3.gltf')
+  const gltf = useLoader(GLTFLoader, './Mesh.glb')
 
   const [moonverseBottomContainer, setMoonverseBottomContainer] = useState(0)
   const [problemBottomContainer, setProblemBottomContainer] = useState(0)
@@ -284,6 +285,13 @@ const Model = ({ setAnimation }: any) => {
   )
 }
 
+useLoader.preload(GLTFLoader, '/Mesh3.gltf')
+
+function Loader() {
+  // const { progress } = useProgress()
+  const progress = <img src={loader} />
+  return <Html className='model-loader' center>{progress} % loaded</Html>
+}
 // const Spheres = ({ position }: { position: Vector3 | number[] }) => (
 //   <mesh position={position as Vector3}>
 //     <sphereBufferGeometry attach="geometry" args={[0.1]} />
@@ -295,8 +303,9 @@ const AstroModel = () => {
   const [, setAnimation] = useState()
   return (
     <>
+    {/* <img src={loader} /> */}
       <Canvas className="model-container" style={{ filter: 'blur(0px)' }}>
-        <Suspense fallback={null}>
+        <Suspense fallback={<Loader />}>
           {/* <Spheres position={[0, 0, -12]} /> */}
           {/* <Spheres position={[1, 0, -12]} /> */}
 
