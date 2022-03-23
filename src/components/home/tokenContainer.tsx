@@ -14,6 +14,28 @@ import tokenFour from 'assets/images/tokenfour.png'
 import tokenFive from 'assets/images/tokenfive.png'
 
 const TokenUtilitiesWrapper = () => {
+  const data = [
+    {
+      img: tokenfirst,
+      para: 'Each $SEEK represents a vote in the platform’s future',
+    },
+    {
+      img: tokentwo,
+      para: 'Craft your customised avatars',
+    },
+    {
+      img: tokenThree,
+      para: 'Complete your daily quests and campaigns',
+    },
+    {
+      img: tokenFour,
+      para: 'Create accessories that bring you further in your journey',
+    },
+    {
+      img: tokenFive,
+      para: 'Embark on a fun adventure in a myriad of games',
+    },
+  ]
   return (
     <ScrollContainer id="token-utilities">
       <TokenContainer>
@@ -22,26 +44,12 @@ const TokenUtilitiesWrapper = () => {
             <TokenTitle>Our Utility Token $SEEK</TokenTitle>
           </TokenTextWrapper>
           <Utilities>
-            <UtilitiesWrapper>
-              <img src={tokenfirst} className="utilities_type" />
-              <p>Each $SEEK represents a vote in the platform’s future</p>
-            </UtilitiesWrapper>
-            <UtilitiesWrapper>
-              <img src={tokentwo} className="utilities_type" />
-              <p>Craft your customised avatars</p>
-            </UtilitiesWrapper>
-            <UtilitiesWrapper>
-              <img src={tokenThree} className="utilities_type" />
-              <p>Complete your daily quests and campaigns</p>
-            </UtilitiesWrapper>
-            <UtilitiesWrapper>
-              <img src={tokenFour} className="utilities_type" />
-              <p>Create accessories that bring you further in your journey</p>
-            </UtilitiesWrapper>
-            <UtilitiesWrapper>
-              <img src={tokenFive} className="utilities_type" />
-              <p>Embark on a fun adventure in a myriad of games</p>
-            </UtilitiesWrapper>
+            {data.map((res, index) => (
+              <UtilitiesWrapper key={index}>
+                <img src={res.img} className="utilities_type" />
+                <p>{res.para}</p>
+              </UtilitiesWrapper>
+            ))}
           </Utilities>
         </TokenContainerWrapper>
       </TokenContainer>
