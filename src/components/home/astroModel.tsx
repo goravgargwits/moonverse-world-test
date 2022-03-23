@@ -8,7 +8,6 @@ import { LoaderContext } from 'Context/Context'
 const Model = ({ setAnimation, setLoader }: any) => {
   const { camera: mainCamera, scene } = useThree()
   const gltf = useLoader(GLTFLoader, './Mesh.glb')
-
   const [moonverseBottomContainer, setMoonverseBottomContainer] = useState(0)
   const [problemBottomContainer, setProblemBottomContainer] = useState(0)
   const [participateBottomContainer, setParticipateBottomContainer] = useState(0)
@@ -17,14 +16,21 @@ const Model = ({ setAnimation, setLoader }: any) => {
   const problemContainer = document.getElementById('problem-container')?.getBoundingClientRect()
   const participateContainer = document.getElementById('participate-container')?.getBoundingClientRect()
   const tokenUtilityContainer = document.getElementById('token-utilities')?.getBoundingClientRect()
-  const defaultFocalLength = 60
-  const scale = 40.5
+  const defaultFocalLength = 30
+  const scale = 45.5
   const documentHeight = document.documentElement.getBoundingClientRect().height
   const { MathUtils } = THREE
   const bgColor = new THREE.Color('rgb(10, 0, 10)')
   let scrollOffset = 0
   let scrollPercent = 0
   let scrollProgress = scrollPercent
+  const renderer = new THREE.WebGLRenderer({
+    logarithmicDepthBuffer: true,
+  })
+
+  useEffect(() => {
+    console.log('renderer', renderer)
+  }, [])
 
   // const blueColor = new THREE.Color('rgb(0, 0, 255)')
   scene.background = bgColor
@@ -79,7 +85,7 @@ const Model = ({ setAnimation, setLoader }: any) => {
     scrollPercent = scrollOffset / documentHeight || 0
     scrollProgress += (scrollPercent - scrollProgress) * 0.01
 
-    const scroll = MathUtils.mapLinear(scrollProgress, 0, 0.95, 0, documentHeight)
+    const scroll = MathUtils.mapLinear(scrollProgress, 0, 0.99, 0, documentHeight)
 
     const timeValue = MathUtils.mapLinear(scroll, 0, documentHeight, 0, gltf.animations[0]?.duration)
     // console.log('timevalue', timeValue);
@@ -233,10 +239,6 @@ const Model = ({ setAnimation, setLoader }: any) => {
     console.log('Loading file: ' + url + '.\nLoaded ' + itemsLoaded + ' of ' + itemsTotal + ' files.')
   }
 
-  const onScroll = () => {
-    // pass
-  }
-
   const startAnimation = (model?: any, player?: any) => {
     const m = model ? model : gltf
     const mix = player ? player : mixer
@@ -244,42 +246,25 @@ const Model = ({ setAnimation, setLoader }: any) => {
     // console.log(mixer)
     m.animations.forEach((clip: any) => {
       const action = mix.clipAction(clip)
-      console.log(action)
-
-      if (window.scrollY < 6000) {
-        action?.play()
-      } else {
-        action?.paused()
-      }
+      action?.play()
     })
-    if (window.scrollY < 6000) {
-      window.addEventListener('scroll', () => {
-        console.log(window.scrollY)
+    window.addEventListener('scroll', () => {
+      console.log(window.scrollY)
 
-        const temp = MathUtils.mapLinear(window.scrollY, 0, documentHeight, 0, 50)
-        console.log(temp)
+      const temp = MathUtils.mapLinear(window.scrollY, 0, documentHeight, 0, 50)
+      console.log(temp)
 
-        mix.setTime(temp)
-      })
-    }
+      mix.setTime(temp)
+    })
   }
 
-  if (window.scrollY < 6000) {
-    setAnimation(startAnimation)
-  }
-
-  useEffect(() => {
-    window.addEventListener('scroll', onScroll)
-    return () => {
-      window.removeEventListener('scroll', onScroll)
-    }
-  })
+  setAnimation(startAnimation)
 
   return (
     <>
       <directionalLight ref={mainLight} intensity={1} position={[-1, -0.1, -0.8]} color="rgb(202, 58, 244)" />
       <directionalLight ref={secondaryLight} intensity={0.1} position={[10, -10, 10]} color="rgb(0, 255, 207)" />
-      <primitive object={gltf.scene} scale={scale} position={[105, -185, 0]} />
+      <primitive renderer={renderer} object={gltf.scene} scale={scale} position={[90, -190, 450]} />
     </>
   )
 }
