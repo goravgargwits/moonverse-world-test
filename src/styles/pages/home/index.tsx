@@ -1140,14 +1140,6 @@ export const QuicklinkTitle = styled.div`
     font-size: min(1.3vw, 24px);
   }
 `
-
-export const LoaderContainer = styled.div`
-  position: fixed;
-  top: 0;
-  z-index: 9999;
-  min-height: 100vh;
-  min-width: 100vw;
-`
 export const ChannelsWrapper = styled.div`
   display: flex;
   align-items: center;
