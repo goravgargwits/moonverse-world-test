@@ -25,6 +25,9 @@ const Container = styled.div`
     position: absolute;
     width: 100%;
     max-width: 200px;
+    @media screen and (max-width: 650px) {
+      max-width: 150px;
+    }
   }
   .loader,
   .loader:after {

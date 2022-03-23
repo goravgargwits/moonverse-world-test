@@ -16,7 +16,7 @@ const Home = () => {
 
   useEffect(() => {
     if (loader) {
-      document.body.style.overflowY = 'none'
+      document.body.style.overflowY = 'hidden'
     } else {
       document.body.style.overflowY = 'auto'
     }

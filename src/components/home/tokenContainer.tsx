@@ -24,23 +24,23 @@ const TokenUtilitiesWrapper = () => {
           <Utilities>
             <UtilitiesWrapper>
               <img src={tokenfirst} className="utilities_type" />
-              <p>Land purchase and development</p>
+              <p>Each $SEEK represents a vote in the platform’s future</p>
             </UtilitiesWrapper>
             <UtilitiesWrapper>
               <img src={tokentwo} className="utilities_type" />
-              <p>Daily quests and staking</p>
+              <p>Craft your customised avatars</p>
             </UtilitiesWrapper>
             <UtilitiesWrapper>
               <img src={tokenThree} className="utilities_type" />
-              <p>NFT assest crafting</p>
+              <p>Complete your daily quests and campaigns</p>
             </UtilitiesWrapper>
             <UtilitiesWrapper>
               <img src={tokenFour} className="utilities_type" />
-              <p>3D avatar creation</p>
+              <p>Create accessories that bring you further in your journey</p>
             </UtilitiesWrapper>
             <UtilitiesWrapper>
               <img src={tokenFive} className="utilities_type" />
-              <p>3D avatar creation</p>
+              <p>Embark on a fun adventure in a myriad of games</p>
             </UtilitiesWrapper>
           </Utilities>
         </TokenContainerWrapper>
