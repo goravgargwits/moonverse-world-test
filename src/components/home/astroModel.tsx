@@ -9,7 +9,7 @@ import { LoaderContext } from 'Context/Context'
 
 const Model = ({ setAnimation, setLoader }: any) => {
   const { camera: mainCamera, scene } = useThree()
-  const gltf = useLoader(GLTFLoader, './model.gltf', (loader) => {
+  const gltf = useLoader(GLTFLoader, './model.glb', (loader) => {
     const dracoLoader = new DRACOLoader()
     dracoLoader.setDecoderPath('https://raw.githubusercontent.com/mrdoob/three.js/dev/examples/js/libs/draco/')
     const load = loader as any

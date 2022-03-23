@@ -15,12 +15,16 @@ const VideoWrapper = () => {
         </Button>
       </Logo>
       <Player>
-        <video className="video" autoPlay loop muted>
-          <source src={homevideo} type="video/mp4"></source>
-        </video>
-        <video className="mobile_video" autoPlay loop muted>
-          <source src={mobilevideo} type="video/mp4"></source>
-        </video>
+        {window.innerWidth > 740 && (
+          <video className="video" autoPlay loop muted>
+            <source src={homevideo} type="video/mp4"></source>
+          </video>
+        )}
+        {window.innerWidth <= 740 && (
+          <video className="mobile_video" autoPlay loop muted>
+            <source src={mobilevideo} type="video/mp4"></source>
+          </video>
+        )}
       </Player>
 
       <Scroll>
