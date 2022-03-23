@@ -17,8 +17,10 @@ const Home = () => {
   useEffect(() => {
     if (loader) {
       document.body.style.overflowY = 'hidden'
+      document.body.style.touchAction = 'none'
     } else {
       document.body.style.overflowY = 'auto'
+      document.body.style.touchAction = 'auto'
     }
   }, [loader])
 

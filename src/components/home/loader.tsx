@@ -24,26 +24,26 @@ const Container = styled.div`
   img {
     position: absolute;
     width: 100%;
-    max-width: 200px;
+    max-width: 120px;
     @media screen and (max-width: 650px) {
-      max-width: 150px;
+      max-width: 80px;
     }
   }
   .loader,
   .loader:after {
     border-radius: 50%;
-    width: 10em;
-    height: 10em;
+    width: 5em;
+    height: 5em;
   }
   .loader {
     margin: 60px auto;
     /* font-size: 10px; */
     position: relative;
     /* text-indent: -9999em; */
-    border-top: 0.5em solid rgba(255, 156, 0, 1);
-    border-right: 0.5em solid rgba(255, 156, 0, 1);
-    border-bottom: 0.5em solid rgba(255, 156, 0, 1);
-    border-left: 0.5em solid #ffffff;
+    border-top: 0.3em solid rgba(255, 156, 0, 1);
+    border-right: 0.3em solid rgba(255, 156, 0, 1);
+    border-bottom: 0.3em solid rgba(255, 156, 0, 1);
+    border-left: 0.3em solid #ffffff;
     -webkit-transform: translateZ(0);
     -ms-transform: translateZ(0);
     transform: translateZ(0);
