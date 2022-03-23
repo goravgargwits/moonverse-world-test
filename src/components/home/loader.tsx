@@ -24,7 +24,7 @@ const Container = styled.div`
   img {
     position: absolute;
     width: 100%;
-    max-width: 120px;
+    max-width: 100px;
     @media screen and (max-width: 650px) {
       max-width: 80px;
     }

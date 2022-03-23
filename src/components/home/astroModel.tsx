@@ -2,10 +2,8 @@ import { Suspense, useEffect, useState, useRef, useContext } from 'react'
 import { Canvas, useThree, useLoader, useFrame } from '@react-three/fiber'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
 import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js'
-// import { useGLTF } from '@react-three/drei'
 import * as THREE from 'three'
-import { LoaderContext } from 'Context/Context'
-// import { Vector3 } from 'three'
+import { LoaderContext } from 'context/LoaderContext'
 
 const Model = ({ setAnimation, setLoader }: any) => {
   const { camera: mainCamera, scene } = useThree()
@@ -15,9 +13,6 @@ const Model = ({ setAnimation, setLoader }: any) => {
     const load = loader as any
     load.setDRACOLoader(dracoLoader)
   })
-  // const gltf2 = useGLTF('./model.gltf')
-
-  // console.log(gltf2)
 
   const [moonverseBottomContainer, setMoonverseBottomContainer] = useState(0)
   const [problemBottomContainer, setProblemBottomContainer] = useState(0)
@@ -77,10 +72,8 @@ const Model = ({ setAnimation, setLoader }: any) => {
 
   useFrame(() => {
     // Setting the initial Colors
-    // const purpleColor = new THREE.Color('rgb(202, 58, 244)')
     const orangeColor = new THREE.Color('rgba(237,150,15)')
     const babyBlueColor = new THREE.Color('rgba(75,212,213)')
-    // const greenColor = new THREE.Color('rgb(0, 255, 207)')
     const whiteColor = new THREE.Color('rgb(255, 241, 245)')
     const whiteBackColor = new THREE.Color('rgb(253, 255, 247)')
     const pinkFrontColor = new THREE.Color('rgb(255, 92, 175)')
@@ -99,7 +92,6 @@ const Model = ({ setAnimation, setLoader }: any) => {
     const scroll = MathUtils.mapLinear(scrollProgress, 0, 0.99, 0, documentHeight)
 
     const timeValue = MathUtils.mapLinear(scroll, 0, documentHeight, 0, gltf.animations[0]?.duration)
-    // console.log('timevalue', timeValue);
     mixer?.setTime(timeValue)
     if (moonverseContainer && scroll <= moonverseBottomContainer) {
       const moonverseClosingHeight = moonverseContainer?.top + moonverseContainer?.height
@@ -240,16 +232,6 @@ const Model = ({ setAnimation, setLoader }: any) => {
     }
   })
 
-  // THREE.DefaultLoadingManager.onLoad = function () {
-  //   setLoader(false)
-  //   console.log('Loading Complete!')
-  // }
-
-  // THREE.DefaultLoadingManager.onProgress = function (url, itemsLoaded, itemsTotal) {
-  //   setLoader(true)
-  //   console.log('Loading file: ' + url + '.\nLoaded ' + itemsLoaded + ' of ' + itemsTotal + ' files.')
-  // }
-
   const startAnimation = (model?: any, player?: any) => {
     const m = model ? model : gltf
     const mix = player ? player : mixer
@@ -276,26 +258,13 @@ const Model = ({ setAnimation, setLoader }: any) => {
   )
 }
 
-// useLoader.preload(GLTFLoader, '/Mesh3.gltf')
-
-// const Spheres = ({ position }: { position: Vector3 | number[] }) => (
-//   <mesh position={position as Vector3}>
-//     <sphereBufferGeometry attach="geometry" args={[0.1]} />
-//     <meshPhongMaterial attach="material" color="purple" />
-//   </mesh>
-// )
-
 const AstroModel = () => {
   const [loader, setLoader]: any = useContext(LoaderContext)
   const [, setAnimation] = useState()
   return (
     <>
-      {/* <img src={loader} /> */}
       <Canvas className="model-container" style={{ filter: 'blur(0px)' }}>
         <Suspense fallback={null}>
-          {/* <Spheres position={[0, 0, -12]} /> */}
-          {/* <Spheres position={[1, 0, -12]} /> */}
-
           <mesh renderOrder={1001}>
             <Model setAnimation={setAnimation} loader={loader} setLoader={setLoader} />
           </mesh>

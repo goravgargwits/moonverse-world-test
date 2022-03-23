@@ -1,13 +1,11 @@
-import { BrowserRouter as Router, Redirect, Switch } from 'react-router-dom'
-import { UserType } from './constants'
-import Route from './privateRoute'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import Home from 'pages/home'
 const ReactRouter = () => {
   return (
     <div className="App">
       <Router>
         <Switch>
-          <Route exact path="/" component={Home} type={UserType.PUBLIC} />
+          <Route exact path="/" component={Home} />
         </Switch>
       </Router>
     </div>

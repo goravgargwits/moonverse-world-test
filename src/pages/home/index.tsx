@@ -1,6 +1,6 @@
 import { useContext, useEffect } from 'react'
 import { Container } from 'styles/pages/home'
-import MoonverseInfoWrapper from 'components/home/InfoContainer'
+import MoonverseInfoWrapper from 'components/home/infoContainer'
 import ProblemsWrapper from 'components/home/problemContainer'
 import ParticipateWrapper from 'components/home/participateContainer'
 import TokenUtilitiesWrapper from 'components/home/tokenContainer'
@@ -8,7 +8,7 @@ import RoadmapWrapper from 'components/home/roadmapContainer'
 import FooterWrapper from 'components/home/footer'
 import VideoWrapper from 'components/home/videoContainer'
 import AstroModel from 'components/home/astroModel'
-import { LoaderContext } from 'Context/Context'
+import { LoaderContext } from 'context/LoaderContext'
 import Loader from 'components/home/loader'
 
 const Home = () => {

@@ -1,6 +1,4 @@
 import styled from 'styled-components'
-import apesbackground from 'assets/images/moonversemobilewrapper.png'
-import partnermobile from 'assets/images/partnersmobilebackground.png'
 
 export const CanvasWrapper = styled.div`
   position: static;
@@ -40,13 +38,6 @@ export const Container = styled.div`
     z-index: -1;
     top: 0;
   }
-
-  // @media only screen and (max-width: 768px) {
-  //   /* For mobile phones: */
-  //   .model-container {
-  //     width: 100%;
-  //   }
-  // }
 
   .model-container > canvas {
     position: sticky;
@@ -234,7 +225,6 @@ export const Player = styled.div`
 `
 
 export const ScrollContainer = styled.section`
-  // min-height: 150vh;
   position: relative;
   padding-bottom: 100px;
   @media screen and (max-width: 760px) {
@@ -266,7 +256,6 @@ export const MoonverseInfo = styled.div`
     background-size: 100vw;
   }
   @media screen and (max-width: 720px) {
-    // background-image: url(${apesbackground});
     background-size: 100% 375px;
     height: 340px;
   }
@@ -401,25 +390,8 @@ export const Pointers = styled.div`
     height: auto;
     opacity: 0;
   }
-  /* @media screen and (max-width: 1450px) {
-    background-size: 655px 655px;
-  }
-  @media screen and (max-width: 1120px) {
-    background-size: 575px 575px;
-    width: 100%;
-    max-width: 659px;
-    margin: 0 auto;
-    height: 637px;
-  }*/
+
   @media screen and (max-width: 720px) {
-    // background-size: 301px 301px;
-    // width: 100%;
-    // max-width: 300px;
-    // margin: 0 auto;
-    // height: 337px;
-    // padding-left: 5px;
-    // justify-content: center;
-    // height: 60vh;
     margin: 0 auto;
     padding-right: 0px;
     max-width: 250px;
@@ -427,13 +399,11 @@ export const Pointers = styled.div`
 `
 export const DiscoverDiv = styled.div`
   position: relative;
-  /* padding-top: 35px; */
 `
 
 export const Discover = styled.div`
   position: relative;
   width: 100%;
-  /* border-radius: 12px; */
   font-family: 'neue_machinaregular';
   opacity: 1;
   display: flex;
@@ -451,7 +421,6 @@ export const Discover = styled.div`
     height: min(4.8vw, 87px);
     min-width: min(4.8vw, 87px);
     z-index: 0;
-    /* opacity: 0.78; */
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -465,7 +434,6 @@ export const Discover = styled.div`
       height: 100%;
       border-radius: 50%;
       width: 100%;
-      /* box-shadow: 0px 0px 50px #ed960f; */
       filter: blur(30px);
       z-index: 0;
     }
@@ -1149,11 +1117,4 @@ export const ChannelsWrapper = styled.div`
   align-items: center;
   justify-content: flex-start;
   gap: 10px;
-`
-export const PartnerContainer = styled.div`
-  @media screen and (max-width: 740px) {
-    background-image: url(${partnermobile});
-    background-size: 100% 500px;
-    background-repeat: no-repeat;
-  }
 `

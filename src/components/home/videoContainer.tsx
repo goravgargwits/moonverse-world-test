@@ -28,7 +28,7 @@ const VideoWrapper = () => {
       </Player>
 
       <Scroll>
-        <a href="#participate_container">
+        <a href="#chapter-x-container">
           <img src={scroll} className="scrollbar" />
         </a>
       </Scroll>
