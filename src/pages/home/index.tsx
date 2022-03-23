@@ -1,5 +1,5 @@
 import { useContext, useEffect } from 'react'
-import { Container, LoaderContainer } from 'styles/pages/home'
+import { Container } from 'styles/pages/home'
 import MoonverseInfoWrapper from 'components/home/InfoContainer'
 import ProblemsWrapper from 'components/home/problemContainer'
 import ParticipateWrapper from 'components/home/participateContainer'
@@ -9,7 +9,7 @@ import FooterWrapper from 'components/home/footer'
 import VideoWrapper from 'components/home/videoContainer'
 import AstroModel from 'components/home/astroModel'
 import { LoaderContext } from 'Context/Context'
-import Loader from 'assets/gif/loader.gif'
+import Loader from 'components/home/loader'
 
 const Home = () => {
   const [loader]: any = useContext(LoaderContext)
@@ -24,12 +24,7 @@ const Home = () => {
 
   return (
     <>
-      {loader && (
-        <LoaderContainer>
-          <img src={Loader} />
-        </LoaderContainer>
-      )}
-
+      {loader && <Loader />}
       <Container>
         <VideoWrapper />
         <div className="canvas-container">
