@@ -362,6 +362,10 @@ export const PartcipateText = styled.div`
     max-width: 260px;
   }
 `
+
+export const ParticipateSubText = styled.div`
+  padding-top: 30px;
+`
 export const TextWrapper = styled.div`
   z-index: 2;
   grid-column: 1;
