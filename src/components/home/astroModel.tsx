@@ -17,7 +17,7 @@ const Model = ({ setAnimation, setLoader }: any) => {
   const participateContainer = document.getElementById('participate-container')?.getBoundingClientRect()
   const tokenUtilityContainer = document.getElementById('token-utilities')?.getBoundingClientRect()
   const defaultFocalLength = 30
-  const scale = 45.5
+  const scale = 25.5
   const documentHeight = document.documentElement.getBoundingClientRect().height
   const { MathUtils } = THREE
   const bgColor = new THREE.Color('rgb(10, 0, 10)')
@@ -264,7 +264,7 @@ const Model = ({ setAnimation, setLoader }: any) => {
     <>
       <directionalLight ref={mainLight} intensity={1} position={[-1, -0.1, -0.8]} color="rgb(202, 58, 244)" />
       <directionalLight ref={secondaryLight} intensity={0.1} position={[10, -10, 10]} color="rgb(0, 255, 207)" />
-      <primitive renderer={renderer} object={gltf.scene} scale={scale} position={[90, -190, 450]} />
+      <primitive renderer={renderer} object={gltf.scene} scale={scale} position={[70, -100, 280]} />
     </>
   )
 }
