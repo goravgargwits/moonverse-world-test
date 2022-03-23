@@ -1,13 +1,24 @@
 import { Suspense, useEffect, useState, useRef, useContext } from 'react'
 import { Canvas, useThree, useLoader, useFrame } from '@react-three/fiber'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
+import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js'
+// import { useGLTF } from '@react-three/drei'
 import * as THREE from 'three'
 import { LoaderContext } from 'Context/Context'
 // import { Vector3 } from 'three'
 
 const Model = ({ setAnimation, setLoader }: any) => {
   const { camera: mainCamera, scene } = useThree()
-  const gltf = useLoader(GLTFLoader, './Mesh.glb')
+  const gltf = useLoader(GLTFLoader, './model.gltf', (loader) => {
+    const dracoLoader = new DRACOLoader()
+    dracoLoader.setDecoderPath('https://raw.githubusercontent.com/mrdoob/three.js/dev/examples/js/libs/draco/')
+    const load = loader as any
+    load.setDRACOLoader(dracoLoader)
+  })
+  // const gltf2 = useGLTF('./model.gltf')
+
+  // console.log(gltf2)
+
   const [moonverseBottomContainer, setMoonverseBottomContainer] = useState(0)
   const [problemBottomContainer, setProblemBottomContainer] = useState(0)
   const [participateBottomContainer, setParticipateBottomContainer] = useState(0)
@@ -29,7 +40,7 @@ const Model = ({ setAnimation, setLoader }: any) => {
   })
 
   useEffect(() => {
-    console.log('renderer', renderer)
+    setLoader(false)
   }, [])
 
   // const blueColor = new THREE.Color('rgb(0, 0, 255)')
@@ -83,7 +94,7 @@ const Model = ({ setAnimation, setLoader }: any) => {
     // Getting the current scrollHeight
     scrollOffset = document.documentElement.scrollTop || document.body.scrollTop
     scrollPercent = scrollOffset / documentHeight || 0
-    scrollProgress += (scrollPercent - scrollProgress) * 0.01
+    scrollProgress += (scrollPercent - scrollProgress) * 0.075
 
     const scroll = MathUtils.mapLinear(scrollProgress, 0, 0.99, 0, documentHeight)
 
@@ -229,30 +240,26 @@ const Model = ({ setAnimation, setLoader }: any) => {
     }
   })
 
-  THREE.DefaultLoadingManager.onLoad = function () {
-    setLoader(false)
-    console.log('Loading Complete!')
-  }
+  // THREE.DefaultLoadingManager.onLoad = function () {
+  //   setLoader(false)
+  //   console.log('Loading Complete!')
+  // }
 
-  THREE.DefaultLoadingManager.onProgress = function (url, itemsLoaded, itemsTotal) {
-    setLoader(true)
-    console.log('Loading file: ' + url + '.\nLoaded ' + itemsLoaded + ' of ' + itemsTotal + ' files.')
-  }
+  // THREE.DefaultLoadingManager.onProgress = function (url, itemsLoaded, itemsTotal) {
+  //   setLoader(true)
+  //   console.log('Loading file: ' + url + '.\nLoaded ' + itemsLoaded + ' of ' + itemsTotal + ' files.')
+  // }
 
   const startAnimation = (model?: any, player?: any) => {
     const m = model ? model : gltf
     const mix = player ? player : mixer
 
-    // console.log(mixer)
     m.animations.forEach((clip: any) => {
       const action = mix.clipAction(clip)
       action?.play()
     })
     window.addEventListener('scroll', () => {
-      console.log(window.scrollY)
-
       const temp = MathUtils.mapLinear(window.scrollY, 0, documentHeight, 0, 50)
-      console.log(temp)
 
       mix.setTime(temp)
     })
@@ -269,7 +276,7 @@ const Model = ({ setAnimation, setLoader }: any) => {
   )
 }
 
-useLoader.preload(GLTFLoader, '/Mesh3.gltf')
+// useLoader.preload(GLTFLoader, '/Mesh3.gltf')
 
 // const Spheres = ({ position }: { position: Vector3 | number[] }) => (
 //   <mesh position={position as Vector3}>
