@@ -16,12 +16,12 @@ const VideoWrapper = () => {
       </Logo>
       <Player>
         {window.innerWidth > 740 && (
-          <video className="video" autoPlay loop muted>
+          <video className="video" autoPlay loop muted playsInline>
             <source src={homevideo} type="video/mp4"></source>
           </video>
         )}
         {window.innerWidth <= 740 && (
-          <video className="mobile_video" autoPlay loop muted>
+          <video className="mobile_video" autoPlay loop muted playsInline>
             <source src={mobilevideo} type="video/mp4"></source>
           </video>
         )}
