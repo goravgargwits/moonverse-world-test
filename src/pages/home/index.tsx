@@ -8,7 +8,7 @@ import RoadmapWrapper from 'components/home/roadmapContainer'
 import FooterWrapper from 'components/home/footer'
 import VideoWrapper from 'components/home/videoContainer'
 import AstroModel from 'components/home/astroModel'
-import { LoaderContext } from 'Context/LoaderContext'
+import { LoaderContext } from 'context/LoaderContext'
 import Loader from 'components/home/loader'
 
 const Home = () => {
