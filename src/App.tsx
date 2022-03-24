@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import Home from 'pages/home'
 import './App.css'
-import { LoaderContext } from 'context/LoaderContext'
+import { LoaderContext } from './Context/LoaderContext'
 
 const App = () => {
   const [loader, setLoader] = useState(true)

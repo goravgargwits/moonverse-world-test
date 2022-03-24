@@ -17,7 +17,7 @@ const FooterWrapper = () => {
         <RightSection>
           <p className="sub-text">Subscribe and follow</p>
           <ChannelsWrapper>
-            <img src={twitter} onClick={() => window.open('https://twitter.com/Moonverse_sol')} />
+            <img src={twitter} onClick={() => window.open('https://twitter.com/ChapterX_world')} />
             <img src={discord} onClick={() => window.open('https://discord.gg/px4HJJgfNe')} />
           </ChannelsWrapper>
         </RightSection>
