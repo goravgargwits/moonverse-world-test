@@ -14,11 +14,16 @@ const Model = ({ setAnimation, setLoader }: any) => {
     load.setDRACOLoader(dracoLoader)
   })
 
+  const skinColor = new THREE.Color('#BE6435')
+
+  const lamber = gltf.materials['lambert2.001'] as any
+  lamber.color.set(skinColor)
+
   const [moonverseBottomContainer, setMoonverseBottomContainer] = useState(0)
   const [problemBottomContainer, setProblemBottomContainer] = useState(0)
   const [participateBottomContainer, setParticipateBottomContainer] = useState(0)
   const [tokenUtilityBottomContainer, setTokenUtilityBottomContainer] = useState(0)
-  const moonverseContainer = document.getElementById('moonverse-container')?.getBoundingClientRect()
+  const moonverseContainer = document.getElementById('chapter-x-container')?.getBoundingClientRect()
   const problemContainer = document.getElementById('problem-container')?.getBoundingClientRect()
   const participateContainer = document.getElementById('participate-container')?.getBoundingClientRect()
   const tokenUtilityContainer = document.getElementById('token-utilities')?.getBoundingClientRect()
@@ -111,8 +116,9 @@ const Model = ({ setAnimation, setLoader }: any) => {
       )
       // Lerp the Final Change of values
       const mainLightChange = orangeColor.lerp(whiteBackColor, mainLightMap)
-      const secondaryLightChange = babyBlueColor.lerp(whiteBackColor, secondaryLightMap)
+      const secondaryLightChange = babyBlueColor.lerp(whiteColor, secondaryLightMap)
       const mainLightPosChange = mainLightPos.lerp(mainLightPosDest, secondaryLightMap)
+
       // Set the values to the correct lights
       if (mainLight.current) {
         mainLight.current.color = mainLightChange
@@ -137,7 +143,7 @@ const Model = ({ setAnimation, setLoader }: any) => {
       )
       // Lerp the Final Change of values
       const mainLightChange = whiteColor.lerp(pinkFrontColor, mainLightMap)
-      const secondaryLightChange = whiteBackColor.lerp(pinkBackColor, secondaryLightMap)
+      const secondaryLightChange = whiteBackColor.lerp(babyBlueColor, secondaryLightMap)
       const secondaryLightIntensity = MathUtils.clamp(
         MathUtils.mapLinear(scroll, moonverseBottomContainer, problemContainer.top + problemContainer.height, 0.1, 1),
         0.1,
@@ -155,7 +161,6 @@ const Model = ({ setAnimation, setLoader }: any) => {
     }
 
     if (participateContainer && scroll > problemBottomContainer && scroll <= tokenUtilityBottomContainer) {
-      // mainLight.current.position.x = -150
       const mainLightMap = MathUtils.clamp(
         MathUtils.mapLinear(
           scroll,
@@ -180,7 +185,7 @@ const Model = ({ setAnimation, setLoader }: any) => {
       )
       // Lerp the Final Change of values
       const mainLightChange = pinkFrontColor.lerp(orangeColor, mainLightMap)
-      const secondaryLightChange = whiteColor.lerp(babyBlueColor, secondaryLightMap)
+      const secondaryLightChange = babyBlueColor.lerp(whiteBackColor, secondaryLightMap)
       // Set the values to the correct lights
       if (mainLight.current) {
         mainLight.current.color = mainLightChange
