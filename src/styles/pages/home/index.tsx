@@ -672,11 +672,11 @@ export const UtilitiesWrapper = styled.div`
     /* For mobile phones: */
     > p {
       top: 13vw;
-    font-size: 7px;
-    max-width: 100px;
-}
+      font-size: 7px;
+      max-width: 100px;
     }
   }
+
   img {
     width: 100%;
     max-width: min(21.2vw, 390px);
@@ -704,6 +704,7 @@ export const UtilitiesWrapper = styled.div`
       grid-row: 1;
       grid-column: 1;
     }
+  }
 `
 export const Partners = styled.div`
   display: flex;
