@@ -8,7 +8,7 @@ import RoadmapWrapper from 'components/home/roadmapContainer'
 import FooterWrapper from 'components/home/footer'
 import VideoWrapper from 'components/home/videoContainer'
 import AstroModel from 'components/home/astroModel'
-import { LoaderContext } from 'Context/Context'
+import { LoaderContext } from 'Context/LoaderContext'
 import Loader from 'components/home/loader'
 
 const Home = () => {
@@ -17,8 +17,10 @@ const Home = () => {
   useEffect(() => {
     if (loader) {
       document.body.style.overflowY = 'hidden'
+      document.body.style.touchAction = 'none'
     } else {
       document.body.style.overflowY = 'auto'
+      document.body.style.touchAction = 'auto'
     }
   }, [loader])
 

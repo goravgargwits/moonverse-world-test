@@ -1,6 +1,4 @@
 import styled from 'styled-components'
-import apesbackground from 'assets/images/moonversemobilewrapper.png'
-import partnermobile from 'assets/images/partnersmobilebackground.png'
 
 export const CanvasWrapper = styled.div`
   position: static;
@@ -33,20 +31,12 @@ export const Container = styled.div`
   }
 
   .model-container {
-    position: static !important;
     height: 100vh !important;
     width: 100% !important;
-    position: sticky !important;
+    position: fixed !important;
     z-index: -1;
     top: 0;
   }
-
-  // @media only screen and (max-width: 768px) {
-  //   /* For mobile phones: */
-  //   .model-container {
-  //     width: 100%;
-  //   }
-  // }
 
   .model-container > canvas {
     position: sticky;
@@ -92,28 +82,24 @@ export const TextContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   @media screen and (max-width: 740px) {
-    padding-left: 10px;
-    max-width: 250px;
+    padding: 0 15px;
+    max-width: 100%;
     margin: 0 auto;
   }
 `
 export const Title = styled.div`
-  font-size: min(4.5vw, 65px);
+  font-size: clamp(32px, 4.5vw, 65px);
   text-align: left;
   font-family: 'neue_machinaultrabold';
   line-height: 1.2;
   z-index: 2;
   text-transform: uppercase;
   color: #fff;
-  @media screen and (max-width: 740px) {
-    font-size: 25px;
-    max-width: 250px;
-  }
 `
 
 export const TokenTitle = styled.div`
-  max-width: min(39vw, 513px);
-  font-size: min(4.5vw, 65px);
+  max-width: clamp(250px, 39vw, 513px);
+  font-size: clamp(32px, 4.5vw, 65px);
   text-align: center;
   font-family: 'neue_machinaultrabold';
   font-weight: 200;
@@ -121,17 +107,15 @@ export const TokenTitle = styled.div`
   z-index: 2;
   text-transform: uppercase;
   color: #fff;
-  @media only screen and (max-width: 768px) {
-    /* For mobile phones: */
-    font-size: 25px;
+  /* @media only screen and (max-width: 740px) {
     max-width: 250px;
-  }
+  } */
 `
 
 export const Text = styled.div`
   text-align: left;
   font-family: 'neue_machinaregular';
-  font-size: min(1.5vw, 29px);
+  font-size: clamp(20px, 1.5vw, 29px);
   font-weight: 100;
   color: #c1c0c0;
   opacity: 1;
@@ -139,8 +123,7 @@ export const Text = styled.div`
   line-height: 1.5;
   max-width: 39vw;
   @media screen and (max-width: 740px) {
-    font-size: 12px;
-    max-width: 250px;
+    max-width: 100%;
   }
 `
 export const Logo = styled.div`
@@ -234,19 +217,8 @@ export const Player = styled.div`
 `
 
 export const ScrollContainer = styled.section`
-  // min-height: 150vh;
   position: relative;
-  padding-bottom: 100px;
-  @media screen and (max-width: 760px) {
-    min-height: 60vh;
-    padding-bottom: 100px;
-    > section {
-      height: 100%;
-    }
-    > section > div > div {
-      height: 60vh;
-    }
-  }
+  /* padding-bottom: 100px; */
 `
 
 export const MoonverseInfo = styled.div`
@@ -258,17 +230,7 @@ export const MoonverseInfo = styled.div`
   background-repeat: no-repeat;
 
   @media screen and (max-width: 1440px) {
-    height: 800px;
-    background-size: 100vw 800px;
-  }
-  @media screen and (max-width: 1000px) {
-    height: 400px;
-    background-size: 100vw;
-  }
-  @media screen and (max-width: 720px) {
-    // background-image: url(${apesbackground});
-    background-size: 100% 375px;
-    height: 340px;
+    height: 100vh;
   }
 `
 
@@ -280,16 +242,14 @@ export const Problems = styled.div`
   background-repeat: no-repeat;
   padding-top: 0px;
 
-  @media screen and (max-width: 700px) {
-    padding-top: 20px;
-
-    height: 500px;
+  @media screen and (max-width: 1440px) {
+    height: 100vh;
   }
 `
 
 export const ProblemsTitle = styled.div`
   text-align: left;
-  font-size: min(4.5vw, 65px);
+  font-size: clamp(32px, 4.5vw, 65px);
   font-family: 'neue_machinaultrabold';
   font-weight: 200;
   z-index: 3;
@@ -298,26 +258,20 @@ export const ProblemsTitle = styled.div`
   text-transform: uppercase;
   margin-bottom: min(3.2vw, 60px);
   padding-left: min(2.7vw, 50px);
-  @media screen and (max-width: 740px) {
-    font-size: 25px;
-    padding-left: 10px;
-    max-width: 250px;
-  }
+  /* @media screen and (max-width: 740px) {
+    padding: 0 15px;
+  } */
 `
 export const ParticipateContainer = styled.div`
   height: 1200px;
   position: sticky;
   top: 0;
-
   background-repeat: no-repeat;
   background-size: 100vw 900px;
-  @media screen and (max-width: 1000px) {
-    background-size: 100vw 800px;
+  @media screen and (max-width: 1440px) {
+    height: 100vh;
   }
-  @media screen and (max-width: 720px) {
-    background-size: 100vw 400px;
-    height: 400px;
-  }
+
   .playButton {
     background: #ed960f 0% 0% no-repeat padding-box;
     box-shadow: inset 0px 17px 6px #00000029, 0px 3px 6px #5a5a5a29;
@@ -332,35 +286,31 @@ export const ParticipateContainer = styled.div`
     color: #ffffff;
     text-transform: capitalize;
     opacity: 1;
-    border-radius: min(1.6vw, 79px);
-    height: min(3.2vw, 59px);
-    width: min(7.4vw, 135px);
-    font-size: min(1vw, 20px);
+    border-radius: clamp(60px, 1.6vw, 79px);
+    height: clamp(40px, 3.2vw, 59px);
+    width: clamp(124px, 7.4vw, 135px);
+    font-size: clamp(13px, 1vw, 20px);
     :hover {
       background: #ed960f 0% 0% no-repeat padding-box;
       box-shadow: inset 0px 17px 6px #00000029, 0px 3px 6px #5a5a5a29;
       transform: scale(1.1);
       transition: 0.2s;
     }
-    @media screen and (max-width: 480px) {
-      font-size: 10px;
-      height: 16px;
-    }
   }
 `
 export const PartcipateText = styled.div`
   text-align: left;
   font-family: 'outfit';
-  font-size: min(1.3vw, 24px);
+  font-size: clamp(18px, 1.3vw, 24px);
   font-weight: 300;
   color: #b0b0b0;
   opacity: 1;
   line-height: 1.7;
   z-index: 2;
-  @media screen and (max-width: 720px) {
-    font-size: 12px;
-    max-width: 260px;
-  }
+`
+
+export const ParticipateSubText = styled.div`
+  padding-top: 30px;
 `
 export const TextWrapper = styled.div`
   z-index: 2;
@@ -374,10 +324,9 @@ export const TextWrapper = styled.div`
   flex-direction: column;
   @media only screen and (max-width: 768px) {
     /* For mobile phones: */
-    height: 60vh;
     margin: 0 auto;
-    max-width: 250px;
-    padding-left: 10px;
+    max-width: 100%;
+    padding: 0 20px;
   }
 `
 
@@ -397,39 +346,19 @@ export const Pointers = styled.div`
     height: auto;
     opacity: 0;
   }
-  /* @media screen and (max-width: 1450px) {
-    background-size: 655px 655px;
-  }
-  @media screen and (max-width: 1120px) {
-    background-size: 575px 575px;
-    width: 100%;
-    max-width: 659px;
-    margin: 0 auto;
-    height: 637px;
-  }*/
-  @media screen and (max-width: 720px) {
-    // background-size: 301px 301px;
-    // width: 100%;
-    // max-width: 300px;
-    // margin: 0 auto;
-    // height: 337px;
-    // padding-left: 5px;
-    // justify-content: center;
-    // height: 60vh;
-    margin: 0 auto;
-    padding-right: 0px;
-    max-width: 250px;
+
+  @media screen and (max-width: 740px) {
+    padding: 0px 20px;
+    max-width: 100%;
   }
 `
 export const DiscoverDiv = styled.div`
   position: relative;
-  /* padding-top: 35px; */
 `
 
 export const Discover = styled.div`
   position: relative;
   width: 100%;
-  /* border-radius: 12px; */
   font-family: 'neue_machinaregular';
   opacity: 1;
   display: flex;
@@ -443,11 +372,9 @@ export const Discover = styled.div`
   span {
     position: relative;
     border-radius: 50%;
-
-    height: min(4.8vw, 87px);
-    min-width: min(4.8vw, 87px);
+    height: clamp(40px, 4.8vw, 87px);
+    min-width: clamp(40px, 4.8vw, 87px);
     z-index: 0;
-    /* opacity: 0.78; */
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -461,24 +388,13 @@ export const Discover = styled.div`
       height: 100%;
       border-radius: 50%;
       width: 100%;
-      /* box-shadow: 0px 0px 50px #ed960f; */
       filter: blur(30px);
       z-index: 0;
     }
     img {
-      max-width: min(2.8vw, 50px);
+      max-width: clamp(21px, 2.8vw, 50px);
       opacity: 0.6;
     }
-  }
-
-  justify-self: center;
-  @media screen and (max-width: 1120px) {
-    align-self: center;
-  }
-  @media screen and (max-width: 720px) {
-    max-width: 250px;
-    align-self: flex-start;
-    justify-self: flex-start;
   }
 `
 export const Model = styled.div`
@@ -586,32 +502,27 @@ export const Monetization = styled.div`
 `
 export const InternalTitle = styled.div`
   font-family: 'neue_machinaultrabold';
-  font-size: min(1.3vw, 24px);
+  font-size: clamp(25px, 1.3vw, 24px);
   color: #ed960f;
   margin-bottom: 8px;
   opacity: 1;
-  @media screen and (max-width: 720px) {
-    font-size: 12px;
-  }
 `
 export const InternalText = styled.div`
   font-family: 'neue_machinaregular';
   font-size: min(1.3vw, 24px);
+  font-size: clamp(20px, 1.3vw, 24px);
+
   color: #b0b0b0;
   font-weight: 100;
   opacity: 1;
-  @media screen and (max-width: 720px) {
-    font-size: 10px;
-  }
 `
 export const TokenContainer = styled.div`
   height: 1200px;
   position: sticky;
   top: 0;
-  @media only screen and (max-width: 768px) {
+  @media only screen and (max-width: 1440px) {
     /* For mobile phones: */
-    height: 60vh;
-    margin: 150px 0px;
+    height: 100vh;
   }
 `
 export const TokenContainerWrapper = styled.div`
@@ -619,19 +530,11 @@ export const TokenContainerWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  @media only screen and (max-width: 768px) {
-    /* For mobile phones: */
-    height: 60vh;
-  }
 `
 
 export const TokenTextWrapper = styled.div`
   justify-content: center;
   display: flex;
-  @media screen and (max-width: 720px) {
-    margin: 0 auto;
-    max-width: 250px;
-  }
 `
 export const TokenText = styled.div`
   text-align: left;
@@ -655,18 +558,14 @@ export const Utilities = styled.div`
   flex-wrap: wrap;
   justify-content: center;
   gap: 20px min(3.9vw, 68px);
-  @media only screen and (max-width: 768px) {
-    /* For mobile phones: */
-    max-width: 250px;
-  }
-  @media only screen and (max-width: 768px) {
-    /* For mobile phones: */
+
+  /* @media only screen and (max-width: 768px) {
     > div {
       max-width: 250px;
       width: 100%;
       margin-bottom: 20px;
     }
-  }
+  } */
 `
 export const UtilitiesWrapperDiv = styled.div`
   display: flex;
@@ -686,8 +585,8 @@ export const UtilitiesWrapper = styled.div`
     position: absolute;
     text-align: center;
     font-family: 'neue_machinaregular';
-    font-size: min(1.11vw, 20px);
-    top: 8.3vw;
+    font-size: clamp(17px, 1.11vw, 20px);
+    top: 7vw;
     max-width: min(15.5vw, 286px);
   }
   @media only screen and (max-width: 650px) {
@@ -701,14 +600,14 @@ export const UtilitiesWrapper = styled.div`
     /* For mobile phones: */
     > p {
       top: 13vw;
-    font-size: 7px;
-    max-width: 100px;
-}
+      font-size: 7px;
+      max-width: 100px;
     }
   }
+
   img {
     width: 100%;
-    max-width: min(21.2vw, 390px);
+    max-width: clamp(250px, 21.2vw, 390px);
     height: auto;
   }
   .utilities_type {
@@ -784,7 +683,7 @@ export const Heading = styled.div`
 `
 export const RoadmapHeading = styled.div`
   text-align: left;
-  font-size: min(4.5vw, 65px);
+  font-size: clamp(32px, 4.5vw, 65px);
   font-family: 'neue_machinaultrabold';
   font-weight: 200;
   z-index: 3;
@@ -796,11 +695,6 @@ export const RoadmapHeading = styled.div`
   > span {
     color: #ffffff;
   }
-  @media screen and (max-width: 740px) {
-    font-size: 25px;
-    margin-top: 10px;
-    margin-bottom: 30px;
-  }
 `
 export const Roadmap = styled.div`
   padding-left: min(7.6vw, 140px);
@@ -809,11 +703,9 @@ export const Roadmap = styled.div`
   flex-direction: column;
   justify-content: center;
   height: 100vh;
-  @media only screen and (max-width: 768px) {
-    /* For mobile phones: */
-    height: 60vh;
-    margin: 0 auto;
-    max-width: 250px;
+  @media only screen and (max-width: 740px) {
+    max-width: 100%;
+    padding: 0 20px;
   }
 `
 export const RoadmapConatinerWrapper = styled.div`
@@ -846,8 +738,8 @@ export const RoadmapDivWrapper = styled.div`
   .imageWrapper {
     position: relative;
     border-radius: 50%;
-    height: min(4.8vw, 87px);
-    min-width: min(4.8vw, 87px);
+    height: clamp(40px, 4.8vw, 87px);
+    min-width: clamp(40px, 4.8vw, 87px);
     z-index: 0;
     opacity: 0.78;
     display: inline-flex;
@@ -860,7 +752,7 @@ export const RoadmapDivWrapper = styled.div`
       filter: blur(28px);
     }
     img {
-      max-width: min(2.8vw, 50px);
+      max-width: clamp(30px, 2.8vw, 50px);
     }
 
     ::after {
@@ -939,31 +831,19 @@ export const RoadmapDivWrapper = styled.div`
       margin-bottom: 8px;
       opacity: 1;
       margin-top: 0;
-      font-size: min(1.77vw, 33px);
+      font-size: clamp(26px, 1.77vw, 33px);
       > span {
         color: #ed960f;
-        font-size: min(1.3vw, 24px);
+        font-size: clamp(22px, 1.3vw, 24px);
       }
     }
     > p {
       font-family: 'neue_machinaregular';
-      font-size: min(1.3vw, 21px);
+      font-size: clamp(18px, 1.3vw, 21px);
       color: #b0b0b0;
       font-weight: 100;
       opacity: 1;
       margin: 0;
-    }
-  }
-  @media only screen and (max-width: 768px) {
-    /* For mobile phones: */
-    .text-wrapper > h5 {
-      font-size: 12px;
-    }
-    .text-wrapper > h5 > span {
-      font-size: 12px;
-    }
-    .text-wrapper > p {
-      font-size: 12px;
     }
   }
 `
@@ -1145,11 +1025,4 @@ export const ChannelsWrapper = styled.div`
   align-items: center;
   justify-content: flex-start;
   gap: 10px;
-`
-export const PartnerContainer = styled.div`
-  @media screen and (max-width: 740px) {
-    background-image: url(${partnermobile});
-    background-size: 100% 500px;
-    background-repeat: no-repeat;
-  }
 `
