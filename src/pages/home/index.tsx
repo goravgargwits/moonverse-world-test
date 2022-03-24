@@ -1,6 +1,6 @@
 import { useContext, useEffect } from 'react'
 import { Container } from 'styles/pages/home'
-import MoonverseInfoWrapper from 'components/home/infoContainer'
+import MoonverseInfoWrapper from 'components/home/InfoContainer'
 import ProblemsWrapper from 'components/home/problemContainer'
 import ParticipateWrapper from 'components/home/participateContainer'
 import TokenUtilitiesWrapper from 'components/home/tokenContainer'

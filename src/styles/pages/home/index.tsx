@@ -31,10 +31,9 @@ export const Container = styled.div`
   }
 
   .model-container {
-    position: static !important;
     height: 100vh !important;
     width: 100% !important;
-    position: sticky !important;
+    position: fixed !important;
     z-index: -1;
     top: 0;
   }
@@ -659,7 +658,7 @@ export const UtilitiesWrapper = styled.div`
     text-align: center;
     font-family: 'neue_machinaregular';
     font-size: min(1.11vw, 20px);
-    top: 8.3vw;
+    top: 7vw;
     max-width: min(15.5vw, 286px);
   }
   @media only screen and (max-width: 650px) {
@@ -705,7 +704,6 @@ export const UtilitiesWrapper = styled.div`
       grid-row: 1;
       grid-column: 1;
     }
-  }
 `
 export const Partners = styled.div`
   display: flex;
