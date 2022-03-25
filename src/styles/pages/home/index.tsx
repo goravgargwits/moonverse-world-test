@@ -222,16 +222,16 @@ export const ScrollContainer = styled.section`
 `
 
 export const MoonverseInfo = styled.div`
-  height: 1200px;
+  min-height: 100vh;
   position: sticky;
   top: 0;
 
   background-size: 100%;
   background-repeat: no-repeat;
 
-  @media screen and (max-width: 1440px) {
+  /* @media screen and (max-width: 1440px) {
     height: 100vh;
-  }
+  } */
 `
 
 export const Problems = styled.div`
@@ -550,14 +550,14 @@ export const TokenText = styled.div`
   }
 `
 export const Utilities = styled.div`
-  width: calc(100% - 28vw);
+  width: calc(100% - 26vw);
   max-width: 1320px;
   margin: 0 auto;
   margin-top: 50px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 20px min(3.9vw, 68px);
+  gap: min(3.9vw, 68px);
 
   /* @media only screen and (max-width: 768px) {
     > div {
@@ -576,62 +576,35 @@ export const UtilitiesWrapperDiv = styled.div`
 
 export const UtilitiesWrapper = styled.div`
   position: relative;
-  display: flex;
+  display: grid;
+  width: clamp(250px, 21.2vw, 390px);
+  background: transparent linear-gradient(180deg, #654b2187 0%, #7b7b7b87 100%) 0% 0% no-repeat padding-box;
+  border-radius: 12px;
+  height: clamp(137px, 11.88vw, 228px);
   align-items: center;
   justify-content: center;
   p {
     color: #fff;
     margin: 0;
-    position: absolute;
     text-align: center;
     font-family: 'neue_machinaregular';
     font-size: clamp(17px, 1.11vw, 20px);
-    top: 7vw;
-    max-width: min(15.5vw, 286px);
-  }
-  @media only screen and (max-width: 650px) {
-    /* For mobile phones: */
-    > p {
-      top: 8vw;
-      font-size: 7px;
-    }
-  }
-  @media only screen and (max-width: 480px) {
-    /* For mobile phones: */
-    > p {
-      top: 13vw;
-      font-size: 7px;
-      max-width: 100px;
-    }
+    max-width: 90%;
+    align-self: flex-start;
+    margin: 0 auto;
   }
 
   img {
-    width: 100%;
-    max-width: clamp(250px, 21.2vw, 390px);
+    max-width: max(40px, 3.5vw);
     height: auto;
-  }
-  .utilities_type {
-    @media screen and (max-width: 740px) {
-      height: auto;
-      max-width: 150px;
-    }
-  }
-  .nft_type {
-    @media screen and (max-width: 740px) {
-      width: 150px;
-    }
+    width: 100%;
+    margin: 0 auto;
   }
 
   :hover {
     transform: rotateY(20deg);
     transition: transform 0.4s;
     transform-style: preserve-3d;
-  }
-  :nth-child(2) {
-    @media screen and (max-width: 1440px) {
-      grid-row: 1;
-      grid-column: 1;
-    }
   }
 `
 export const Partners = styled.div`
@@ -872,6 +845,8 @@ export const RoadmapContent = styled.div`
 export const FooterContainer = styled.div`
   background: transparent linear-gradient(90deg, #2ebec080 0%, #ff9a0080 100%) 0% 0% no-repeat padding-box;
   padding: 45px;
+  display: grid;
+  grid-gap: 20px;
 `
 export const LogoImagewrapper = styled.div`
   display: flex;
@@ -879,8 +854,13 @@ export const LogoImagewrapper = styled.div`
   align-items: center;
   flex-wrap: wrap;
   margin-bottom: 10px;
+  gap: 20px;
+
   .footer_logo {
     max-width: 100%;
+  }
+  @media (max-width: 1024px) {
+    flex-direction: column;
   }
 `
 export const RightSection = styled.div`
@@ -908,6 +888,9 @@ export const LinkWrapper = styled.div`
     font-family: 'neue_machinaregular';
     color: #fff;
   }
+  @media (max-width: 1024px) {
+    flex-direction: column;
+  }
   @media screen and (max-width: 740px) {
     grid-gap: 50px;
   }
@@ -927,6 +910,10 @@ export const QuickWrapper = styled.div`
   display: grid;
   grid-gap: 20px;
   align-items: center;
+  form {
+    display: flex;
+    align-items: center;
+  }
   @media only screen and (max-width: 768px) {
     /* For mobile phones: */
     form {
