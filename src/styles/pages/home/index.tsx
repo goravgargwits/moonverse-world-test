@@ -665,6 +665,7 @@ export const RoadmapHeading = styled.div`
 `
 export const Roadmap = styled.div`
   padding-left: 7.6vw;
+  padding-top: 7.6vw;
   max-width: 58.4vw;
   display: flex;
   flex-direction: column;
