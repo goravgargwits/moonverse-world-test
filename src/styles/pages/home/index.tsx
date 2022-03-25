@@ -202,9 +202,21 @@ export const Scroll = styled.div`
 `
 export const Player = styled.div`
   z-index: 1;
+
   > video {
+    height: fit-content;
+  }
+  @media (max-width: 1023px) {
+    position: relative;
     height: 100vh;
-    width: 100vw;
+    > video {
+      top: 0;
+      object-fit: cover;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+    }
   }
 `
 
