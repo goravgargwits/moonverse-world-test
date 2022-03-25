@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+// import homevideo from 'assets/video/homevideo.mp4'
 
 export const CanvasWrapper = styled.div`
   position: static;
@@ -60,9 +61,9 @@ export const VideoContainer = styled.div`
   background-repeat: no-repeat;
   .video {
     width: 100%;
-    @media screen and (max-width: 740px) {
+    /* @media screen and (max-width: 740px) {
       display: none;
-    }
+    } */
   }
   .mobile_video {
     display: none;
@@ -201,19 +202,9 @@ export const Scroll = styled.div`
 `
 export const Player = styled.div`
   z-index: 1;
-
   > video {
-    height: fit-content !important;
-
-    @media screen and (max-width: 1440px) {
-      height: 750px;
-    }
-    @media screen and (max-width: 1040px) {
-      height: 550px;
-    }
-    @media screen and (max-width: 740px) {
-      height: 800px;
-    }
+    height: 100vh;
+    width: 100vw;
   }
 `
 
