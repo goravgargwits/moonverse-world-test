@@ -21,7 +21,6 @@ const Home = () => {
     } else {
       document.body.style.overflowY = 'auto'
       document.body.style.touchAction = 'auto'
-      document.body.style.overscrollBehaviorY = 'none'
     }
   }, [loader])
 
