@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+// import homevideo from 'assets/video/homevideo.mp4'
 
 export const CanvasWrapper = styled.div`
   position: static;
@@ -60,9 +61,9 @@ export const VideoContainer = styled.div`
   background-repeat: no-repeat;
   .video {
     width: 100%;
-    @media screen and (max-width: 740px) {
+    /* @media screen and (max-width: 740px) {
       display: none;
-    }
+    } */
   }
   .mobile_video {
     display: none;
@@ -76,8 +77,9 @@ export const VideoContainer = styled.div`
 export const TextContainer = styled.div`
   display: flex;
   gap: 10px;
-  padding-left: min(7.6vw, 140px);
-  max-width: min(37vw, 823px);
+  /* padding-left: min(7.6vw, 140px); */
+  padding-left: 7.6vw;
+  max-width: 46vw;
   height: 100vh;
   flex-direction: column;
   justify-content: center;
@@ -88,7 +90,9 @@ export const TextContainer = styled.div`
   }
 `
 export const Title = styled.div`
-  font-size: clamp(32px, 4.5vw, 65px);
+  /* font-size: clamp(32px, 4.5vw, 65px); */
+  font-size: max(32px, 4.5vw);
+
   text-align: left;
   font-family: 'neue_machinaultrabold';
   line-height: 1.2;
@@ -98,8 +102,9 @@ export const Title = styled.div`
 `
 
 export const TokenTitle = styled.div`
-  max-width: clamp(250px, 39vw, 513px);
-  font-size: clamp(32px, 4.5vw, 65px);
+  max-width: max(250px, 39vw);
+  /* font-size: clamp(32px, 4.5vw, 65px); */
+  font-size: max(32px, 4.5vw);
   text-align: center;
   font-family: 'neue_machinaultrabold';
   font-weight: 200;
@@ -115,7 +120,9 @@ export const TokenTitle = styled.div`
 export const Text = styled.div`
   text-align: left;
   font-family: 'neue_machinaregular';
-  font-size: clamp(20px, 1.5vw, 29px);
+  /* font-size: clamp(20px, 1.5vw, 29px); */
+  font-size: max(20px, 1.5vw);
+
   font-weight: 100;
   color: #c1c0c0;
   opacity: 1;
@@ -131,57 +138,52 @@ export const Logo = styled.div`
   z-index: 3;
   display: flex;
   justify-content: space-between;
-  padding-top: 75px;
+  padding-top: 3.9vw;
   right: 0;
   left: 0;
   top: 0;
-  width: calc(100% - 152px);
+  padding-top: 3.9vw;
+  padding-left: 7.6vw;
+  padding-right: 7.6vw;
   margin: 0 auto;
 
   .header_logo {
     width: 100%;
-    max-width: 248px;
-    height: 100%;
+    max-width: max(180px, 13vw);
+    height: auto;
   }
-  @media only screen and (max-width: 768px) {
-    /* For mobile phones: */
+  /* @media only screen and (max-width: 768px) {
     .header_logo {
       width: 100%;
       max-width: 180px;
       height: 100%;
     }
-  }
+  } */
 
   .marketplace {
     font-family: 'neue_machinaregular';
-    width: 100%;
-    max-width: 180px;
-    height: 50px;
-    background: #a3a0c5 0% 0% no-repeat padding-box;
+    height: max(40px, 2.61vw);
+    background: #c49956f5 0% 0% no-repeat padding-box;
     box-shadow: inset 0px 17px 6px #00000029, 0px 3px 6px #5a5a5a29;
     border-radius: 79px;
-    opacity: 0.96;
+    backdrop-filter: blur(21px);
+    -webkit-backdrop-filter: blur(21px);
     text-align: left;
-    font-size: min(1.3vw, 24px);
-    letter-spacing: 0.5px;
+    font-size: max(14px, 1.3vw);
     color: #ffffff;
     text-transform: capitalize;
-    opacity: 1;
+    padding: 0 max(10px, 1vw);
     :hover {
       background: #a3a0c5 0% 0% no-repeat padding-box;
       box-shadow: inset 0px 17px 6px #00000029, 0px 3px 6px #5a5a5a29;
     }
-    @media screen and (max-width: 740px) {
-      width: 30%;
-      font-size: 12px;
-    }
   }
-  @media screen and (max-width: 740px) {
+  /* @media screen and (max-width: 740px) {
     padding-top: 15px;
     width: 90%;
     align-items: center;
     justify-content: space-between;
-  }
+  } */
 `
 export const Scroll = styled.div`
   position: absolute;
@@ -202,16 +204,18 @@ export const Player = styled.div`
   z-index: 1;
 
   > video {
-    height: fit-content !important;
-
-    @media screen and (max-width: 1440px) {
-      height: 750px;
-    }
-    @media screen and (max-width: 1040px) {
-      height: 550px;
-    }
-    @media screen and (max-width: 740px) {
-      height: 800px;
+    height: fit-content;
+  }
+  @media (max-width: 1023px) {
+    position: relative;
+    height: 100vh;
+    > video {
+      top: 0;
+      object-fit: cover;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
     }
   }
 `
@@ -222,34 +226,31 @@ export const ScrollContainer = styled.section`
 `
 
 export const MoonverseInfo = styled.div`
-  height: 1200px;
+  min-height: 10vh;
   position: sticky;
   top: 0;
 
   background-size: 100%;
   background-repeat: no-repeat;
 
-  @media screen and (max-width: 1440px) {
+  /* @media screen and (max-width: 1440px) {
     height: 100vh;
-  }
+  } */
 `
 
 export const Problems = styled.div`
-  height: 1200px;
+  height: 100vh;
   position: sticky;
   top: 0;
   display: flex;
   background-repeat: no-repeat;
   padding-top: 0px;
-
-  @media screen and (max-width: 1440px) {
-    height: 100vh;
-  }
 `
 
 export const ProblemsTitle = styled.div`
   text-align: left;
-  font-size: clamp(32px, 4.5vw, 65px);
+  /* font-size: clamp(32px, 4.5vw, 65px); */
+  font-size: max(32px, 4.5vw);
   font-family: 'neue_machinaultrabold';
   font-weight: 200;
   z-index: 3;
@@ -263,7 +264,7 @@ export const ProblemsTitle = styled.div`
   } */
 `
 export const ParticipateContainer = styled.div`
-  height: 1200px;
+  height: 100vh;
   position: sticky;
   top: 0;
   background-repeat: no-repeat;
@@ -286,10 +287,10 @@ export const ParticipateContainer = styled.div`
     color: #ffffff;
     text-transform: capitalize;
     opacity: 1;
-    border-radius: clamp(60px, 1.6vw, 79px);
-    height: clamp(40px, 3.2vw, 59px);
-    width: clamp(124px, 7.4vw, 135px);
-    font-size: clamp(13px, 1vw, 20px);
+    border-radius: max(60px, 1.6vw);
+    height: max(40px, 3.2vw);
+    width: max(124px, 7.4vw);
+    font-size: max(13px, 1vw);
     :hover {
       background: #ed960f 0% 0% no-repeat padding-box;
       box-shadow: inset 0px 17px 6px #00000029, 0px 3px 6px #5a5a5a29;
@@ -301,7 +302,7 @@ export const ParticipateContainer = styled.div`
 export const PartcipateText = styled.div`
   text-align: left;
   font-family: 'outfit';
-  font-size: clamp(18px, 1.3vw, 24px);
+  font-size: max(18px, 1.3vw);
   font-weight: 300;
   color: #b0b0b0;
   opacity: 1;
@@ -315,9 +316,9 @@ export const ParticipateSubText = styled.div`
 export const TextWrapper = styled.div`
   z-index: 2;
   grid-column: 1;
-  padding-left: min(7.6vw, 140px);
-  max-width: min(39vw, 712px);
-  grid-gap: min(1.8vw, 20px);
+  padding-left: 7.6vw;
+  max-width: 39vw;
+  grid-gap: 1.8vw;
   display: flex;
   justify-content: center;
   height: 100vh;
@@ -332,8 +333,8 @@ export const TextWrapper = styled.div`
 
 export const Pointers = styled.div`
   position: relative;
-  max-width: min(46.2vw, 871px);
-  padding-right: min(7.6vw, 140px);
+  max-width: 46.2vw;
+  padding-right: 7.6vw;
   height: 100vh;
   display: flex;
   align-items: center;
@@ -363,17 +364,17 @@ export const Discover = styled.div`
   opacity: 1;
   display: flex;
   align-items: flex-start;
-  padding: min(0.8vw, 15px);
-  gap: min(2.7vw, 50px);
-  margin-bottom: min(2.1vw, 40px);
+  padding: 0.8vw;
+  gap: 2.7vw;
+  margin-bottom: 2.1vw;
   > div {
-    padding-top: min(0.5vw, 9px);
+    padding-top: 0.5vw;
   }
   span {
     position: relative;
     border-radius: 50%;
-    height: clamp(40px, 4.8vw, 87px);
-    min-width: clamp(40px, 4.8vw, 87px);
+    height: max(40px, 4.8vw);
+    min-width: max(40px, 4.8vw);
     z-index: 0;
     display: inline-flex;
     align-items: center;
@@ -392,7 +393,7 @@ export const Discover = styled.div`
       z-index: 0;
     }
     img {
-      max-width: clamp(21px, 2.8vw, 50px);
+      max-width: max(21px, 2.8vw);
       opacity: 0.6;
     }
   }
@@ -502,31 +503,26 @@ export const Monetization = styled.div`
 `
 export const InternalTitle = styled.div`
   font-family: 'neue_machinaultrabold';
-  font-size: clamp(25px, 1.3vw, 24px);
+  font-size: max(25px, 1.3vw);
   color: #ed960f;
   margin-bottom: 8px;
   opacity: 1;
 `
 export const InternalText = styled.div`
   font-family: 'neue_machinaregular';
-  font-size: min(1.3vw, 24px);
-  font-size: clamp(20px, 1.3vw, 24px);
+  font-size: 1.3vw;
+  font-size: max(20px, 1.3vw);
 
   color: #b0b0b0;
   font-weight: 100;
   opacity: 1;
 `
 export const TokenContainer = styled.div`
-  height: 1200px;
   position: sticky;
   top: 0;
-  @media only screen and (max-width: 1440px) {
-    /* For mobile phones: */
-    height: 100vh;
-  }
 `
 export const TokenContainerWrapper = styled.div`
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -550,22 +546,19 @@ export const TokenText = styled.div`
   }
 `
 export const Utilities = styled.div`
-  width: calc(100% - 28vw);
-  max-width: 1320px;
+  width: 85vw;
+  /* max-width: 1320px; */
   margin: 0 auto;
-  margin-top: 50px;
+  margin-top: 2.6vw;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 20px min(3.9vw, 68px);
+  gap: 3.9vw;
 
-  /* @media only screen and (max-width: 768px) {
-    > div {
-      max-width: 250px;
-      width: 100%;
-      margin-bottom: 20px;
-    }
-  } */
+  @media only screen and (max-width: 616px) {
+    margin-top: 40px;
+    gap: 35px;
+  }
 `
 export const UtilitiesWrapperDiv = styled.div`
   display: flex;
@@ -576,62 +569,35 @@ export const UtilitiesWrapperDiv = styled.div`
 
 export const UtilitiesWrapper = styled.div`
   position: relative;
-  display: flex;
+  display: grid;
+  width: max(250px, 21.2vw);
+  background: transparent linear-gradient(180deg, #654b2187 0%, #7b7b7b87 100%) 0% 0% no-repeat padding-box;
+  border-radius: 12px;
+  height: max(137px, 11.88vw);
   align-items: center;
   justify-content: center;
   p {
     color: #fff;
     margin: 0;
-    position: absolute;
     text-align: center;
     font-family: 'neue_machinaregular';
-    font-size: clamp(17px, 1.11vw, 20px);
-    top: 7vw;
-    max-width: min(15.5vw, 286px);
-  }
-  @media only screen and (max-width: 650px) {
-    /* For mobile phones: */
-    > p {
-      top: 8vw;
-      font-size: 7px;
-    }
-  }
-  @media only screen and (max-width: 480px) {
-    /* For mobile phones: */
-    > p {
-      top: 13vw;
-      font-size: 7px;
-      max-width: 100px;
-    }
+    font-size: max(17px, 1.11vw);
+    max-width: 90%;
+    align-self: flex-start;
+    margin: 0 auto;
   }
 
   img {
-    width: 100%;
-    max-width: clamp(250px, 21.2vw, 390px);
+    max-width: max(40px, 3.5vw);
     height: auto;
-  }
-  .utilities_type {
-    @media screen and (max-width: 740px) {
-      height: auto;
-      max-width: 150px;
-    }
-  }
-  .nft_type {
-    @media screen and (max-width: 740px) {
-      width: 150px;
-    }
+    width: 100%;
+    margin: 0 auto;
   }
 
   :hover {
     transform: rotateY(20deg);
     transition: transform 0.4s;
     transform-style: preserve-3d;
-  }
-  :nth-child(2) {
-    @media screen and (max-width: 1440px) {
-      grid-row: 1;
-      grid-column: 1;
-    }
   }
 `
 export const Partners = styled.div`
@@ -683,22 +649,23 @@ export const Heading = styled.div`
 `
 export const RoadmapHeading = styled.div`
   text-align: left;
-  font-size: clamp(32px, 4.5vw, 65px);
+  /* font-size: clamp(32px, 4.5vw, 65px); */
+  font-size: max(32px, 4.5vw);
   font-family: 'neue_machinaultrabold';
   font-weight: 200;
   z-index: 3;
   width: 100%;
   text-transform: uppercase;
-  margin-bottom: min(2.1vw, 38px);
-  padding-left: min(2.7vw, 50px);
+  margin-bottom: 2.1vw;
+  padding-left: 2.7vw;
   color: #ed960f;
   > span {
     color: #ffffff;
   }
 `
 export const Roadmap = styled.div`
-  padding-left: min(7.6vw, 140px);
-  max-width: min(43.4vw, 804px);
+  padding-left: 7.6vw;
+  max-width: 58.4vw;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -720,9 +687,9 @@ export const RoadmapDivWrapper = styled.div`
   opacity: 1;
   display: flex;
   align-items: flex-start;
-  padding: min(0.9vw, 15px);
-  gap: min(2.7vw, 50px);
-  margin-bottom: min(0.9vw, 15px);
+  padding: 0.9vw;
+  gap: 2.7vw;
+  margin-bottom: 0.9vw;
   justify-self: center;
 
   @media only screen and (max-width: 768px) {
@@ -738,8 +705,8 @@ export const RoadmapDivWrapper = styled.div`
   .imageWrapper {
     position: relative;
     border-radius: 50%;
-    height: clamp(40px, 4.8vw, 87px);
-    min-width: clamp(40px, 4.8vw, 87px);
+    height: max(40px, 4.8vw);
+    min-width: max(40px, 4.8vw);
     z-index: 0;
     opacity: 0.78;
     display: inline-flex;
@@ -752,7 +719,7 @@ export const RoadmapDivWrapper = styled.div`
       filter: blur(28px);
     }
     img {
-      max-width: clamp(30px, 2.8vw, 50px);
+      max-width: max(30px, 2.8vw);
     }
 
     ::after {
@@ -823,7 +790,7 @@ export const RoadmapDivWrapper = styled.div`
   }
 
   .text-wrapper {
-    padding-top: min(0.5vw, 9px);
+    padding-top: 0.5vw;
     > h5 {
       font-family: 'neue_machinaregular';
       color: #ffffff;
@@ -831,15 +798,15 @@ export const RoadmapDivWrapper = styled.div`
       margin-bottom: 8px;
       opacity: 1;
       margin-top: 0;
-      font-size: clamp(26px, 1.77vw, 33px);
+      font-size: max(26px, 1.77vw);
       > span {
         color: #ed960f;
-        font-size: clamp(22px, 1.3vw, 24px);
+        font-size: max(22px, 1.3vw);
       }
     }
     > p {
       font-family: 'neue_machinaregular';
-      font-size: clamp(18px, 1.3vw, 21px);
+      font-size: max(18px, 1.3vw);
       color: #b0b0b0;
       font-weight: 100;
       opacity: 1;
@@ -871,80 +838,73 @@ export const RoadmapContent = styled.div`
 
 export const FooterContainer = styled.div`
   background: transparent linear-gradient(90deg, #2ebec080 0%, #ff9a0080 100%) 0% 0% no-repeat padding-box;
-  padding: 45px;
+  padding: 4.6vw 7.6vw;
+  display: grid;
+  grid-gap: max(15px, 1vw);
 `
 export const LogoImagewrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  margin-bottom: 10px;
-  .footer_logo {
-    max-width: 100%;
+  margin-bottom: 0.5vw;
+  gap: 1vw;
+
+  @media (max-width: 767px) {
+    flex-direction: column;
   }
 `
 export const RightSection = styled.div`
   .sub-text {
     margin-top: 0;
-    margin-bottom: 24px;
-    font-size: 33px;
+    margin-bottom: 1.3vw;
+    font-size: max(20px, 1.7vw);
     color: #fff;
   }
-  @media only screen and (max-width: 768px) {
-    /* For mobile phones: */
+  /* @media only screen and (max-width: 768px) {
     .sub-text {
       font-size: 20px;
     }
-  }
+  } */
 `
 export const LinkWrapper = styled.div`
   display: flex;
-  gap: 20px;
+  gap: 1.1vw;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
   p {
-    font-size: 20px;
+    font-size: max(14px, 1.1vw);
     font-family: 'neue_machinaregular';
     color: #fff;
   }
-  @media screen and (max-width: 740px) {
-    grid-gap: 50px;
+  .footer_logo {
+    max-width: 100%;
+    width: max(100px, 11vw);
   }
-  @media screen and (max-width: 740px) {
-    p {
-      font-size: 13px;
-    }
-  }
-  @media screen and (max-width: 740px) {
-    img {
-      width: 180px;
-      height: auto;
-    }
+
+  @media (max-width: 767px) {
+    flex-direction: column;
   }
 `
 export const QuickWrapper = styled.div`
   display: grid;
-  grid-gap: 20px;
   align-items: center;
-  @media only screen and (max-width: 768px) {
-    /* For mobile phones: */
-    form {
-      display: flex;
-      align-items: center;
-      margin: 20px 0px;
-    }
+  form {
+    display: flex;
+    align-items: center;
+    border-bottom: 0.1vw solid #fff;
   }
+
   input {
-    height: 55px;
+    height: max(35px, 2.81vw);
     width: 100%;
     border: none;
-    border-bottom: 1px solid #fff;
     background: transparent;
     color: #fff;
-    font-size: 20px;
+    font-size: max(14px, 1.1vw);
     font-family: 'neue_machinaregular';
-    padding: 0 15px;
+    padding: 0 max(10px, 1vw);
     :focus-visible {
       outline: none;
     }
@@ -964,49 +924,34 @@ export const QuickWrapper = styled.div`
     }
   }
 
-  @media only screen and (max-width: 768px) {
-    /* For mobile phones: */
-    input {
-      width: 60%;
-      height: 50px;
-      font-size: 12px;
-    }
-  }
-
   button {
-    font-size: 20px;
-    width: 180px;
-    height: 56px;
+    font-size: max(14px, 1.1vw);
+    width: fit-content;
+    height: max(35px, 2.9vw);
     background-color: transparent;
-    border: 1px solid #fff;
+    border: 0.1vw solid #fff;
     color: #fff;
     text-transform: uppercase;
     font-family: 'neue_machinaregular';
+    border-bottom: 0;
   }
 
-  @media only screen and (max-width: 768px) {
-    /* For mobile phones: */
-    button {
-      font-size: 20px;
-      width: 140px;
-      height: 50px;
-      background-color: transparent;
-      border: 1px solid #fff;
-      color: #fff;
-    }
+  @media only screen and (max-width: 767px) {
+    width: 100%;
+    max-width: 276px;
   }
 `
 export const Links = styled.div`
   text-align: left;
   font-family: 'conthraxsb';
-  font-size: 20px;
+  font-size: max(14px, 1.1vw);
   letter-spacing: 0px;
   color: #6d6c87;
   opacity: 1;
   cursor: pointer;
-  @media screen and (max-width: 740px) {
+  /* @media screen and (max-width: 740px) {
     font-size: 12px;
-  }
+  } */
 `
 export const QuicklinkTitle = styled.div`
   text-align: left;
@@ -1016,13 +961,17 @@ export const QuicklinkTitle = styled.div`
   color: #ffffff;
   opacity: 1;
   margin-bottom: 10px;
-  @media screen and (max-width: 740px) {
+  /* @media screen and (max-width: 740px) {
     font-size: min(1.3vw, 24px);
-  }
+  } */
 `
 export const ChannelsWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  gap: 10px;
+  gap: max(10px, 0.6vw);
+  img {
+    max-width: 100%;
+    width: max(24px, 2vw);
+  }
 `
